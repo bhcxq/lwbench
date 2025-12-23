@@ -1,0 +1,330 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   44 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "timestamp_last"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1094-1108"\
+    }\
+    ChartData {\
+      Name         "timestamp_last_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1094-1108"\
+    }\
+    ChartData {\
+      Name         "pos_x1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1372-1378"\
+    }\
+    ChartData {\
+      Name         "pos_x1_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1372-1378"\
+    }\
+    ChartData {\
+      Name         "pos_y1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1379-1385"\
+    }\
+    ChartData {\
+      Name         "pos_y1_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1379-1385"\
+    }\
+    ChartData {\
+      Name         "pos_z1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1386-1392"\
+    }\
+    ChartData {\
+      Name         "pos_z1_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1386-1392"\
+    }\
+    ChartData {\
+      Name         "hold_xy_flag"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1695-1707"\
+    }\
+    ChartData {\
+      Name         "hold_xy_flag_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1695-1707"\
+    }\
+    ChartData {\
+      Name         "hold_z_flag"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1709-1720"\
+    }\
+    ChartData {\
+      Name         "hold_z_flag_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1709-1720"\
+    }\
+    ChartData {\
+      Name         "yaw_d_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1837-1843"\
+    }\
+    ChartData {\
+      Name         "yaw_d__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1837-1843"\
+    }\
+    ChartData {\
+      Name         "hold_xy_timestamp"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1967-1984"\
+    }\
+    ChartData {\
+      Name         "hold_xy_timestamp_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1967-1984"\
+    }\
+    ChartData {\
+      Name         "hold_z_timestamp"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1986-2002"\
+    }\
+    ChartData {\
+      Name         "hold_z_timestamp_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:1986-2002"\
+    }\
+    ChartData {\
+      Name         "hold_vxy"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2003-2011"\
+      Dimensions   [2]\
+    }\
+    ChartData {\
+      Name         "hold_vxy_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2003-2011"\
+    }\
+    ChartData {\
+      Name         "hold_pxy"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2012-2020"\
+      Dimensions   [2]\
+    }\
+    ChartData {\
+      Name         "hold_pxy_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2012-2020"\
+    }\
+    ChartData {\
+      Name         "hold_vz"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2021-2028"\
+    }\
+    ChartData {\
+      Name         "hold_vz_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2021-2028"\
+    }\
+    ChartData {\
+      Name         "hold_pz"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2029-2036"\
+    }\
+    ChartData {\
+      Name         "hold_pz_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2029-2036"\
+    }\
+    ChartData {\
+      Name         "xy_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2406-2423"\
+    }\
+    ChartData {\
+      Name         "xy_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2406-2423"\
+    }\
+    ChartData {\
+      Name         "z_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2424-2440"\
+    }\
+    ChartData {\
+      Name         "z_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2424-2440"\
+    }\
+    ChartData {\
+      Name         "vxy_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2441-2459"\
+    }\
+    ChartData {\
+      Name         "vxy_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2441-2459"\
+    }\
+    ChartData {\
+      Name         "vz_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2460-2477"\
+    }\
+    ChartData {\
+      Name         "vz_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2460-2477"\
+    }\
+    ChartData {\
+      Name         "heading_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2478-2500"\
+    }\
+    ChartData {\
+      Name         "heading_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:2478-2500"\
+    }\
+    ChartData {\
+      Name         "yawerror_last"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:16174-16187"\
+    }\
+    ChartData {\
+      Name         "yawerror_last_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:16174-16187"\
+    }\
+    ChartData {\
+      Name         "yaw_ref_last"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:16188-16200"\
+    }\
+    ChartData {\
+      Name         "yaw_ref_last_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:16188-16200"\
+    }\
+    ChartData {\
+      Name         "v1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:17412-17414"\
+      Dimensions   [3]\
+    }\
+    ChartData {\
+      Name         "v1_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:17412-17414"\
+    }\
+    ChartData {\
+      Name         "v2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:17415-17417"\
+      Dimensions   [3]\
+    }\
+    ChartData {\
+      Name         "v2_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:16581:17415-17417"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="0" Icon="" File="Init/LW_withaileron_init.m" Name="LW_withaileron_init">
+    <Extension Value="b8ab3eee-a655-43dd-9fd3-0986360a22f3" Name="StartUpPrev" />
+</Info>

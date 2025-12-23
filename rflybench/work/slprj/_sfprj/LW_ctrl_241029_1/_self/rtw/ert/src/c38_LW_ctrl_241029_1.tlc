@@ -1,0 +1,85 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   9 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "tau_qk"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:509-515"\
+      Dimensions   [4]\
+    }\
+    ChartData {\
+      Name         "tau_qk_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:509-515"\
+    }\
+    ChartData {\
+      Name         "tau_omegak"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:516-526"\
+      Dimensions   [3]\
+    }\
+    ChartData {\
+      Name         "tau_omegak_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:516-526"\
+    }\
+    ChartData {\
+      Name         "tau_z3"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:527-533"\
+      Dimensions   [3]\
+    }\
+    ChartData {\
+      Name         "quat_reset_counter_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:546-565"\
+    }\
+    ChartData {\
+      Name         "quat_reset_counter__not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:546-565"\
+    }\
+    ChartData {\
+      Name         "d_est_last"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:4429-4439"\
+      Dimensions   [6]\
+    }\
+    ChartData {\
+      Name         "d_est_last_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "LW_ctrl_241029_1:13867:4429-4439"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
