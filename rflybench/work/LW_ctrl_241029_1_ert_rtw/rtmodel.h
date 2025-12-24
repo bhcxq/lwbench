@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'LW_ctrl_241029_1'.
  *
- * Model version                  : 10.91
+ * Model version                  : 10.97
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Dec 23 11:47:06 2025
+ * C/C++ source code generated on : Tue Dec 23 22:14:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex

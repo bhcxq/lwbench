@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'LW_ctrl_241029_1'.
  *
- * Model version                  : 10.91
+ * Model version                  : 10.97
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Dec 23 11:47:06 2025
+ * C/C++ source code generated on : Tue Dec 23 22:14:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -83,7 +83,6 @@ real32_T LW_ANGLE = 34.0F;
 
 /* Referenced by:
  * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
  * '<S419>/getIncid'
  * '<S403>/df,coor,wind'
  */
@@ -149,16 +148,10 @@ real32_T LW_LAT_CIRCLE = 1.0F;
  */
 real32_T LW_LBCL_D = 0.12F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_LBCM_D = -0.2F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_LED = 0.0F;
 
 /* Referenced by:
@@ -300,67 +293,37 @@ real32_T LW_TAUZSP_TM = 0.01F;
 /* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_DTXY = 0.01F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/Lowpass'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_DTZ = 0.01F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/Lowpass'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_EN = 0.0F;
 
 /* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_LAMXY = 1.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_LAMZ = 1.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_SIGXY = 10.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_SIGZ = 10.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_TDT = 0.02F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_WBDT = 0.05F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/Lowpass1'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_WNXY = 80.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_TEST_WNZ = 10.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_THR_HOVER = 0.3F;
 
 /* Referenced by:
@@ -375,10 +338,7 @@ real32_T LW_TILTMAX_AIR = 30.0F;
 /* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_USE_SER = 1.0F;
 
-/* Referenced by:
- * '<S361>/MATLAB Function2'
- * '<S419>/DisturbanceEstimator'
- */
+/* Referenced by: '<S361>/MATLAB Function2' */
 real32_T LW_VA_TMAX = 10.0F;
 
 /* Referenced by: '<S361>/MATLAB Function2' */
@@ -741,20 +701,13 @@ static RT_MODEL_LW_ctrl_241029_1_T LW_ctrl_241029_1_M_;
 RT_MODEL_LW_ctrl_241029_1_T *const LW_ctrl_241029_1_M = &LW_ctrl_241029_1_M_;
 
 /* Forward declaration for local functions */
-static void LW_ctrl_241029_1_quatmultiply(const real32_T q[4], const real32_T r
-  [4], real32_T qout[4]);
-static void LW_ctrl_241029_1_quatnormalize(real32_T q[4]);
-static void LW_ctrl_241029_1_eye(real_T b_I[9]);
-static void LW_ctrl_241029_1_LowPass(real32_T d_est[6], real32_T DT);
-static void LW_ctrl_241029_1_cross(const real32_T a[3], const real32_T b[3],
-  real32_T c[3]);
-static void LW_ctrl_241029_1_eye_b(real_T b_I[16]);
 static boolean_T LW_ctrl_241029_1_notInfNan(const real32_T data[4]);
 static void LW_ctrl_241029_1_my_quat2eul(const real32_T q[4], real32_T eul[3]);
 static boolean_T LW_ctrl_241029_1_notInfNan_p(const real32_T data[3]);
 static void LW_ctrl_241029_1_AdmittanceYaw(real32_T dmz, real32_T yaw, real32_T
   dot_yaw, real32_T dt, real32_T dmz0, real32_T dmz_min, real32_T k_ap, real32_T
   k_ad, real_T reset, real32_T *yaw_ref, real32_T *dot_yaw_ref);
+static real32_T LW_ctrl_241029_1_wrap_pi(real32_T x);
 static void LW_ctrl_241029_1_TD_3DVector(const real32_T v[3], const real32_T r[3],
   real32_T h, real32_T v1_[3], real32_T v2_[3]);
 static void LW_ctrl_241029_1_my_quat2eul_k(const real32_T q[4], real32_T eul[3]);
@@ -931,191 +884,22 @@ void LW_ctrl_241029_1_nan_inf(real32_T rtu_u, real32_T rtu_u_i, real32_T rtu_u_j
 {
   int32_T i;
 
-  /* SignalConversion generated from: '<S426>/ SFunction ' */
+  /* SignalConversion generated from: '<S422>/ SFunction ' */
   localB->y[0] = rtu_u;
   localB->y[1] = rtu_u_i;
   localB->y[2] = rtu_u_j;
 
-  /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf': '<S426>:1' */
-  /* '<S426>:1:3' for i = 1:length(u) */
+  /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf': '<S422>:1' */
+  /* '<S422>:1:3' for i = 1:length(u) */
   for (i = 0; i < 3; i++) {
-    /* '<S426>:1:4' if isnan(u(i)) || isinf(u(i)) */
+    /* '<S422>:1:4' if isnan(u(i)) || isinf(u(i)) */
     if (rtIsNaNF(localB->y[i]) || rtIsInfF(localB->y[i])) {
-      /* '<S426>:1:5' u(i) = single(0); */
+      /* '<S422>:1:5' u(i) = single(0); */
       localB->y[i] = 0.0F;
     }
   }
 
-  /* '<S426>:1:8' y = u; */
-}
-
-/* Function for MATLAB Function: '<S419>/DisturbanceEstimator' */
-static void LW_ctrl_241029_1_quatmultiply(const real32_T q[4], const real32_T r
-  [4], real32_T qout[4])
-{
-  qout[0] = ((q[0] * r[0] - q[1] * r[1]) - q[2] * r[2]) - q[3] * r[3];
-  qout[1] = (q[0] * r[1] + r[0] * q[1]) + (q[2] * r[3] - r[2] * q[3]);
-  qout[2] = (q[0] * r[2] + r[0] * q[2]) + (r[1] * q[3] - q[1] * r[3]);
-  qout[3] = (q[0] * r[3] + r[0] * q[3]) + (q[1] * r[2] - r[1] * q[2]);
-}
-
-/* Function for MATLAB Function: '<S419>/DisturbanceEstimator' */
-static void LW_ctrl_241029_1_quatnormalize(real32_T q[4])
-{
-  real32_T qm;
-  qm = (real32_T)sqrt(((q[0] * q[0] + q[1] * q[1]) + q[2] * q[2]) + q[3] * q[3]);
-  q[0] /= qm;
-  q[1] /= qm;
-  q[2] /= qm;
-  q[3] /= qm;
-}
-
-/*
- * Function for MATLAB Function: '<S419>/DisturbanceEstimator'
- * function y = wrap_pi(x)
- * 将 x 限定在[-pi,pi]
- */
-real32_T LW_ctrl_241029_1_wrap_pi(real32_T x)
-{
-  int32_T i;
-  real32_T y;
-  boolean_T exitg1;
-
-  /* 'wrap_pi:3' i = 0; */
-  i = 0;
-
-  /* 'wrap_pi:4' y = x; */
-  y = x;
-
-  /* 'wrap_pi:5' while x > pi */
-  exitg1 = false;
-  while ((!exitg1) && (x > 3.1415926535897931)) {
-    /* 'wrap_pi:6' y =  x - 2*pi; */
-    y = x - 6.28318548F;
-
-    /* 'wrap_pi:7' i = i + 1; */
-    i++;
-
-    /* 'wrap_pi:8' if i > 100 */
-    if (i > 100) {
-      exitg1 = true;
-    }
-  }
-
-  /* 'wrap_pi:12' i = 0; */
-  i = 0;
-
-  /* 'wrap_pi:13' while x < -pi */
-  exitg1 = false;
-  while ((!exitg1) && (x < -3.1415926535897931)) {
-    /* 'wrap_pi:14' y =  x + 2*pi; */
-    y = x + 6.28318548F;
-
-    /* 'wrap_pi:15' i = i + 1; */
-    i++;
-
-    /* 'wrap_pi:16' if i > 100 */
-    if (i > 100) {
-      exitg1 = true;
-    }
-  }
-
-  return y;
-}
-
-/* Function for MATLAB Function: '<S419>/DisturbanceEstimator' */
-static void LW_ctrl_241029_1_eye(real_T b_I[9])
-{
-  int32_T i;
-  for (i = 0; i < 9; i++) {
-    b_I[i] = 0.0;
-  }
-
-  b_I[0] = 1.0;
-  b_I[4] = 1.0;
-  b_I[8] = 1.0;
-}
-
-/*
- * Function for MATLAB Function: '<S419>/DisturbanceEstimator'
- * function d_est = LowPass(d_est,DT)
- *  DT = dt/(dt + Ts)
- *  其中dt是采样周期，Ts是低通滤波器的时间常数
- *  截止频率f = 1/Ts/2pi Hz
- *  如 dt=0.004, f=30Hz , LW_TEST_DT=0.43
- */
-static void LW_ctrl_241029_1_LowPass(real32_T d_est[6], real32_T DT)
-{
-  int32_T i;
-  real32_T d_est_last_p;
-  boolean_T exitg1;
-  boolean_T y;
-
-  /* '<S420>:1:173' if isempty(d_est_last) */
-  if (!LW_ctrl_241029_1_DW.d_est_last_not_empty_h) {
-    /* '<S420>:1:174' d_est_last = d_est; */
-    for (i = 0; i < 6; i++) {
-      LW_ctrl_241029_1_DW.d_est_last_p[i] = d_est[i];
-    }
-
-    LW_ctrl_241029_1_DW.d_est_last_not_empty_h = true;
-  }
-
-  /* '<S420>:1:176' if isInfNan(d_est_last) */
-  /* ISINFNAN 此处显示有关此函数的摘要 */
-  /*    Data is a vector. */
-  /* 'isInfNan:4' for ii = 1:length(data) */
-  i = 0;
-  exitg1 = false;
-  while ((!exitg1) && (i < 6)) {
-    /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-    if (rtIsInfF(LW_ctrl_241029_1_DW.d_est_last_p[i]) || rtIsNaNF
-        (LW_ctrl_241029_1_DW.d_est_last_p[i])) {
-      /* 'isInfNan:6' y = true; */
-      y = true;
-      exitg1 = true;
-    } else {
-      /* 'isInfNan:8' else */
-      /* 'isInfNan:9' y = false; */
-      y = false;
-      i++;
-    }
-  }
-
-  if (y) {
-    /* '<S420>:1:177' d_est_last = zeros(size(d_est),'single'); */
-    for (i = 0; i < 6; i++) {
-      LW_ctrl_241029_1_DW.d_est_last_p[i] = 0.0F;
-    }
-  }
-
-  /* '<S420>:1:179' d_est = d_est_last + DT*(d_est - d_est_last); */
-  /* '<S420>:1:180' d_est_last = d_est; */
-  for (i = 0; i < 6; i++) {
-    d_est_last_p = LW_ctrl_241029_1_DW.d_est_last_p[i];
-    d_est_last_p += (d_est[i] - d_est_last_p) * DT;
-    d_est[i] = d_est_last_p;
-    LW_ctrl_241029_1_DW.d_est_last_p[i] = d_est_last_p;
-  }
-}
-
-/* Function for MATLAB Function: '<S419>/DisturbanceEstimator' */
-static void LW_ctrl_241029_1_cross(const real32_T a[3], const real32_T b[3],
-  real32_T c[3])
-{
-  c[0] = a[1] * b[2] - b[1] * a[2];
-  c[1] = b[0] * a[2] - a[0] * b[2];
-  c[2] = a[0] * b[1] - b[0] * a[1];
-}
-
-/* Function for MATLAB Function: '<S419>/DisturbanceEstimator' */
-static void LW_ctrl_241029_1_eye_b(real_T b_I[16])
-{
-  memset(&b_I[0], 0, sizeof(real_T) << 4U);
-  b_I[0] = 1.0;
-  b_I[5] = 1.0;
-  b_I[10] = 1.0;
-  b_I[15] = 1.0;
+  /* '<S422>:1:8' y = u; */
 }
 
 real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
@@ -1388,6 +1172,59 @@ static void LW_ctrl_241029_1_AdmittanceYaw(real32_T dmz, real32_T yaw, real32_T
       LW_ctrl_241029_1_DW.yaw_ref_last = *yaw_ref;
     }
   }
+}
+
+/*
+ * Function for MATLAB Function: '<S12>/position control'
+ * function y = wrap_pi(x)
+ * 将 x 限定在[-pi,pi]
+ */
+static real32_T LW_ctrl_241029_1_wrap_pi(real32_T x)
+{
+  int32_T i;
+  real32_T y;
+  boolean_T exitg1;
+
+  /* 'wrap_pi:3' i = 0; */
+  i = 0;
+
+  /* 'wrap_pi:4' y = x; */
+  y = x;
+
+  /* 'wrap_pi:5' while x > pi */
+  exitg1 = false;
+  while ((!exitg1) && (x > 3.1415926535897931)) {
+    /* 'wrap_pi:6' y =  x - 2*pi; */
+    y = x - 6.28318548F;
+
+    /* 'wrap_pi:7' i = i + 1; */
+    i++;
+
+    /* 'wrap_pi:8' if i > 100 */
+    if (i > 100) {
+      exitg1 = true;
+    }
+  }
+
+  /* 'wrap_pi:12' i = 0; */
+  i = 0;
+
+  /* 'wrap_pi:13' while x < -pi */
+  exitg1 = false;
+  while ((!exitg1) && (x < -3.1415926535897931)) {
+    /* 'wrap_pi:14' y =  x + 2*pi; */
+    y = x + 6.28318548F;
+
+    /* 'wrap_pi:15' i = i + 1; */
+    i++;
+
+    /* 'wrap_pi:16' if i > 100 */
+    if (i > 100) {
+      exitg1 = true;
+    }
+  }
+
+  return y;
 }
 
 /*
@@ -3997,18 +3834,16 @@ static real32_T LW_ctrl_241029_1_rcNormalize(real32_T ch, real32_T RC_MIN,
 /* Model step function */
 void LW_ctrl_241029_1_step(void)
 {
-  int32_T i;
   int32_T trueCount;
-  real32_T Filter_o5;
   real32_T q;
   real32_T rtb_FilterCoefficient_jy_tmp;
+  real32_T rtb_TmpSignalConversionAtSFun_0;
+  real32_T rtb_TmpSignalConversionAtSFun_1;
   int8_T tmp;
   int8_T tmp_0;
   uint8_T rtb_blockMode;
-  boolean_T f_y;
   boolean_T rEQ0;
   boolean_T rtb_RelationalOperator_om;
-  boolean_T rtb_integral_reset_idx_0;
   boolean_T rtb_integral_reset_idx_1;
   boolean_T rtb_rate_ctrl_integral_reset_id;
   boolean_T want_hold_xy;
@@ -4018,9 +3853,6 @@ void LW_ctrl_241029_1_step(void)
   static const real32_T b[16] = { 0.25F, 0.25F, 0.25F, 0.25F, -1.1765F, -1.1765F,
     1.1765F, 1.1765F, 1.0F, -1.0F, 1.0F, -1.0F, 15.0602F, -15.0602F, -15.0602F,
     15.0602F };
-
-  boolean_T exitg1;
-  boolean_T guard1;
 
   /* Chart: '<Root>/Scheduler' incorporates:
    *  MATLAB Function: '<S11>/MATLAB Function1'
@@ -4092,1197 +3924,7 @@ void LW_ctrl_241029_1_step(void)
         }
       }
 
-      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger' */
-      {
-        //interval val: 0
-        bool updated;
-        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger_u_a.fd,
-                  &updated);
-        if (updated) {
-          /* obtained uorb data */
-          /* copy sensors raw data into local buffer */
-          orb_copy(ORB_ID(vehicle_attitude),
-                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger_u_a.fd,
-                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d);
-        }
-      }
-
-      /* MATLAB Function: '<S419>/nan_inf_q' incorporates:
-       *  Math: '<S419>/Math Function'
-       */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf_q': '<S429>:1' */
-      /* '<S429>:1:3' for i = 1:length(u) */
-      for (i = 0; i < 4; i++) {
-        LW_ctrl_241029_1_B.y[i] =
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.q[i];
-
-        /* '<S429>:1:4' if isnan(u(i)) || isinf(u(i)) */
-        if (rtIsNaNF(LW_ctrl_241029_1_B.y[i]) || rtIsInfF(LW_ctrl_241029_1_B.y[i]))
-        {
-          /* '<S429>:1:5' if i == 1 */
-          if (i + 1 == 1) {
-            /* '<S429>:1:6' u(i) = single(1); */
-            LW_ctrl_241029_1_B.y[i] = 1.0F;
-          } else {
-            /* '<S429>:1:7' else */
-            /* '<S429>:1:8' u(i) = single(0); */
-            LW_ctrl_241029_1_B.y[i] = 0.0F;
-          }
-        }
-      }
-
-      /* End of MATLAB Function: '<S419>/nan_inf_q' */
-
-      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger1' */
-      /* '<S429>:1:12' y = u; */
-      {
-        //interval val: 0
-        bool updated;
-        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger1_uO.fd,
-                  &updated);
-        if (updated) {
-          /* obtained uorb data */
-          /* copy sensors raw data into local buffer */
-          orb_copy(ORB_ID(vehicle_angular_velocity),
-                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger1_uO.fd,
-                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1);
-        }
-      }
-
-      /* MATLAB Function: '<S419>/nan_inf0' */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf0': '<S427>:1' */
-      /* '<S427>:1:3' for i = 1:length(u) */
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.y_e[i] =
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1.xyz[i];
-
-        /* '<S427>:1:4' if isnan(u(i)) || isinf(u(i)) */
-        if (rtIsNaNF(LW_ctrl_241029_1_B.y_e[i]) || rtIsInfF
-            (LW_ctrl_241029_1_B.y_e[i])) {
-          /* '<S427>:1:5' u(i) = single(0); */
-          LW_ctrl_241029_1_B.y_e[i] = 0.0F;
-        }
-      }
-
-      /* End of MATLAB Function: '<S419>/nan_inf0' */
-
-      /* MATLAB Function: '<S419>/Lowpass1' */
-      /* '<S427>:1:8' y = u(:); */
-      /*  LW_TEST_DT = dt/(dt + Ts) */
-      /*  其中dt是采样周期，Ts是低通滤波器的时间常数 */
-      /*  截止频率f = 1/Ts/2pi Hz */
-      /*  如 dt=0.004, f=30Hz , LW_TEST_DT=0.43 */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/Lowpass1': '<S423>:1' */
-      /* '<S423>:1:7' if isempty(d_est_last) */
-      if (!LW_ctrl_241029_1_DW.d_est_last_not_empty) {
-        /* '<S423>:1:8' d_est_last = d_est; */
-        LW_ctrl_241029_1_DW.d_est_last[0] = LW_ctrl_241029_1_B.y_e[0];
-        LW_ctrl_241029_1_DW.d_est_last[1] = LW_ctrl_241029_1_B.y_e[1];
-        LW_ctrl_241029_1_DW.d_est_last[2] = LW_ctrl_241029_1_B.y_e[2];
-        LW_ctrl_241029_1_DW.d_est_last_not_empty = true;
-      }
-
-      /* '<S423>:1:10' if isInfNan(d_est_last) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_DW.d_est_last[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_DW.d_est_last[i])) {
-          /* 'isInfNan:6' y = true; */
-          rtb_integral_reset_idx_0 = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          rtb_integral_reset_idx_0 = false;
-          i++;
-        }
-      }
-
-      if (rtb_integral_reset_idx_0) {
-        /* '<S423>:1:11' d_est_last = single([0;0;0]); */
-        LW_ctrl_241029_1_DW.d_est_last[0] = 0.0F;
-        LW_ctrl_241029_1_DW.d_est_last[1] = 0.0F;
-        LW_ctrl_241029_1_DW.d_est_last[2] = 0.0F;
-      }
-
-      /* '<S423>:1:13' d_est = d_est_last + LW_TEST_WBDT*(d_est - d_est_last); */
-      /* '<S423>:1:14' d_est_last = d_est; */
-      LW_ctrl_241029_1_B.Va_ = (LW_ctrl_241029_1_B.y_e[0] -
-        LW_ctrl_241029_1_DW.d_est_last[0]) * LW_TEST_WBDT +
-        LW_ctrl_241029_1_DW.d_est_last[0];
-
-      /* End of Outputs for SubSystem: '<Root>/states_update' */
-      LW_ctrl_241029_1_B.d_est[0] = LW_ctrl_241029_1_B.Va_;
-
-      /* Outputs for Function Call SubSystem: '<Root>/states_update' */
-      /* MATLAB Function: '<S419>/Lowpass1' */
-      LW_ctrl_241029_1_DW.d_est_last[0] = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.Va_ = (LW_ctrl_241029_1_B.y_e[1] -
-        LW_ctrl_241029_1_DW.d_est_last[1]) * LW_TEST_WBDT +
-        LW_ctrl_241029_1_DW.d_est_last[1];
-
-      /* End of Outputs for SubSystem: '<Root>/states_update' */
-      LW_ctrl_241029_1_B.d_est[1] = LW_ctrl_241029_1_B.Va_;
-
-      /* Outputs for Function Call SubSystem: '<Root>/states_update' */
-      /* MATLAB Function: '<S419>/Lowpass1' */
-      LW_ctrl_241029_1_DW.d_est_last[1] = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.Va_ = (LW_ctrl_241029_1_B.y_e[2] -
-        LW_ctrl_241029_1_DW.d_est_last[2]) * LW_TEST_WBDT +
-        LW_ctrl_241029_1_DW.d_est_last[2];
-
-      /* End of Outputs for SubSystem: '<Root>/states_update' */
-      LW_ctrl_241029_1_B.d_est[2] = LW_ctrl_241029_1_B.Va_;
-
-      /* Outputs for Function Call SubSystem: '<Root>/states_update' */
-      /* MATLAB Function: '<S419>/Lowpass1' */
-      LW_ctrl_241029_1_DW.d_est_last[2] = LW_ctrl_241029_1_B.Va_;
-
-      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
-      {
-        //interval val: 0
-        bool updated;
-        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd,
-                  &updated);
-        if (updated) {
-          /* obtained uorb data */
-          /* copy sensors raw data into local buffer */
-          orb_copy(ORB_ID(costom_lw_mixer),
-                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd,
-                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger7);
-        }
-      }
-
-      /* Gain: '<S425>/Gain' incorporates:
-       *  Memory: '<S425>/Memory'
-       *  Sum: '<S425>/Sum'
-       */
-      LW_ctrl_241029_1_B.Saturation_d =
-        (LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1.timestamp -
-         LW_ctrl_241029_1_DW.Memory_PreviousInput) * 1.0E-6;
-
-      /* Saturate: '<S425>/Saturation' */
-      if (LW_ctrl_241029_1_B.Saturation_d > 0.2) {
-        LW_ctrl_241029_1_B.Saturation_d = 0.2;
-      } else if (LW_ctrl_241029_1_B.Saturation_d < 0.001) {
-        LW_ctrl_241029_1_B.Saturation_d = 0.001;
-      }
-
-      /* End of Saturate: '<S425>/Saturation' */
-
-      /* MATLAB Function: '<S419>/DisturbanceEstimator' incorporates:
-       *  DataTypeConversion: '<S425>/Data Type Conversion'
-       */
-      LW_ctrl_241029_1_B.IntegralGain = (real32_T)
-        LW_ctrl_241029_1_B.Saturation_d;
-
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/DisturbanceEstimator': '<S420>:1' */
-      /* '<S420>:1:8' if isempty(quat_reset_counter_) */
-      if (!LW_ctrl_241029_1_DW.quat_reset_counter__not_empty) {
-        /* '<S420>:1:9' quat_reset_counter_ = quat_reset_counter; */
-        LW_ctrl_241029_1_DW.quat_reset_counter_ =
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.quat_reset_counter;
-        LW_ctrl_241029_1_DW.quat_reset_counter__not_empty = true;
-      }
-
-      /* '<S420>:1:12' if isInfNan(qm) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 4)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_B.y[i]) || rtIsNaNF(LW_ctrl_241029_1_B.y[i]))
-        {
-          /* 'isInfNan:6' y = true; */
-          rtb_integral_reset_idx_1 = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          rtb_integral_reset_idx_1 = false;
-          i++;
-        }
-      }
-
-      if (rtb_integral_reset_idx_1) {
-        /* '<S420>:1:13' qm = single([1;0;0;0]); */
-        LW_ctrl_241029_1_B.qm[0] = 1.0F;
-        LW_ctrl_241029_1_B.qm[1] = 0.0F;
-        LW_ctrl_241029_1_B.qm[2] = 0.0F;
-        LW_ctrl_241029_1_B.qm[3] = 0.0F;
-      } else {
-        /* '<S420>:1:14' else */
-        /* qm = qm/(sqrt(qm'*qm)); */
-        /* qm = quatnormalize(qm'); */
-        /* '<S420>:1:17' qm = qm(:); */
-        LW_ctrl_241029_1_B.qm[0] = LW_ctrl_241029_1_B.y[0];
-        LW_ctrl_241029_1_B.qm[1] = LW_ctrl_241029_1_B.y[1];
-        LW_ctrl_241029_1_B.qm[2] = LW_ctrl_241029_1_B.y[2];
-        LW_ctrl_241029_1_B.qm[3] = LW_ctrl_241029_1_B.y[3];
-      }
-
-      /* '<S420>:1:19' if isInfNan(omegam) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_B.d_est[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_B.d_est[i])) {
-          /* 'isInfNan:6' y = true; */
-          rEQ0 = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          rEQ0 = false;
-          i++;
-        }
-      }
-
-      if (rEQ0) {
-        /* '<S420>:1:20' omegam = single([0;0;0]); */
-        LW_ctrl_241029_1_B.d_est[0] = 0.0F;
-        LW_ctrl_241029_1_B.d_est[1] = 0.0F;
-        LW_ctrl_241029_1_B.d_est[2] = 0.0F;
-      } else {
-        /* '<S420>:1:21' else */
-        /* '<S420>:1:22' omegam = omegam(:); */
-      }
-
-      /* '<S420>:1:24' if isInfNan(T) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 6)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF
-            (LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger7.log_m_t_limit[i]) ||
-            rtIsNaNF
-            (LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger7.log_m_t_limit[i]))
-        {
-          /* 'isInfNan:6' y = true; */
-          rtb_rate_ctrl_integral_reset_id = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          rtb_rate_ctrl_integral_reset_id = false;
-          i++;
-        }
-      }
-
-      if (rtb_rate_ctrl_integral_reset_id) {
-        /* '<S420>:1:25' T = single([0;0;0;0;0;0]); */
-        for (i = 0; i < 6; i++) {
-          LW_ctrl_241029_1_B.T[i] = 0.0F;
-        }
-      } else {
-        /* '<S420>:1:26' else */
-        /* '<S420>:1:27' T = T(:); */
-        for (i = 0; i < 6; i++) {
-          LW_ctrl_241029_1_B.T[i] =
-            LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger7.log_m_t_limit[i];
-        }
-      }
-
-      /* '<S420>:1:29' if dt < 0.001 */
-      if ((real32_T)LW_ctrl_241029_1_B.Saturation_d < 0.001) {
-        /* '<S420>:1:30' dt = single(0.001); */
-        LW_ctrl_241029_1_B.IntegralGain = 0.001F;
-      } else if ((real32_T)LW_ctrl_241029_1_B.Saturation_d > 0.02) {
-        /* '<S420>:1:31' elseif dt > 0.02 */
-        /* '<S420>:1:32' dt = single(0.02); */
-        LW_ctrl_241029_1_B.IntegralGain = 0.02F;
-      }
-
-      /* '<S420>:1:35' if isempty(tau_qk) */
-      if (!LW_ctrl_241029_1_DW.tau_qk_not_empty) {
-        /* '<S420>:1:36' if notInfNan(qm) */
-        /* ISINFNAN 此处显示有关此函数的摘要 */
-        /*    Data is a vector. */
-        /* 'notInfNan:4' y = false; */
-        rtb_integral_reset_idx_1 = false;
-
-        /* 'notInfNan:5' for ii = 1:length(data) */
-        i = 0;
-        exitg1 = false;
-        while ((!exitg1) && (i < 4)) {
-          /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-          if (rtIsInfF(LW_ctrl_241029_1_B.qm[i]) || rtIsNaNF
-              (LW_ctrl_241029_1_B.qm[i])) {
-            /* 'notInfNan:7' y = false; */
-            rtb_integral_reset_idx_1 = false;
-            exitg1 = true;
-          } else {
-            /* 'notInfNan:9' else */
-            /* 'notInfNan:10' y = true; */
-            rtb_integral_reset_idx_1 = true;
-            i++;
-          }
-        }
-
-        if (rtb_integral_reset_idx_1) {
-          /* '<S420>:1:37' tau_qk = qm; */
-          LW_ctrl_241029_1_DW.tau_qk[0] = LW_ctrl_241029_1_B.qm[0];
-          LW_ctrl_241029_1_DW.tau_qk[1] = LW_ctrl_241029_1_B.qm[1];
-          LW_ctrl_241029_1_DW.tau_qk[2] = LW_ctrl_241029_1_B.qm[2];
-          LW_ctrl_241029_1_DW.tau_qk[3] = LW_ctrl_241029_1_B.qm[3];
-          LW_ctrl_241029_1_DW.tau_qk_not_empty = true;
-        } else {
-          /* '<S420>:1:38' else */
-          /* '<S420>:1:39' tau_qk = single([1;0;0;0]); */
-          LW_ctrl_241029_1_DW.tau_qk[0] = 1.0F;
-          LW_ctrl_241029_1_DW.tau_qk[1] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_qk[2] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_qk[3] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_qk_not_empty = true;
-        }
-      }
-
-      /* '<S420>:1:42' if isInfNan(tau_qk) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 4)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_DW.tau_qk[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_DW.tau_qk[i])) {
-          /* 'isInfNan:6' y = true; */
-          f_y = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          f_y = false;
-          i++;
-        }
-      }
-
-      if (f_y) {
-        /* '<S420>:1:43' if notInfNan(qm) */
-        /* ISINFNAN 此处显示有关此函数的摘要 */
-        /*    Data is a vector. */
-        /* 'notInfNan:4' y = false; */
-        rtb_integral_reset_idx_1 = false;
-
-        /* 'notInfNan:5' for ii = 1:length(data) */
-        i = 0;
-        exitg1 = false;
-        while ((!exitg1) && (i < 4)) {
-          /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-          if (rtIsInfF(LW_ctrl_241029_1_B.qm[i]) || rtIsNaNF
-              (LW_ctrl_241029_1_B.qm[i])) {
-            /* 'notInfNan:7' y = false; */
-            rtb_integral_reset_idx_1 = false;
-            exitg1 = true;
-          } else {
-            /* 'notInfNan:9' else */
-            /* 'notInfNan:10' y = true; */
-            rtb_integral_reset_idx_1 = true;
-            i++;
-          }
-        }
-
-        if (rtb_integral_reset_idx_1) {
-          /* '<S420>:1:44' tau_qk = qm; */
-          LW_ctrl_241029_1_DW.tau_qk[0] = LW_ctrl_241029_1_B.qm[0];
-          LW_ctrl_241029_1_DW.tau_qk[1] = LW_ctrl_241029_1_B.qm[1];
-          LW_ctrl_241029_1_DW.tau_qk[2] = LW_ctrl_241029_1_B.qm[2];
-          LW_ctrl_241029_1_DW.tau_qk[3] = LW_ctrl_241029_1_B.qm[3];
-        } else {
-          /* '<S420>:1:45' else */
-          /* '<S420>:1:46' tau_qk = single([1;0;0;0]); */
-          LW_ctrl_241029_1_DW.tau_qk[0] = 1.0F;
-          LW_ctrl_241029_1_DW.tau_qk[1] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_qk[2] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_qk[3] = 0.0F;
-        }
-      }
-
-      /* '<S420>:1:49' if isempty(tau_omegak) */
-      if (!LW_ctrl_241029_1_DW.tau_omegak_not_empty) {
-        /* '<S420>:1:50' if notInfNan(omegam) */
-        /* ISINFNAN 此处显示有关此函数的摘要 */
-        /*    Data is a vector. */
-        /* 'notInfNan:4' y = false; */
-        rtb_integral_reset_idx_1 = false;
-
-        /* 'notInfNan:5' for ii = 1:length(data) */
-        i = 0;
-        exitg1 = false;
-        while ((!exitg1) && (i < 3)) {
-          /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-          if (rtIsInfF(LW_ctrl_241029_1_B.d_est[i]) || rtIsNaNF
-              (LW_ctrl_241029_1_B.d_est[i])) {
-            /* 'notInfNan:7' y = false; */
-            rtb_integral_reset_idx_1 = false;
-            exitg1 = true;
-          } else {
-            /* 'notInfNan:9' else */
-            /* 'notInfNan:10' y = true; */
-            rtb_integral_reset_idx_1 = true;
-            i++;
-          }
-        }
-
-        if (rtb_integral_reset_idx_1) {
-          /* '<S420>:1:51' tau_omegak = omegam; */
-          LW_ctrl_241029_1_DW.tau_omegak[0] = LW_ctrl_241029_1_B.d_est[0];
-          LW_ctrl_241029_1_DW.tau_omegak[1] = LW_ctrl_241029_1_B.d_est[1];
-          LW_ctrl_241029_1_DW.tau_omegak[2] = LW_ctrl_241029_1_B.d_est[2];
-          LW_ctrl_241029_1_DW.tau_omegak_not_empty = true;
-        } else {
-          /* '<S420>:1:52' else */
-          /* '<S420>:1:53' tau_omegak = single([0;0;0]); */
-          LW_ctrl_241029_1_DW.tau_omegak[0] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_omegak[1] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_omegak[2] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_omegak_not_empty = true;
-        }
-      }
-
-      /* '<S420>:1:56' if isInfNan(tau_omegak) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_DW.tau_omegak[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_DW.tau_omegak[i])) {
-          /* 'isInfNan:6' y = true; */
-          want_hold_z = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          want_hold_z = false;
-          i++;
-        }
-      }
-
-      if (want_hold_z) {
-        /* '<S420>:1:57' if notInfNan(omegam) */
-        /* ISINFNAN 此处显示有关此函数的摘要 */
-        /*    Data is a vector. */
-        /* 'notInfNan:4' y = false; */
-        want_hold_z = false;
-
-        /* 'notInfNan:5' for ii = 1:length(data) */
-        i = 0;
-        exitg1 = false;
-        while ((!exitg1) && (i < 3)) {
-          /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-          if (rtIsInfF(LW_ctrl_241029_1_B.d_est[i]) || rtIsNaNF
-              (LW_ctrl_241029_1_B.d_est[i])) {
-            /* 'notInfNan:7' y = false; */
-            want_hold_z = false;
-            exitg1 = true;
-          } else {
-            /* 'notInfNan:9' else */
-            /* 'notInfNan:10' y = true; */
-            want_hold_z = true;
-            i++;
-          }
-        }
-
-        if (want_hold_z) {
-          /* '<S420>:1:58' tau_omegak = omegam; */
-          LW_ctrl_241029_1_DW.tau_omegak[0] = LW_ctrl_241029_1_B.d_est[0];
-          LW_ctrl_241029_1_DW.tau_omegak[1] = LW_ctrl_241029_1_B.d_est[1];
-          LW_ctrl_241029_1_DW.tau_omegak[2] = LW_ctrl_241029_1_B.d_est[2];
-        } else {
-          /* '<S420>:1:59' else */
-          /* '<S420>:1:60' tau_omegak = single([0;0;0]); */
-          LW_ctrl_241029_1_DW.tau_omegak[0] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_omegak[1] = 0.0F;
-          LW_ctrl_241029_1_DW.tau_omegak[2] = 0.0F;
-        }
-      }
-
-      /* '<S420>:1:63' if isempty(tau_z3) */
-      /* '<S420>:1:66' if isInfNan(tau_z3) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_DW.tau_z3[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_DW.tau_z3[i])) {
-          /* 'isInfNan:6' y = true; */
-          want_hold_xy = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          want_hold_xy = false;
-          i++;
-        }
-      }
-
-      if (want_hold_xy) {
-        /* '<S420>:1:67' tau_z3 = single([0;0;0]); */
-        LW_ctrl_241029_1_DW.tau_z3[0] = 0.0F;
-        LW_ctrl_241029_1_DW.tau_z3[1] = 0.0F;
-        LW_ctrl_241029_1_DW.tau_z3[2] = 0.0F;
-      }
-
-      /* 结构参数 */
-      /* '<S420>:1:73' rotorEta = single(ModelParam_rotorEta); */
-      /* '<S420>:1:74' rotordx = single(ModelParam_rotordx); */
-      /* '<S420>:1:75' rotordy = single(ModelParam_rotordy); */
-      /* '<S420>:1:76' LBb = single(ModelParam_LBb); */
-      /* '<S420>:1:77' LBc = single(ModelParam_LBc); */
-      /* '<S420>:1:78' LBS = single(ModelParam_LBS); */
-      /* '<S420>:1:79' kappa = single(LW_ANGLE*pi/180); */
-      LW_ctrl_241029_1_B.kappa = LW_ANGLE * 3.14159274F / 180.0F;
-
-      /* Sqrt: '<S419>/Sqrt' incorporates:
-       *  DotProduct: '<S419>/Dot Product'
-       *  SignalConversion generated from: '<S419>/Dot Product'
-       */
-      /* '<S420>:1:80' Rho = single(ModelParam_LBRho); */
-      /* 动力系统参数 */
-      /* '<S420>:1:82' rotorCm = single(ModelParam_rotorCm); */
-      /* '<S420>:1:83' rotorCt = single(ModelParam_rotorCt); */
-      /* '<S420>:1:84' km_f = rotorCm/rotorCt; */
-      /* '<S420>:1:85' Cl_d = single(LW_LBCL_D); */
-      /* '<S420>:1:86' Cm_d = single(LW_LBCM_D); */
-      /* '<S420>:1:87' Cn_d = single(ModelParam_LBCn_d); */
-      /*  */
-      /* '<S420>:1:89' Va_ = max(Va,0.1); */
-      LW_ctrl_241029_1_B.Va_ = (real32_T)sqrt
-        ((LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vx *
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vx +
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vy *
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vy) +
-         LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vz *
-         LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vz);
-
-      /* MATLAB Function: '<S419>/DisturbanceEstimator' */
-      if (!(LW_ctrl_241029_1_B.Va_ >= 0.1F)) {
-        LW_ctrl_241029_1_B.Va_ = 0.1F;
-      }
-
-      /* '<S420>:1:90' if LW_USE_SER > 0.5 */
-      if (LW_USE_SER > 0.5F) {
-        /* '<S420>:1:91' Q = 0.5*Rho*Va_^2*LBS; */
-        LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.Va_ * LW_ctrl_241029_1_B.Va_
-          * 0.61F * 0.155F;
-      } else {
-        /* '<S420>:1:92' else */
-        /* '<S420>:1:93' Q = single(0); */
-        LW_ctrl_241029_1_B.Va_ = 0.0F;
-      }
-
-      /* 滤波器参数 */
-      /* '<S420>:1:96' L = eye(3,2,"single"); */
-      /* '<S420>:1:97' wn = [LW_TEST_WNXY;LW_TEST_WNXY;LW_TEST_WNZ]; */
-      /* rad/s */
-      /* '<S420>:1:98' sigma = [LW_TEST_SIGXY;LW_TEST_SIGXY;LW_TEST_SIGZ]; */
-      /* '<S420>:1:99' L(:,1) = wn.^2; */
-      /* '<S420>:1:100' L(:,2) = 2*sigma.*wn; */
-      /* '<S420>:1:101' lamda = single([LW_TEST_LAMXY;LW_TEST_LAMXY;LW_TEST_LAMZ]); */
-      /* 滤波器结构 */
-      /* reset处理 */
-      /* '<S420>:1:104' if quat_reset_counter_ ~= quat_reset_counter */
-      if (LW_ctrl_241029_1_DW.quat_reset_counter_ !=
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.quat_reset_counter) {
-        /* '<S420>:1:105' tau_q = quatmultiply(delta_q_reset(:)',tau_qk'); */
-        /* '<S420>:1:106' tau_qk = tau_q'; */
-        for (i = 0; i < 4; i++) {
-          LW_ctrl_241029_1_B.q_err[i] = LW_ctrl_241029_1_DW.tau_qk[i];
-        }
-
-        LW_ctrl_241029_1_quatmultiply
-          (LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.delta_q_reset,
-           LW_ctrl_241029_1_B.q_err, LW_ctrl_241029_1_DW.tau_qk);
-
-        /* '<S420>:1:107' quat_reset_counter_ = quat_reset_counter; */
-        LW_ctrl_241029_1_DW.quat_reset_counter_ =
-          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.quat_reset_counter;
-      }
-
-      /* '<S420>:1:109' q_err = quatmultiply(quatconj(tau_qk'), qm'); */
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_DW.tau_qk[0];
-      LW_ctrl_241029_1_B.qk_[1] = -LW_ctrl_241029_1_DW.tau_qk[1];
-      LW_ctrl_241029_1_B.qk_[2] = -LW_ctrl_241029_1_DW.tau_qk[2];
-      LW_ctrl_241029_1_B.qk_[3] = -LW_ctrl_241029_1_DW.tau_qk[3];
-
-      /* '<S420>:1:110' q_err = quatnormalize(q_err); */
-      LW_ctrl_241029_1_quatmultiply(LW_ctrl_241029_1_B.qk_,
-        LW_ctrl_241029_1_B.qm, LW_ctrl_241029_1_B.q_err);
-      LW_ctrl_241029_1_quatnormalize(LW_ctrl_241029_1_B.q_err);
-
-      /* '<S420>:1:111' eta = constrain(q_err(1), single(-1), single(1)); */
-      /* CONSTRAIN 此处显示有关此函数的摘要 */
-      /*    此处显示详细说明 */
-      /*  min  = single(min); */
-      /*  max = single(max); */
-      /* 'constrain:6' if x > max */
-      if (LW_ctrl_241029_1_B.q_err[0] > 1.0F) {
-        /* 'constrain:7' y = max; */
-        LW_ctrl_241029_1_B.eta_p = 1.0F;
-      } else if (LW_ctrl_241029_1_B.q_err[0] < -1.0F) {
-        /* 'constrain:8' elseif x < min */
-        /* 'constrain:9' y = min; */
-        LW_ctrl_241029_1_B.eta_p = -1.0F;
-      } else {
-        /* 'constrain:10' else */
-        /* 'constrain:11' y = x; */
-        LW_ctrl_241029_1_B.eta_p = LW_ctrl_241029_1_B.q_err[0];
-      }
-
-      /* '<S420>:1:112' epsilon = q_err(2 : 4); */
-      /* '<S420>:1:113' theta = 2 * acos(eta); */
-      /* '<S420>:1:114' theta = wrap_pi(theta); */
-      LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_wrap_pi(2.0F * (real32_T)acos
-        (LW_ctrl_241029_1_B.eta_p));
-
-      /* '<S420>:1:115' if abs(theta) < 0.0873 */
-      if ((real32_T)fabs(LW_ctrl_241029_1_B.theta) < 0.0873) {
-        /*  5*pi/180 */
-        /* '<S420>:1:116' Xi_e = sign(eta) * 2 * epsilon; */
-        if (rtIsNaNF(LW_ctrl_241029_1_B.eta_p)) {
-          rtb_FilterCoefficient_jy_tmp = (rtNaNF);
-        } else if (LW_ctrl_241029_1_B.eta_p < 0.0F) {
-          rtb_FilterCoefficient_jy_tmp = -1.0F;
-        } else {
-          rtb_FilterCoefficient_jy_tmp = (real32_T)(LW_ctrl_241029_1_B.eta_p >
-            0.0F);
-        }
-
-        LW_ctrl_241029_1_B.eta_p = rtb_FilterCoefficient_jy_tmp * 2.0F;
-        LW_ctrl_241029_1_B.Xi_e[0] = LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.q_err[1];
-        LW_ctrl_241029_1_B.Xi_e[1] = LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.q_err[2];
-        LW_ctrl_241029_1_B.Xi_e[2] = LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.q_err[3];
-      } else {
-        /* '<S420>:1:117' else */
-        /* '<S420>:1:118' Xi_e = sign(eta) / sin(theta / 2) * theta * epsilon; */
-        if (rtIsNaNF(LW_ctrl_241029_1_B.eta_p)) {
-          rtb_FilterCoefficient_jy_tmp = (rtNaNF);
-        } else if (LW_ctrl_241029_1_B.eta_p < 0.0F) {
-          rtb_FilterCoefficient_jy_tmp = -1.0F;
-        } else {
-          rtb_FilterCoefficient_jy_tmp = (real32_T)(LW_ctrl_241029_1_B.eta_p >
-            0.0F);
-        }
-
-        LW_ctrl_241029_1_B.aSinInput = rtb_FilterCoefficient_jy_tmp / (real32_T)
-          sin(LW_ctrl_241029_1_B.theta / 2.0F) * LW_ctrl_241029_1_B.theta;
-        LW_ctrl_241029_1_B.Xi_e[0] = LW_ctrl_241029_1_B.aSinInput *
-          LW_ctrl_241029_1_B.q_err[1];
-        LW_ctrl_241029_1_B.Xi_e[1] = LW_ctrl_241029_1_B.aSinInput *
-          LW_ctrl_241029_1_B.q_err[2];
-        LW_ctrl_241029_1_B.Xi_e[2] = LW_ctrl_241029_1_B.aSinInput *
-          LW_ctrl_241029_1_B.q_err[3];
-      }
-
-      /* '<S420>:1:120' e_q = Xi_e(:); */
-      /* '<S420>:1:121' e_omega = omegam - tau_omegak; */
-      /* inv_uavJ = eye(3,3)/ModelParam_uavJ; */
-      /* '<S420>:1:124' inv_uavJ = eye(3); */
-      LW_ctrl_241029_1_eye(LW_ctrl_241029_1_B.inv_uavJ);
-
-      /* '<S420>:1:125' for ii = 1:3 */
-      /* le = l1*eq+l2*ew */
-      /* '<S420>:1:129' Le = L(:,1).*e_q + L(:,2).*e_omega; */
-      /* '<S420>:1:126' inv_uavJ(ii,ii) = 1/(ModelParam_uavJ(ii,ii)); */
-      LW_ctrl_241029_1_B.inv_uavJ[0] = 19.53125;
-      LW_ctrl_241029_1_B.km_f_b = 2.0F * LW_TEST_SIGXY * LW_TEST_WNXY;
-      LW_ctrl_241029_1_B.time_to_stop = LW_TEST_WNXY * LW_TEST_WNXY;
-      LW_ctrl_241029_1_B.Xi_e[0] = (LW_ctrl_241029_1_B.d_est[0] -
-        LW_ctrl_241029_1_DW.tau_omegak[0]) * LW_ctrl_241029_1_B.km_f_b +
-        LW_ctrl_241029_1_B.time_to_stop * LW_ctrl_241029_1_B.Xi_e[0];
-
-      /* '<S420>:1:126' inv_uavJ(ii,ii) = 1/(ModelParam_uavJ(ii,ii)); */
-      LW_ctrl_241029_1_B.inv_uavJ[4] = 18.050541516245488;
-      LW_ctrl_241029_1_B.Xi_e[1] = (LW_ctrl_241029_1_B.d_est[1] -
-        LW_ctrl_241029_1_DW.tau_omegak[1]) * LW_ctrl_241029_1_B.km_f_b +
-        LW_ctrl_241029_1_B.time_to_stop * LW_ctrl_241029_1_B.Xi_e[1];
-
-      /* '<S420>:1:126' inv_uavJ(ii,ii) = 1/(ModelParam_uavJ(ii,ii)); */
-      LW_ctrl_241029_1_B.inv_uavJ[8] = 13.157894736842106;
-      LW_ctrl_241029_1_B.Xi_e[2] = 2.0F * LW_TEST_SIGZ * LW_TEST_WNZ *
-        (LW_ctrl_241029_1_B.d_est[2] - LW_ctrl_241029_1_DW.tau_omegak[2]) +
-        LW_TEST_WNZ * LW_TEST_WNZ * LW_ctrl_241029_1_B.Xi_e[2];
-
-      /* '<S420>:1:130' K1 = km_f; */
-      /* '<S420>:1:131' coseta = cos(rotorEta); */
-      /* '<S420>:1:132' K2 = rotordy*coseta; */
-      /* '<S420>:1:133' dxcoseta = rotordx*coseta; */
-      /* 估计螺旋桨推力，根据混控器输出滤波得到 */
-      /* '<S420>:1:135' T = LowPass(T, LW_TEST_TDT); */
-      LW_ctrl_241029_1_LowPass(LW_ctrl_241029_1_B.T, LW_TEST_TDT);
-
-      /* '<S420>:1:136' B = [-K2       -K2        K2       K2      -Q*LBb*Cl_d*cos(kappa) Q*LBb*Cl_d*cos(kappa); */
-      /* '<S420>:1:137'      dxcoseta  -dxcoseta dxcoseta -dxcoseta Q*LBc*Cm_d Q*LBc*Cm_d; */
-      /* '<S420>:1:138'      K1        -K1       -K1      K1      Q*LBb*Cl_d*sin(kappa) -Q*LBb*Cl_d*sin(kappa)]; */
-      /* '<S420>:1:139' z3_ = tau_z3 + lamda.*Le*dt; */
-      LW_ctrl_241029_1_B.z3_[0] = LW_TEST_LAMXY * LW_ctrl_241029_1_B.Xi_e[0] *
-        LW_ctrl_241029_1_B.IntegralGain + LW_ctrl_241029_1_DW.tau_z3[0];
-      LW_ctrl_241029_1_B.z3_[1] = LW_TEST_LAMXY * LW_ctrl_241029_1_B.Xi_e[1] *
-        LW_ctrl_241029_1_B.IntegralGain + LW_ctrl_241029_1_DW.tau_z3[1];
-      LW_ctrl_241029_1_B.z3_[2] = LW_TEST_LAMZ * LW_ctrl_241029_1_B.Xi_e[2] *
-        LW_ctrl_241029_1_B.IntegralGain + LW_ctrl_241029_1_DW.tau_z3[2];
-
-      /* '<S420>:1:140' if LW_USE_SER > 0.5 */
-      if (LW_USE_SER > 0.5F) {
-        /* '<S420>:1:141' Fr = B*T; */
-        LW_ctrl_241029_1_B.time_to_stop = (real32_T)cos(LW_ctrl_241029_1_B.kappa);
-        LW_ctrl_241029_1_B.kappa = (real32_T)sin(LW_ctrl_241029_1_B.kappa);
-        LW_ctrl_241029_1_B.eta[0] = -0.2125F;
-        LW_ctrl_241029_1_B.eta[3] = -0.2125F;
-        LW_ctrl_241029_1_B.eta[6] = 0.2125F;
-        LW_ctrl_241029_1_B.eta[9] = 0.2125F;
-        LW_ctrl_241029_1_B.km_f_b = -LW_ctrl_241029_1_B.Va_ * 0.94F;
-        LW_ctrl_241029_1_B.eta[12] = LW_ctrl_241029_1_B.km_f_b * LW_LBCL_D *
-          LW_ctrl_241029_1_B.time_to_stop;
-        LW_ctrl_241029_1_B.eta_p = LW_ctrl_241029_1_B.Va_ * 0.94F * LW_LBCL_D;
-        LW_ctrl_241029_1_B.eta[15] = LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.time_to_stop;
-        LW_ctrl_241029_1_B.eta[1] = 0.25F;
-        LW_ctrl_241029_1_B.eta[4] = -0.25F;
-        LW_ctrl_241029_1_B.eta[7] = 0.25F;
-        LW_ctrl_241029_1_B.eta[10] = -0.25F;
-        LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.Va_ * 0.17F * LW_LBCM_D;
-        LW_ctrl_241029_1_B.eta[13] = LW_ctrl_241029_1_B.Va_;
-        LW_ctrl_241029_1_B.eta[16] = LW_ctrl_241029_1_B.Va_;
-        LW_ctrl_241029_1_B.eta[2] = 0.0234918036F;
-        LW_ctrl_241029_1_B.eta[5] = -0.0234918036F;
-        LW_ctrl_241029_1_B.eta[8] = -0.0234918036F;
-        LW_ctrl_241029_1_B.eta[11] = 0.0234918036F;
-        LW_ctrl_241029_1_B.eta[14] = LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.kappa;
-        LW_ctrl_241029_1_B.eta[17] = LW_ctrl_241029_1_B.km_f_b * LW_LBCL_D *
-          LW_ctrl_241029_1_B.kappa;
-        for (i = 0; i < 3; i++) {
-          LW_ctrl_241029_1_B.Integrator_a = 0.0F;
-          for (trueCount = 0; trueCount < 6; trueCount++) {
-            LW_ctrl_241029_1_B.Integrator_a += LW_ctrl_241029_1_B.eta[3 *
-              trueCount + i] * LW_ctrl_241029_1_B.T[trueCount];
-          }
-
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] =
-            LW_ctrl_241029_1_B.Integrator_a;
-        }
-      } else {
-        /* '<S420>:1:142' else */
-        /* '<S420>:1:143' Fr = B(:,1:4)*T(1:4); */
-        LW_ctrl_241029_1_B.time_to_stop = (real32_T)cos(LW_ctrl_241029_1_B.kappa);
-        LW_ctrl_241029_1_B.kappa = (real32_T)sin(LW_ctrl_241029_1_B.kappa);
-        LW_ctrl_241029_1_B.eta[0] = -0.2125F;
-        LW_ctrl_241029_1_B.eta[3] = -0.2125F;
-        LW_ctrl_241029_1_B.eta[6] = 0.2125F;
-        LW_ctrl_241029_1_B.eta[9] = 0.2125F;
-        LW_ctrl_241029_1_B.km_f_b = -LW_ctrl_241029_1_B.Va_ * 0.94F;
-        LW_ctrl_241029_1_B.eta[12] = LW_ctrl_241029_1_B.km_f_b * LW_LBCL_D *
-          LW_ctrl_241029_1_B.time_to_stop;
-        LW_ctrl_241029_1_B.eta[15] = LW_ctrl_241029_1_B.Va_ * 0.94F * LW_LBCL_D *
-          LW_ctrl_241029_1_B.time_to_stop;
-        LW_ctrl_241029_1_B.eta[1] = 0.25F;
-        LW_ctrl_241029_1_B.eta[4] = -0.25F;
-        LW_ctrl_241029_1_B.eta[7] = 0.25F;
-        LW_ctrl_241029_1_B.eta[10] = -0.25F;
-        LW_ctrl_241029_1_B.eta_p = LW_ctrl_241029_1_B.Va_ * 0.17F * LW_LBCM_D;
-        LW_ctrl_241029_1_B.eta[13] = LW_ctrl_241029_1_B.eta_p;
-        LW_ctrl_241029_1_B.eta[16] = LW_ctrl_241029_1_B.eta_p;
-        LW_ctrl_241029_1_B.eta[2] = 0.0234918036F;
-        LW_ctrl_241029_1_B.eta[5] = -0.0234918036F;
-        LW_ctrl_241029_1_B.eta[8] = -0.0234918036F;
-        LW_ctrl_241029_1_B.eta[11] = 0.0234918036F;
-        LW_ctrl_241029_1_B.eta[14] = LW_ctrl_241029_1_B.Va_ * 0.94F * LW_LBCL_D *
-          LW_ctrl_241029_1_B.kappa;
-        LW_ctrl_241029_1_B.eta[17] = LW_ctrl_241029_1_B.km_f_b * LW_LBCL_D *
-          LW_ctrl_241029_1_B.kappa;
-        LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.T[1];
-        LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_B.T[0];
-        LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.T[2];
-        LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.T[3];
-        for (i = 0; i < 3; i++) {
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] =
-            ((LW_ctrl_241029_1_B.eta[i + 3] * LW_ctrl_241029_1_B.Va_ +
-              LW_ctrl_241029_1_B.eta[i] * LW_ctrl_241029_1_B.km_f_b) +
-             LW_ctrl_241029_1_B.eta[i + 6] * LW_ctrl_241029_1_B.aSinInput) +
-            LW_ctrl_241029_1_B.eta[i + 9] * LW_ctrl_241029_1_B.kappa;
-        }
-      }
-
-      /* '<S420>:1:146' omegak_ = tau_omegak +(Le + z3_ + inv_uavJ*Fr- inv_uavJ*(cross(omegam,ModelParam_uavJ*omegam)))*dt; */
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.d_est[1];
-      LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_B.d_est[0];
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.d_est[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.Xi_e[i] += LW_ctrl_241029_1_B.z3_[i];
-        LW_ctrl_241029_1_B.vel_ref_c[i] = ((real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 3] * LW_ctrl_241029_1_B.Va_ +
-          (real32_T)LW_ctrl_241029_1_ConstP.pooled1[i] *
-          LW_ctrl_241029_1_B.km_f_b) + (real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 6] * LW_ctrl_241029_1_B.aSinInput;
-      }
-
-      LW_ctrl_241029_1_cross(LW_ctrl_241029_1_B.d_est,
-        LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.vd_psi);
-      LW_ctrl_241029_1_B.Integrator_a =
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-      LW_ctrl_241029_1_B.aSinInput =
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
-      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.vd_psi[0];
-      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.vd_psi[1];
-      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.vd_psi[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.Saturation_d = LW_ctrl_241029_1_B.inv_uavJ[i];
-        LW_ctrl_241029_1_B.T3 = (real32_T)LW_ctrl_241029_1_B.Saturation_d *
-          LW_ctrl_241029_1_B.Integrator_a;
-        LW_ctrl_241029_1_B.km_f_b = (real32_T)LW_ctrl_241029_1_B.Saturation_d *
-          rtb_FilterCoefficient_jy_tmp;
-        LW_ctrl_241029_1_B.Saturation_d = LW_ctrl_241029_1_B.inv_uavJ[i + 3];
-        LW_ctrl_241029_1_B.T3 += (real32_T)LW_ctrl_241029_1_B.Saturation_d *
-          LW_ctrl_241029_1_B.aSinInput;
-        LW_ctrl_241029_1_B.km_f_b += (real32_T)LW_ctrl_241029_1_B.Saturation_d *
-          LW_ctrl_241029_1_B.T1;
-        LW_ctrl_241029_1_B.Saturation_d = LW_ctrl_241029_1_B.inv_uavJ[i + 6];
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] = ((((real32_T)
-          LW_ctrl_241029_1_B.Saturation_d * LW_ctrl_241029_1_B.Va_ +
-          LW_ctrl_241029_1_B.T3) + LW_ctrl_241029_1_B.Xi_e[i]) - ((real32_T)
-          LW_ctrl_241029_1_B.Saturation_d * LW_ctrl_241029_1_B.T2 +
-          LW_ctrl_241029_1_B.km_f_b)) * LW_ctrl_241029_1_B.IntegralGain +
-          LW_ctrl_241029_1_DW.tau_omegak[i];
-      }
-
-      /* '<S420>:1:147' delta_theta = [0 -omegak_(1) -omegak_(2) -omegak_(3); */
-      /* '<S420>:1:148'                omegak_(1) 0 omegak_(3) -omegak_(2); */
-      /* '<S420>:1:149'                omegak_(2) -omegak_(3) 0 omegak_(1); */
-      /* '<S420>:1:150'                omegak_(3) omegak_(2) -omegak_(1) 0]*dt; */
-      /* '<S420>:1:151' qk_ = (eye(4) + delta_theta/2)*tau_qk; */
-      LW_ctrl_241029_1_eye_b(LW_ctrl_241029_1_B.d_tmp);
-      LW_ctrl_241029_1_B.Va_ = 0.0F * LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[0] = LW_ctrl_241029_1_B.Va_ + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[0];
-      LW_ctrl_241029_1_B.km_f_b =
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] *
-        LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[1] = LW_ctrl_241029_1_B.km_f_b + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[1];
-      LW_ctrl_241029_1_B.aSinInput =
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] *
-        LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[2] = LW_ctrl_241029_1_B.aSinInput + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[2];
-      LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro
-        [2] * LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[3] = LW_ctrl_241029_1_B.kappa + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[3];
-      LW_ctrl_241029_1_B.theta =
-        -LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] *
-        LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[4] = LW_ctrl_241029_1_B.theta + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[4];
-      LW_ctrl_241029_1_B.d_tmp_m[5] = LW_ctrl_241029_1_B.Va_ + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[5];
-      LW_ctrl_241029_1_B.time_to_stop =
-        -LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2] *
-        LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[6] = LW_ctrl_241029_1_B.time_to_stop +
-        (real32_T)LW_ctrl_241029_1_B.d_tmp[6];
-      LW_ctrl_241029_1_B.d_tmp_m[7] = LW_ctrl_241029_1_B.aSinInput + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[7];
-      LW_ctrl_241029_1_B.aSinInput =
-        -LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] *
-        LW_ctrl_241029_1_B.IntegralGain / 2.0F;
-      LW_ctrl_241029_1_B.d_tmp_m[8] = LW_ctrl_241029_1_B.aSinInput + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[8];
-      LW_ctrl_241029_1_B.d_tmp_m[9] = LW_ctrl_241029_1_B.kappa + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[9];
-      LW_ctrl_241029_1_B.d_tmp_m[10] = LW_ctrl_241029_1_B.Va_ + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[10];
-      LW_ctrl_241029_1_B.d_tmp_m[11] = LW_ctrl_241029_1_B.theta + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[11];
-      LW_ctrl_241029_1_B.d_tmp_m[12] = LW_ctrl_241029_1_B.time_to_stop +
-        (real32_T)LW_ctrl_241029_1_B.d_tmp[12];
-      LW_ctrl_241029_1_B.d_tmp_m[13] = LW_ctrl_241029_1_B.aSinInput + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[13];
-      LW_ctrl_241029_1_B.d_tmp_m[14] = LW_ctrl_241029_1_B.km_f_b + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[14];
-      LW_ctrl_241029_1_B.d_tmp_m[15] = LW_ctrl_241029_1_B.Va_ + (real32_T)
-        LW_ctrl_241029_1_B.d_tmp[15];
-      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_DW.tau_qk[1];
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_DW.tau_qk[0];
-      LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_DW.tau_qk[2];
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_DW.tau_qk[3];
-      for (i = 0; i < 4; i++) {
-        LW_ctrl_241029_1_B.qk_[i] = ((LW_ctrl_241029_1_B.d_tmp_m[i + 4] *
-          LW_ctrl_241029_1_B.IntegralGain + LW_ctrl_241029_1_B.d_tmp_m[i] *
-          LW_ctrl_241029_1_B.Va_) + LW_ctrl_241029_1_B.d_tmp_m[i + 8] *
-          LW_ctrl_241029_1_B.km_f_b) + LW_ctrl_241029_1_B.d_tmp_m[i + 12] *
-          LW_ctrl_241029_1_B.aSinInput;
-      }
-
-      /* '<S420>:1:152' qk_ = qk_/(sqrt(qk_'*qk_)); */
-      LW_ctrl_241029_1_B.aSinInput = (real32_T)sqrt(((LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[0] + LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[1]) + LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qk_[2]) + LW_ctrl_241029_1_B.qk_[3] *
-        LW_ctrl_241029_1_B.qk_[3]);
-      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.qk_[0] /
-        LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.qk_[1] /
-        LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_B.qk_[2] /
-        LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.qk_[3] /
-        LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_B.IntegralGain;
-      LW_ctrl_241029_1_B.qk_[1] = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.qk_[2] = LW_ctrl_241029_1_B.km_f_b;
-      LW_ctrl_241029_1_B.qk_[3] = LW_ctrl_241029_1_B.aSinInput;
-
-      /* '<S420>:1:153' d_hat = ModelParam_uavJ*(Le + z3_); */
-      /* '<S420>:1:155' if notInfNan(z3_) && notInfNan(omegak_) && notInfNan(qk_) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'notInfNan:4' y = false; */
-      want_hold_xy = false;
-
-      /* 'notInfNan:5' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_B.z3_[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_B.z3_[i])) {
-          /* 'notInfNan:7' y = false; */
-          want_hold_xy = false;
-          exitg1 = true;
-        } else {
-          /* 'notInfNan:9' else */
-          /* 'notInfNan:10' y = true; */
-          want_hold_xy = true;
-          i++;
-        }
-      }
-
-      guard1 = false;
-      if (want_hold_xy) {
-        /* ISINFNAN 此处显示有关此函数的摘要 */
-        /*    Data is a vector. */
-        /* 'notInfNan:4' y = false; */
-        want_hold_xy = false;
-
-        /* 'notInfNan:5' for ii = 1:length(data) */
-        i = 0;
-        exitg1 = false;
-        while ((!exitg1) && (i < 3)) {
-          /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-          if (rtIsInfF(LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i]) ||
-              rtIsNaNF(LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i])) {
-            /* 'notInfNan:7' y = false; */
-            want_hold_xy = false;
-            exitg1 = true;
-          } else {
-            /* 'notInfNan:9' else */
-            /* 'notInfNan:10' y = true; */
-            want_hold_xy = true;
-            i++;
-          }
-        }
-
-        if (want_hold_xy) {
-          /* ISINFNAN 此处显示有关此函数的摘要 */
-          /*    Data is a vector. */
-          /* 'notInfNan:4' y = false; */
-          want_hold_xy = false;
-
-          /* 'notInfNan:5' for ii = 1:length(data) */
-          i = 0;
-          exitg1 = false;
-          while ((!exitg1) && (i < 4)) {
-            /* 'notInfNan:6' if isinf(data(ii)) || isnan(data(ii)) */
-            if (rtIsInfF(LW_ctrl_241029_1_B.qk_[i]) || rtIsNaNF
-                (LW_ctrl_241029_1_B.qk_[i])) {
-              /* 'notInfNan:7' y = false; */
-              want_hold_xy = false;
-              exitg1 = true;
-            } else {
-              /* 'notInfNan:9' else */
-              /* 'notInfNan:10' y = true; */
-              want_hold_xy = true;
-              i++;
-            }
-          }
-
-          if (want_hold_xy) {
-            /* '<S420>:1:156' tau_z3 = z3_; */
-            /* '<S420>:1:157' tau_omegak = omegak_; */
-            LW_ctrl_241029_1_DW.tau_z3[0] = LW_ctrl_241029_1_B.z3_[0];
-            LW_ctrl_241029_1_DW.tau_omegak[0] =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-            LW_ctrl_241029_1_DW.tau_z3[1] = LW_ctrl_241029_1_B.z3_[1];
-            LW_ctrl_241029_1_DW.tau_omegak[1] =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
-            LW_ctrl_241029_1_DW.tau_z3[2] = LW_ctrl_241029_1_B.z3_[2];
-            LW_ctrl_241029_1_DW.tau_omegak[2] =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
-
-            /* '<S420>:1:158' tau_qk = qk_; */
-            LW_ctrl_241029_1_DW.tau_qk[0] = LW_ctrl_241029_1_B.IntegralGain;
-            LW_ctrl_241029_1_DW.tau_qk[1] = LW_ctrl_241029_1_B.Va_;
-            LW_ctrl_241029_1_DW.tau_qk[2] = LW_ctrl_241029_1_B.km_f_b;
-            LW_ctrl_241029_1_DW.tau_qk[3] = LW_ctrl_241029_1_B.aSinInput;
-          } else {
-            guard1 = true;
-          }
-        } else {
-          guard1 = true;
-        }
-      } else {
-        guard1 = true;
-      }
-
-      if (guard1) {
-        /* '<S420>:1:159' else */
-        /* '<S420>:1:160' tau_z3 = single([0;0;0]); */
-        /* '<S420>:1:161' tau_omegak = omegam; */
-        LW_ctrl_241029_1_DW.tau_z3[0] = 0.0F;
-        LW_ctrl_241029_1_DW.tau_omegak[0] = LW_ctrl_241029_1_B.d_est[0];
-        LW_ctrl_241029_1_DW.tau_z3[1] = 0.0F;
-        LW_ctrl_241029_1_DW.tau_omegak[1] = LW_ctrl_241029_1_B.d_est[1];
-        LW_ctrl_241029_1_DW.tau_z3[2] = 0.0F;
-        LW_ctrl_241029_1_DW.tau_omegak[2] = LW_ctrl_241029_1_B.d_est[2];
-
-        /* '<S420>:1:162' tau_qk = qm; */
-        LW_ctrl_241029_1_DW.tau_qk[0] = LW_ctrl_241029_1_B.qm[0];
-        LW_ctrl_241029_1_DW.tau_qk[1] = LW_ctrl_241029_1_B.qm[1];
-        LW_ctrl_241029_1_DW.tau_qk[2] = LW_ctrl_241029_1_B.qm[2];
-        LW_ctrl_241029_1_DW.tau_qk[3] = LW_ctrl_241029_1_B.qm[3];
-      }
-
-      LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.Xi_e[1];
-      q = LW_ctrl_241029_1_B.Xi_e[0];
-      LW_ctrl_241029_1_B.b_c = LW_ctrl_241029_1_B.Xi_e[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.IntegralGain = ((real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 3] * LW_ctrl_241029_1_B.DeadZone_p
-          + (real32_T)LW_ctrl_241029_1_ConstP.pooled1[i] * q) + (real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 6] * LW_ctrl_241029_1_B.b_c;
-        LW_ctrl_241029_1_B.d_est_j[i] = LW_ctrl_241029_1_B.IntegralGain;
-
-        /* MATLAB Function: '<S419>/Lowpass' */
-        LW_ctrl_241029_1_B.d_est[i] = LW_ctrl_241029_1_B.IntegralGain;
-      }
-
-      /* MATLAB Function: '<S419>/Lowpass' */
-      /*  LW_TEST_DT = dt/(dt + Ts) */
-      /*  其中dt是采样周期，Ts是低通滤波器的时间常数 */
-      /*  截止频率f = 1/Ts/2pi Hz */
-      /*  如 dt=0.004, f=30Hz , LW_TEST_DT=0.43 */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/Lowpass': '<S422>:1' */
-      /* '<S422>:1:7' if isempty(d_est_last) */
-      if (!LW_ctrl_241029_1_DW.d_est_last_not_empty_j) {
-        /* '<S422>:1:8' d_est_last = d_est; */
-        LW_ctrl_241029_1_DW.d_est_last_f[0] = LW_ctrl_241029_1_B.d_est[0];
-        LW_ctrl_241029_1_DW.d_est_last_f[1] = LW_ctrl_241029_1_B.d_est[1];
-        LW_ctrl_241029_1_DW.d_est_last_f[2] = LW_ctrl_241029_1_B.d_est[2];
-        LW_ctrl_241029_1_DW.d_est_last_not_empty_j = true;
-      }
-
-      /* '<S422>:1:10' if isInfNan(d_est_last) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'isInfNan:4' for ii = 1:length(data) */
-      i = 0;
-      exitg1 = false;
-      while ((!exitg1) && (i < 3)) {
-        /* 'isInfNan:5' if isinf(data(ii)) || isnan(data(ii)) */
-        if (rtIsInfF(LW_ctrl_241029_1_DW.d_est_last_f[i]) || rtIsNaNF
-            (LW_ctrl_241029_1_DW.d_est_last_f[i])) {
-          /* 'isInfNan:6' y = true; */
-          rtb_RelationalOperator_om = true;
-          exitg1 = true;
-        } else {
-          /* 'isInfNan:8' else */
-          /* 'isInfNan:9' y = false; */
-          rtb_RelationalOperator_om = false;
-          i++;
-        }
-      }
-
-      if (rtb_RelationalOperator_om) {
-        /* '<S422>:1:11' d_est_last = single([0;0;0]); */
-        LW_ctrl_241029_1_DW.d_est_last_f[0] = 0.0F;
-        LW_ctrl_241029_1_DW.d_est_last_f[1] = 0.0F;
-        LW_ctrl_241029_1_DW.d_est_last_f[2] = 0.0F;
-      }
-
-      /* '<S422>:1:13' d_est(1:2) = d_est_last(1:2) + LW_TEST_DTXY*(d_est(1:2) - d_est_last(1:2)); */
-      LW_ctrl_241029_1_B.d_est_j[0] = (LW_ctrl_241029_1_B.d_est_j[0] -
-        LW_ctrl_241029_1_DW.d_est_last_f[0]) * LW_TEST_DTXY +
-        LW_ctrl_241029_1_DW.d_est_last_f[0];
-      LW_ctrl_241029_1_B.d_est_j[1] = (LW_ctrl_241029_1_B.d_est_j[1] -
-        LW_ctrl_241029_1_DW.d_est_last_f[1]) * LW_TEST_DTXY +
-        LW_ctrl_241029_1_DW.d_est_last_f[1];
-
-      /* '<S422>:1:14' d_est(3) = d_est_last(3) + LW_TEST_DTZ*(d_est(3) - d_est_last(3)); */
-      LW_ctrl_241029_1_B.d_est_j[2] = (LW_ctrl_241029_1_B.d_est_j[2] -
-        LW_ctrl_241029_1_DW.d_est_last_f[2]) * LW_TEST_DTZ +
-        LW_ctrl_241029_1_DW.d_est_last_f[2];
-
-      /* '<S422>:1:16' d_est_last = d_est; */
-      LW_ctrl_241029_1_DW.d_est_last_f[0] = LW_ctrl_241029_1_B.d_est_j[0];
-
-      /* SignalConversion generated from: '<S419>/Constant' incorporates:
-       *  Constant: '<S419>/Constant'
-       */
-      LW_ctrl_241029_1_B.v_wind[0] = 0.0F;
-
-      /* MATLAB Function: '<S419>/Lowpass' */
-      LW_ctrl_241029_1_DW.d_est_last_f[1] = LW_ctrl_241029_1_B.d_est_j[1];
-
-      /* SignalConversion generated from: '<S419>/Constant' incorporates:
-       *  Constant: '<S419>/Constant'
-       */
-      LW_ctrl_241029_1_B.v_wind[1] = 0.0F;
-
-      /* MATLAB Function: '<S419>/Lowpass' */
-      LW_ctrl_241029_1_DW.d_est_last_f[2] = LW_ctrl_241029_1_B.d_est_j[2];
-
-      /* SignalConversion generated from: '<S419>/Constant' incorporates:
-       *  Constant: '<S419>/Constant'
-       */
-      LW_ctrl_241029_1_B.v_wind[2] = 0.0F;
-
       /* MATLAB Function: '<S419>/nan_inf' */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/getIncid': '<S424>:1' */
-      /* '<S424>:1:3' if notInfNan(q) */
-      /* ISINFNAN 此处显示有关此函数的摘要 */
-      /*    Data is a vector. */
-      /* 'notInfNan:4' y = false; */
-      /* 'notInfNan:5' for ii = 1:length(data) */
-      /* '<S424>:1:8' theta = euler(2); */
-      /* '<S424>:1:9' alpha = theta + LW_ANGLE*pi/180; */
-      /* '<S424>:1:10' beta = single(0); */
-      /* '<S424>:1:11' incid = [alpha; beta]; */
       LW_ctrl_241029_1_nan_inf(LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.x,
         LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.y,
         LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.z,
@@ -5310,6 +3952,137 @@ void LW_ctrl_241029_1_step(void)
         }
       }
 
+      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
+      {
+        //interval val: 0
+        bool updated;
+        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd,
+                  &updated);
+        if (updated) {
+          /* obtained uorb data */
+          /* copy sensors raw data into local buffer */
+          orb_copy(ORB_ID(costom_lw_mixer),
+                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd,
+                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger7);
+        }
+      }
+
+      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger' */
+      {
+        //interval val: 0
+        bool updated;
+        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger_u_a.fd,
+                  &updated);
+        if (updated) {
+          /* obtained uorb data */
+          /* copy sensors raw data into local buffer */
+          orb_copy(ORB_ID(vehicle_attitude),
+                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger_u_a.fd,
+                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d);
+        }
+      }
+
+      /* SignalConversion generated from: '<S419>/Constant3' incorporates:
+       *  Constant: '<S419>/Constant3'
+       */
+      LW_ctrl_241029_1_B.dm_est[0] = 0.0F;
+
+      /* SignalConversion generated from: '<S419>/Constant' incorporates:
+       *  Constant: '<S419>/Constant'
+       */
+      LW_ctrl_241029_1_B.v_wind[0] = 0.0F;
+
+      /* SignalConversion generated from: '<S419>/Constant3' incorporates:
+       *  Constant: '<S419>/Constant3'
+       */
+      LW_ctrl_241029_1_B.dm_est[1] = 0.0F;
+
+      /* SignalConversion generated from: '<S419>/Constant' incorporates:
+       *  Constant: '<S419>/Constant'
+       */
+      LW_ctrl_241029_1_B.v_wind[1] = 0.0F;
+
+      /* SignalConversion generated from: '<S419>/Constant3' incorporates:
+       *  Constant: '<S419>/Constant3'
+       */
+      LW_ctrl_241029_1_B.dm_est[2] = 0.0F;
+
+      /* SignalConversion generated from: '<S419>/Constant' incorporates:
+       *  Constant: '<S419>/Constant'
+       */
+      LW_ctrl_241029_1_B.v_wind[2] = 0.0F;
+
+      /* S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger1' */
+      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/getIncid': '<S421>:1' */
+      /* '<S421>:1:3' if notInfNan(q) */
+      /* ISINFNAN 此处显示有关此函数的摘要 */
+      /*    Data is a vector. */
+      /* 'notInfNan:4' y = false; */
+      /* 'notInfNan:5' for ii = 1:length(data) */
+      /* '<S421>:1:8' theta = euler(2); */
+      /* '<S421>:1:9' alpha = theta + LW_ANGLE*pi/180; */
+      /* '<S421>:1:10' beta = single(0); */
+      /* '<S421>:1:11' incid = [alpha; beta]; */
+      {
+        //interval val: 0
+        bool updated;
+        orb_check(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger1_uO.fd,
+                  &updated);
+        if (updated) {
+          /* obtained uorb data */
+          /* copy sensors raw data into local buffer */
+          orb_copy(ORB_ID(vehicle_angular_velocity),
+                   LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger1_uO.fd,
+                   &LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1);
+        }
+      }
+
+      /* MATLAB Function: '<S419>/nan_inf0' */
+      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf0': '<S423>:1' */
+      /* '<S423>:1:3' for i = 1:length(u) */
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.y_e[LW_ctrl_241029_1_B.i] =
+          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1.xyz[LW_ctrl_241029_1_B.i];
+
+        /* '<S423>:1:4' if isnan(u(i)) || isinf(u(i)) */
+        if (rtIsNaNF(LW_ctrl_241029_1_B.y_e[LW_ctrl_241029_1_B.i]) || rtIsInfF
+            (LW_ctrl_241029_1_B.y_e[LW_ctrl_241029_1_B.i])) {
+          /* '<S423>:1:5' u(i) = single(0); */
+          LW_ctrl_241029_1_B.y_e[LW_ctrl_241029_1_B.i] = 0.0F;
+        }
+      }
+
+      /* End of MATLAB Function: '<S419>/nan_inf0' */
+
+      /* MATLAB Function: '<S419>/nan_inf_q' incorporates:
+       *  Math: '<S419>/Math Function'
+       */
+      /* '<S423>:1:8' y = u(:); */
+      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf_q': '<S425>:1' */
+      /* '<S425>:1:3' for i = 1:length(u) */
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 4;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.y[LW_ctrl_241029_1_B.i] =
+          LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger_d.q[LW_ctrl_241029_1_B.i];
+
+        /* '<S425>:1:4' if isnan(u(i)) || isinf(u(i)) */
+        if (rtIsNaNF(LW_ctrl_241029_1_B.y[LW_ctrl_241029_1_B.i]) || rtIsInfF
+            (LW_ctrl_241029_1_B.y[LW_ctrl_241029_1_B.i])) {
+          /* '<S425>:1:5' if i == 1 */
+          if (LW_ctrl_241029_1_B.i + 1 == 1) {
+            /* '<S425>:1:6' u(i) = single(1); */
+            LW_ctrl_241029_1_B.y[LW_ctrl_241029_1_B.i] = 1.0F;
+          } else {
+            /* '<S425>:1:7' else */
+            /* '<S425>:1:8' u(i) = single(0); */
+            LW_ctrl_241029_1_B.y[LW_ctrl_241029_1_B.i] = 0.0F;
+          }
+        }
+      }
+
+      /* End of MATLAB Function: '<S419>/nan_inf_q' */
+
       /* S-Function (sfun_px4_update_mtd_params): '<S419>/ParamUpdate'
        *
        * Block description for '<S419>/ParamUpdate':
@@ -5317,8 +4090,9 @@ void LW_ctrl_241029_1_step(void)
        *
        *  Use this block at your top-level of your model to insert a "parameter update" function in the generated code.
        */
-      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/LW_LED': '<S421>:1' */
-      /* '<S421>:1:3' y = [LW_LED 0 0]; */
+      /* '<S425>:1:12' y = u; */
+      /* MATLAB Function 'states_update/vehicle_local_position/HIL&FLY V1.13.3/LW_LED': '<S420>:1' */
+      /* '<S420>:1:3' y = [LW_LED 0 0]; */
       {
         bool updated_params = false;
         orb_check(LW_ctrl_241029_1_DW.ParamUpdate_uORB_fd.fd,&updated_params);
@@ -5482,10 +4256,6 @@ void LW_ctrl_241029_1_step(void)
         }
       }
 
-      /* Update for Memory: '<S425>/Memory' */
-      LW_ctrl_241029_1_DW.Memory_PreviousInput =
-        LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger1.timestamp;
-
       /* End of Outputs for SubSystem: '<Root>/states_update' */
     }
 
@@ -5516,9 +4286,7 @@ void LW_ctrl_241029_1_step(void)
       /* '<S13>:1:7' y = u; */
       rtb_RelationalOperator_om = (LW_ctrl_241029_1_B.arm == ARM);
 
-      /* MATLAB Function: '<S15>/MATLAB Function' incorporates:
-       *  MATLAB Function: '<S11>/MATLAB Function1'
-       */
+      /* MATLAB Function: '<S15>/MATLAB Function' */
       /* MATLAB Function 'Controller/PID_Controller/PID_Controller/select parameter/MATLAB Function': '<S358>:1' */
       /* '<S358>:1:3' y = my_quat2eul(u); */
       /* MY_QUAT2EUL Convert quaternion to Euler angles, modified from quat2eul.m */
@@ -5537,16 +4305,19 @@ void LW_ctrl_241029_1_step(void)
       /*  end */
       /* q = q ./ norm_q; */
       /* 'my_quat2eul:20' q = robotics.internal.normalizeRows(q); */
-      LW_ctrl_241029_1_B.FilterCoefficient_k = ((LW_ctrl_241029_1_B.y[0] *
-        LW_ctrl_241029_1_B.y[0] + LW_ctrl_241029_1_B.y[1] *
-        LW_ctrl_241029_1_B.y[1]) + LW_ctrl_241029_1_B.y[2] *
-        LW_ctrl_241029_1_B.y[2]) + LW_ctrl_241029_1_B.y[3] *
-        LW_ctrl_241029_1_B.y[3];
-      Filter_o5 = 1.0F / (real32_T)sqrt(LW_ctrl_241029_1_B.FilterCoefficient_k);
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_B.y[0] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[1] = LW_ctrl_241029_1_B.y[1] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[2] = LW_ctrl_241029_1_B.y[2] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[3] = LW_ctrl_241029_1_B.y[3] * Filter_o5;
+      LW_ctrl_241029_1_B.aSinInput = 1.0F / (real32_T)sqrt
+        (((LW_ctrl_241029_1_B.y[0] * LW_ctrl_241029_1_B.y[0] +
+           LW_ctrl_241029_1_B.y[1] * LW_ctrl_241029_1_B.y[1]) +
+          LW_ctrl_241029_1_B.y[2] * LW_ctrl_241029_1_B.y[2]) +
+         LW_ctrl_241029_1_B.y[3] * LW_ctrl_241029_1_B.y[3]);
+      LW_ctrl_241029_1_B.q_c[0] = LW_ctrl_241029_1_B.y[0] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[1] = LW_ctrl_241029_1_B.y[1] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[2] = LW_ctrl_241029_1_B.y[2] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[3] = LW_ctrl_241029_1_B.y[3] *
+        LW_ctrl_241029_1_B.aSinInput;
 
       /* 'my_quat2eul:22' qw = q(1); */
       /* 'my_quat2eul:23' qx = q(2); */
@@ -5558,9 +4329,9 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_quat2eul:30' switch upperSeq */
       /* 'my_quat2eul:72' case 'ZXY' */
       /* 'my_quat2eul:73' aSinInput = 2 * (qy .* qz + qw .* qx); */
-      LW_ctrl_241029_1_B.aSinInput = (LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qk_[3] + LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[1]) * 2.0F;
+      LW_ctrl_241029_1_B.aSinInput = (LW_ctrl_241029_1_B.q_c[2] *
+        LW_ctrl_241029_1_B.q_c[3] + LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[1]) * 2.0F;
 
       /* 'my_quat2eul:74' if aSinInput > 1 */
       if (LW_ctrl_241029_1_B.aSinInput > 1.0F) {
@@ -5577,22 +4348,22 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_quat2eul:82'             atan2( -2 * (qx .* qy - qw .* qz), qw .^ 2 - qx .^ 2 + qy .^ 2 - qz .^ 2 )]; */
       /*  Check for complex numbers */
       /* 'my_quat2eul:93' if ~isreal(eul) */
-      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[0] - LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[1];
-      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qk_[2];
-      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.qk_[3] *
-        LW_ctrl_241029_1_B.qk_[3];
-      LW_ctrl_241029_1_B.T3 = rt_atan2f_snf((LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[2] - LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[3]) * -2.0F, (rtb_FilterCoefficient_jy_tmp +
-        LW_ctrl_241029_1_B.T1) - LW_ctrl_241029_1_B.T2);
-      LW_ctrl_241029_1_B.d_est[0] = (real32_T)asin(LW_ctrl_241029_1_B.aSinInput);
-      LW_ctrl_241029_1_B.d_est[1] = rt_atan2f_snf((LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[3] - LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[2]) * -2.0F, (rtb_FilterCoefficient_jy_tmp -
-        LW_ctrl_241029_1_B.T1) + LW_ctrl_241029_1_B.T2);
+      LW_ctrl_241029_1_B.T1 = (real32_T)asin(LW_ctrl_241029_1_B.aSinInput);
+      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[0] - LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[1];
+      LW_ctrl_241029_1_B.dt = LW_ctrl_241029_1_B.q_c[2] *
+        LW_ctrl_241029_1_B.q_c[2];
+      LW_ctrl_241029_1_B.Integrator_b = LW_ctrl_241029_1_B.q_c[3] *
+        LW_ctrl_241029_1_B.q_c[3];
+      LW_ctrl_241029_1_B.T2 = rt_atan2f_snf((LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[3] - LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[2]) * -2.0F, (LW_ctrl_241029_1_B.IntegralGain -
+        LW_ctrl_241029_1_B.dt) + LW_ctrl_241029_1_B.Integrator_b);
+      LW_ctrl_241029_1_B.dt = rt_atan2f_snf((LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[2] - LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[3]) * -2.0F, (LW_ctrl_241029_1_B.IntegralGain +
+        LW_ctrl_241029_1_B.dt) - LW_ctrl_241029_1_B.Integrator_b);
 
       /* MATLAB Function: '<S14>/pos_ctrl_integral_reset1' incorporates:
        *  MATLAB Function: '<S14>/pos_ctrl_integral_reset2'
@@ -5605,25 +4376,29 @@ void LW_ctrl_241029_1_step(void)
       /* '<S190>:1:5'          0, 0, 1]; */
       /*  转换速度 */
       /* '<S190>:1:8' v_body = R * [v_ned(1);v_ned(2);v_ned(3)]; */
-      LW_ctrl_241029_1_B.km_f_b = (real32_T)sin(LW_ctrl_241029_1_B.T3);
-      LW_ctrl_241029_1_B.Va_ = (real32_T)cos(LW_ctrl_241029_1_B.T3);
-      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_B.IntegralGain = (real32_T)sin(LW_ctrl_241029_1_B.dt);
+      LW_ctrl_241029_1_B.Integrator_b = (real32_T)cos(LW_ctrl_241029_1_B.dt);
+      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.Integrator_b;
+      LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.IntegralGain;
       LW_ctrl_241029_1_B.Rbe_psi[6] = 0.0F;
-      LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.km_f_b;
-      LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.Va_;
+      LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.IntegralGain;
+      LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.Integrator_b;
       LW_ctrl_241029_1_B.Rbe_psi[7] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[2] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[5] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[8] = 1.0F;
       LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[0];
-      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[1];
-      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.Xi_e[i] = (LW_ctrl_241029_1_B.Rbe_psi[i + 3] *
-          LW_ctrl_241029_1_B.T1 + LW_ctrl_241029_1_B.Rbe_psi[i] *
-          LW_ctrl_241029_1_B.time_to_stop) + LW_ctrl_241029_1_B.Rbe_psi[i + 6] *
-          LW_ctrl_241029_1_B.T2;
+      LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[1];
+      LW_ctrl_241029_1_B.T4 = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[2];
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.v_body_e[LW_ctrl_241029_1_B.i] =
+          (LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3] *
+           LW_ctrl_241029_1_B.T3 +
+           LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] *
+           LW_ctrl_241029_1_B.time_to_stop) +
+          LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6] *
+          LW_ctrl_241029_1_B.T4;
       }
 
       /* End of MATLAB Function: '<S14>/pos_ctrl_integral_reset1' */
@@ -5663,8 +4438,8 @@ void LW_ctrl_241029_1_step(void)
         /* 'my_quat2yaw:6' euler = my_quat2eul(q, convertStringsToChars(varargin{1})); */
         /* 'my_quat2yaw:9' yaw = euler(3); */
         LW_ctrl_241029_1_my_quat2eul(LW_ctrl_241029_1_B.y,
-          LW_ctrl_241029_1_B.vel_ref_c);
-        LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.vel_ref_c[2];
+          LW_ctrl_241029_1_B.vd_psi);
+        LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.vd_psi[2];
 
         /* 强制旋转次序，很有必要 */
       } else {
@@ -5680,23 +4455,23 @@ void LW_ctrl_241029_1_step(void)
         LW_ctrl_241029_1_DW.timestamp_last_not_empty = true;
 
         /* '<S187>:1:28' dt = single(0.02); */
-        LW_ctrl_241029_1_B.IntegralGain = 0.02F;
+        LW_ctrl_241029_1_B.dt = 0.02F;
       } else {
         /* '<S187>:1:29' else */
         /* '<S187>:1:30' dt = single((timestamp - timestamp_last)*1e-6); */
-        LW_ctrl_241029_1_B.IntegralGain = (real32_T)
+        LW_ctrl_241029_1_B.dt = (real32_T)
           ((LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.timestamp -
             LW_ctrl_241029_1_DW.timestamp_last) * 1.0E-6);
       }
 
       /* '<S187>:1:32' if dt > 0.2 */
-      if (LW_ctrl_241029_1_B.IntegralGain > 0.2) {
+      if (LW_ctrl_241029_1_B.dt > 0.2) {
         /* '<S187>:1:33' dt = single(0.2); */
-        LW_ctrl_241029_1_B.IntegralGain = 0.2F;
-      } else if (LW_ctrl_241029_1_B.IntegralGain < 0.001) {
+        LW_ctrl_241029_1_B.dt = 0.2F;
+      } else if (LW_ctrl_241029_1_B.dt < 0.001) {
         /* '<S187>:1:34' elseif dt < 0.001 */
         /* '<S187>:1:35' dt = single(0.001); */
-        LW_ctrl_241029_1_B.IntegralGain = 0.001F;
+        LW_ctrl_241029_1_B.dt = 0.001F;
       }
 
       /* '<S187>:1:37' timestamp_last = timestamp; */
@@ -5865,23 +4640,21 @@ void LW_ctrl_241029_1_step(void)
               ((real32_T)fabs(LW_ctrl_241029_1_B.rates_ref[2]) < 0.01)) {
             /* '<S187>:1:100' Euler = my_quat2eul(q,'ZYX'); */
             LW_ctrl_241029_1_my_quat2eul(LW_ctrl_241029_1_B.y,
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro);
+              LW_ctrl_241029_1_B.Euler);
 
             /* '<S187>:1:101' dot_yaw = sin(Euler(1))/cos(Euler(2))*wb(2) + cos(Euler(1))/cos(Euler(2))*wb(3); */
             /* '<S187>:1:102' if LW_YAW_KAD > 0.001 */
             if (LW_YAW_KAD > 0.001) {
               /* '<S187>:1:103' [yaw_d_, dot_yaw_ref] = AdmittanceYaw(dm_est(3), yaw, dot_yaw, dt, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 0); */
-              LW_ctrl_241029_1_B.kappa = (real32_T)cos
-                (LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]);
-              LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.d_est_j[2],
+              LW_ctrl_241029_1_B.vx_d = (real32_T)cos(LW_ctrl_241029_1_B.Euler[1]);
+              LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.dm_est[2],
                 LW_ctrl_241029_1_B.aSinInput, (real32_T)sin
-                (LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0]) /
-                LW_ctrl_241029_1_B.kappa * LW_ctrl_241029_1_B.y_e[1] + (real32_T)
-                cos(LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0]) /
-                LW_ctrl_241029_1_B.kappa * LW_ctrl_241029_1_B.y_e[2],
-                LW_ctrl_241029_1_B.IntegralGain, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP,
-                LW_YAW_KAD, 0.0, &LW_ctrl_241029_1_DW.yaw_d_,
-                &LW_ctrl_241029_1_B.eta_p);
+                (LW_ctrl_241029_1_B.Euler[0]) / LW_ctrl_241029_1_B.vx_d *
+                LW_ctrl_241029_1_B.y_e[1] + (real32_T)cos
+                (LW_ctrl_241029_1_B.Euler[0]) / LW_ctrl_241029_1_B.vx_d *
+                LW_ctrl_241029_1_B.y_e[2], LW_ctrl_241029_1_B.dt, LW_DMZ0,
+                LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 0.0,
+                &LW_ctrl_241029_1_DW.yaw_d_, &LW_ctrl_241029_1_B.vy_d);
 
               /* '<S187>:1:104' wbz_ref = dot_yaw_ref*cos(Euler(1))*cos(Euler(2)); */
               /* '<S187>:1:105' wbz_ref = single(0); */
@@ -5903,16 +4676,15 @@ void LW_ctrl_241029_1_step(void)
           } else {
             /* '<S187>:1:121' else */
             /* '<S187>:1:122' [~, ~] = AdmittanceYaw(dm_est(3), yaw, single(0), dt, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1); */
-            LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.d_est_j[2],
-              LW_ctrl_241029_1_B.aSinInput, 0.0F,
-              LW_ctrl_241029_1_B.IntegralGain, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP,
-              LW_YAW_KAD, 1.0, &LW_ctrl_241029_1_B.kappa,
-              &LW_ctrl_241029_1_B.eta_p);
+            LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.dm_est[2],
+              LW_ctrl_241029_1_B.aSinInput, 0.0F, LW_ctrl_241029_1_B.dt, LW_DMZ0,
+              LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1.0, &LW_ctrl_241029_1_B.vx_d,
+              &LW_ctrl_241029_1_B.vy_d);
 
             /* reset */
             /* '<S187>:1:123' yaw_d_ = yaw_d_ + manual_rates_ref(3) * dt; */
             LW_ctrl_241029_1_DW.yaw_d_ += LW_ctrl_241029_1_B.rates_ref[2] *
-              LW_ctrl_241029_1_B.IntegralGain;
+              LW_ctrl_241029_1_B.dt;
 
             /* 前飞状态允许手控偏航 */
           }
@@ -5934,10 +4706,10 @@ void LW_ctrl_241029_1_step(void)
           LW_ctrl_241029_1_DW.yaw_d_ = LW_ctrl_241029_1_B.aSinInput;
 
           /* '<S187>:1:130' [~, ~] = AdmittanceYaw(dm_est(3), yaw, single(0), dt, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1); */
-          LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.d_est_j[2],
-            LW_ctrl_241029_1_B.aSinInput, 0.0F, LW_ctrl_241029_1_B.IntegralGain,
-            LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1.0,
-            &LW_ctrl_241029_1_B.kappa, &LW_ctrl_241029_1_B.eta_p);
+          LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.dm_est[2],
+            LW_ctrl_241029_1_B.aSinInput, 0.0F, LW_ctrl_241029_1_B.dt, LW_DMZ0,
+            LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1.0, &LW_ctrl_241029_1_B.vx_d,
+            &LW_ctrl_241029_1_B.vy_d);
 
           /* reset */
         }
@@ -5966,8 +4738,8 @@ void LW_ctrl_241029_1_step(void)
           /* 'my_quat2yaw:6' euler = my_quat2eul(q, convertStringsToChars(varargin{1})); */
           /* 'my_quat2yaw:9' yaw = euler(3); */
           LW_ctrl_241029_1_my_quat2eul(LW_ctrl_241029_1_B.q,
-            LW_ctrl_241029_1_B.vel_ref_c);
-          LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.vel_ref_c[2];
+            LW_ctrl_241029_1_B.vd_psi);
+          LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.vd_psi[2];
 
           /* 已经经过了reset补偿 */
         } else {
@@ -5982,13 +4754,13 @@ void LW_ctrl_241029_1_step(void)
         /* '<S187>:1:149' Rbe_psi = [ cos(yaw_d_) sin(yaw_d_) 0; */
         /* '<S187>:1:150'         -sin(yaw_d_) cos(yaw_d_) 0; */
         /* '<S187>:1:151'         0        0        1]; */
-        LW_ctrl_241029_1_B.kappa = (real32_T)sin(LW_ctrl_241029_1_DW.yaw_d_);
-        LW_ctrl_241029_1_B.eta_p = (real32_T)cos(LW_ctrl_241029_1_DW.yaw_d_);
-        LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.eta_p;
-        LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.kappa;
+        LW_ctrl_241029_1_B.vx_d = (real32_T)sin(LW_ctrl_241029_1_DW.yaw_d_);
+        LW_ctrl_241029_1_B.vy_d = (real32_T)cos(LW_ctrl_241029_1_DW.yaw_d_);
+        LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.vy_d;
+        LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.vx_d;
         LW_ctrl_241029_1_B.Rbe_psi[6] = 0.0F;
-        LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.kappa;
-        LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.eta_p;
+        LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.vx_d;
+        LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.vy_d;
         LW_ctrl_241029_1_B.Rbe_psi[7] = 0.0F;
         LW_ctrl_241029_1_B.Rbe_psi[2] = 0.0F;
         LW_ctrl_241029_1_B.Rbe_psi[5] = 0.0F;
@@ -6001,15 +4773,18 @@ void LW_ctrl_241029_1_step(void)
             LW_ctrl_241029_1_notInfNan_p(LW_ctrl_241029_1_B.sf_nan_inf1_f.y) &&
             LW_ctrl_241029_1_notInfNan_p(LW_ctrl_241029_1_B.vel_ref)) {
           /* '<S187>:1:155' vehicle_vel_psi = Rbe_psi*vehicle_vel; */
-          LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[1];
-          LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[0];
-          LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[2];
-          for (i = 0; i < 3; i++) {
-            LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] =
-              (LW_ctrl_241029_1_B.Rbe_psi[i + 3] * LW_ctrl_241029_1_B.kappa +
-               LW_ctrl_241029_1_B.Rbe_psi[i] * LW_ctrl_241029_1_B.theta) +
-              LW_ctrl_241029_1_B.Rbe_psi[i + 6] *
-              LW_ctrl_241029_1_B.time_to_stop;
+          LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[1];
+          LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[0];
+          LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.sf_nan_inf1_f.y[2];
+          for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+               LW_ctrl_241029_1_B.i++) {
+            LW_ctrl_241029_1_B.Euler[LW_ctrl_241029_1_B.i] =
+              (LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3] *
+               LW_ctrl_241029_1_B.vx_d +
+               LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] *
+               LW_ctrl_241029_1_B.vz_d) +
+              LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6] *
+              LW_ctrl_241029_1_B.vy_d;
           }
 
           /* '<S187>:1:156' if ctrl_mode == ControlMode.STABILIZED || ctrl_mode == ControlMode.ACRO || ctrl_mode == ControlMode.MANUAL */
@@ -6055,16 +4830,13 @@ void LW_ctrl_241029_1_step(void)
               LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.timestamp;
 
             /* '<S187>:1:162' vx_d = vehicle_vel_psi(1); */
-            LW_ctrl_241029_1_B.kappa =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
+            LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.Euler[0];
 
             /* '<S187>:1:162' vy_d = vehicle_vel_psi(2); */
-            LW_ctrl_241029_1_B.eta_p =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
+            LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.Euler[1];
 
             /* '<S187>:1:162' vz_d = vehicle_vel_psi(3); */
-            LW_ctrl_241029_1_B.theta =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
+            LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.Euler[2];
           } else if (LW_ctrl_241029_1_B.ctrl_mode == ALTITUDE) {
             /* '<S187>:1:163' elseif ctrl_mode == ControlMode.ALTITUDE */
             /* '<S187>:1:164' pos_x1 = vehicle_pos(1); */
@@ -6090,12 +4862,10 @@ void LW_ctrl_241029_1_step(void)
               LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.timestamp;
 
             /* '<S187>:1:169' vx_d = vehicle_vel_psi(1); */
-            LW_ctrl_241029_1_B.kappa =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
+            LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.Euler[0];
 
             /* '<S187>:1:169' vy_d = vehicle_vel_psi(2); */
-            LW_ctrl_241029_1_B.eta_p =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
+            LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.Euler[1];
 
             /* 判断是否需要定高 */
             /* '<S187>:1:171' if abs(manual_vel_ref(3)) < 0.001 && abs(vehicle_vel(3)) <= 0.8 */
@@ -6163,17 +4933,16 @@ void LW_ctrl_241029_1_step(void)
             }
 
             /* '<S187>:1:196' vz_d = manual_vel_ref(3); */
-            LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.vel_ref[2];
+            LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.vel_ref[2];
           } else {
             /* '<S187>:1:197' else */
             /* position mode */
             /* '<S187>:1:198' if abs(manual_vel_ref(1)) < 0.001 && abs(vehicle_vel_psi(1)) <= 0.8 && ... */
             /* '<S187>:1:199'                     abs(manual_vel_ref(2)) < 0.001 && abs(vehicle_vel_psi(2)) <= 0.8 */
             if (((real32_T)fabs(LW_ctrl_241029_1_B.vel_ref[0]) < 0.001) &&
-                ((real32_T)fabs(LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0])
-                 <= 0.8) && ((real32_T)fabs(LW_ctrl_241029_1_B.vel_ref[1]) <
-                             0.001) && ((real32_T)fabs
-                 (LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) <= 0.8)) {
+                ((real32_T)fabs(LW_ctrl_241029_1_B.Euler[0]) <= 0.8) &&
+                ((real32_T)fabs(LW_ctrl_241029_1_B.vel_ref[1]) < 0.001) &&
+                ((real32_T)fabs(LW_ctrl_241029_1_B.Euler[1]) <= 0.8)) {
               /* '<S187>:1:200' want_hold_xy = true; */
               want_hold_xy = true;
             } else {
@@ -6226,13 +4995,13 @@ void LW_ctrl_241029_1_step(void)
             }
 
             /* '<S187>:1:217' vx_d = manual_vel_ref(1); */
-            LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.vel_ref[0];
+            LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.vel_ref[0];
 
             /* '<S187>:1:217' vy_d = manual_vel_ref(2); */
-            LW_ctrl_241029_1_B.eta_p = LW_ctrl_241029_1_B.vel_ref[1];
+            LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.vel_ref[1];
 
             /* '<S187>:1:218' vz_d = manual_vel_ref(3); */
-            LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.vel_ref[2];
+            LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.vel_ref[2];
 
             /* 对手动期望速度进行平滑 */
             /*              [vd_smoothed, ~] = TD_3DVector([vx_d;vy_d;vz_d], [lw_acc_xy_max;lw_acc_xy_max;lw_acc_z_max]*1.2, dt); */
@@ -6340,9 +5109,9 @@ void LW_ctrl_241029_1_step(void)
           }
 
           /* '<S187>:1:270' vel_ref = [vx_d; vy_d; vz_d]; */
-          LW_ctrl_241029_1_B.vel_ref_kk[0] = LW_ctrl_241029_1_B.kappa;
-          LW_ctrl_241029_1_B.vel_ref_kk[1] = LW_ctrl_241029_1_B.eta_p;
-          LW_ctrl_241029_1_B.vel_ref_kk[2] = LW_ctrl_241029_1_B.theta;
+          LW_ctrl_241029_1_B.vel_ref_kk[0] = LW_ctrl_241029_1_B.vx_d;
+          LW_ctrl_241029_1_B.vel_ref_kk[1] = LW_ctrl_241029_1_B.vy_d;
+          LW_ctrl_241029_1_B.vel_ref_kk[2] = LW_ctrl_241029_1_B.vz_d;
 
           /* 航向坐标系下的期望速度 */
           /* '<S187>:1:271' pos_ref = [pos_x1; pos_y1; pos_z1]; */
@@ -6354,13 +5123,16 @@ void LW_ctrl_241029_1_step(void)
           /* '<S187>:1:274' delta_v = Rbe_psi *[delta_vxy;delta_vz]; */
           LW_ctrl_241029_1_B.time_to_stop =
             LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.delta_vxy[0];
-          LW_ctrl_241029_1_B.T1 =
+          LW_ctrl_241029_1_B.T3 =
             LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.delta_vxy[1];
-          for (i = 0; i < 3; i++) {
-            LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] =
-              (LW_ctrl_241029_1_B.Rbe_psi[i + 3] * LW_ctrl_241029_1_B.T1 +
-               LW_ctrl_241029_1_B.Rbe_psi[i] * LW_ctrl_241029_1_B.time_to_stop)
-              + LW_ctrl_241029_1_B.Rbe_psi[i + 6] *
+          for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+               LW_ctrl_241029_1_B.i++) {
+            LW_ctrl_241029_1_B.Euler[LW_ctrl_241029_1_B.i] =
+              (LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3] *
+               LW_ctrl_241029_1_B.T3 +
+               LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] *
+               LW_ctrl_241029_1_B.time_to_stop) +
+              LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6] *
               LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.delta_vz;
           }
 
@@ -6370,32 +5142,32 @@ void LW_ctrl_241029_1_step(void)
           {
             /* 'my_norm:2' x = x(:); */
             /* 'my_norm:3' x_norm = sqrt(x'*x); */
-            LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.kappa -
+            LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.vx_d -
               LW_ctrl_241029_1_B.sf_nan_inf1_f.y[0];
             LW_ctrl_241029_1_B.delta_t = LW_ctrl_241029_1_B.time_to_stop *
               LW_ctrl_241029_1_B.time_to_stop;
-            LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.eta_p -
+            LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.vy_d -
               LW_ctrl_241029_1_B.sf_nan_inf1_f.y[1];
             if ((real32_T)sqrt(LW_ctrl_241029_1_B.time_to_stop *
                                LW_ctrl_241029_1_B.time_to_stop +
                                LW_ctrl_241029_1_B.delta_t) > 0.001) {
               /* '<S187>:1:276' vel_ref(1:2) = vel_ref(1:2) + delta_v(1:2); */
-              LW_ctrl_241029_1_B.vel_ref_kk[0] = LW_ctrl_241029_1_B.kappa +
-                LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-              LW_ctrl_241029_1_B.vel_ref_kk[1] = LW_ctrl_241029_1_B.eta_p +
-                LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
+              LW_ctrl_241029_1_B.vel_ref_kk[0] = LW_ctrl_241029_1_B.vx_d +
+                LW_ctrl_241029_1_B.Euler[0];
+              LW_ctrl_241029_1_B.vel_ref_kk[1] = LW_ctrl_241029_1_B.vy_d +
+                LW_ctrl_241029_1_B.Euler[1];
             }
           }
 
           /* '<S187>:1:278' if vz_reset_counter_ ~= vz_reset_counter && abs(vel_ref(3) - vehicle_vel(3)) > 0.001 */
           if ((LW_ctrl_241029_1_DW.vz_reset_counter_ !=
                LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.vz_reset_counter)
-              && ((real32_T)fabs(LW_ctrl_241029_1_B.theta -
+              && ((real32_T)fabs(LW_ctrl_241029_1_B.vz_d -
                                  LW_ctrl_241029_1_B.sf_nan_inf1_f.y[2]) > 0.001))
           {
             /* '<S187>:1:279' vel_ref(3) = vel_ref(3) +  delta_v(3); */
-            LW_ctrl_241029_1_B.vel_ref_kk[2] = LW_ctrl_241029_1_B.theta +
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
+            LW_ctrl_241029_1_B.vel_ref_kk[2] = LW_ctrl_241029_1_B.vz_d +
+              LW_ctrl_241029_1_B.Euler[2];
           }
 
           /* '<S187>:1:281' if xy_reset_counter_ ~= xy_reset_counter && my_norm(pos_ref(1:2) - vehicle_pos(1:2)) > 0.001 */
@@ -6553,28 +5325,27 @@ void LW_ctrl_241029_1_step(void)
 
         /*     %% position control */
         /* '<S187>:1:329' vel_fb = (pos_ref - vehicle_pos).* [LW_X_P; LW_Y_P; LW_Z_P]; */
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] =
-          (LW_ctrl_241029_1_B.pos_ref_lq[0] - LW_ctrl_241029_1_B.sf_nan_inf.y[0])
-          * LW_X_P;
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] =
-          (LW_ctrl_241029_1_B.pos_ref_lq[1] - LW_ctrl_241029_1_B.sf_nan_inf.y[1])
-          * LW_Y_P;
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2] =
-          (LW_ctrl_241029_1_B.pos_ref_lq[2] - LW_ctrl_241029_1_B.sf_nan_inf.y[2])
-          * LW_Z_P;
+        LW_ctrl_241029_1_B.Euler[0] = (LW_ctrl_241029_1_B.pos_ref_lq[0] -
+          LW_ctrl_241029_1_B.sf_nan_inf.y[0]) * LW_X_P;
+        LW_ctrl_241029_1_B.Euler[1] = (LW_ctrl_241029_1_B.pos_ref_lq[1] -
+          LW_ctrl_241029_1_B.sf_nan_inf.y[1]) * LW_Y_P;
+        LW_ctrl_241029_1_B.Euler[2] = (LW_ctrl_241029_1_B.pos_ref_lq[2] -
+          LW_ctrl_241029_1_B.sf_nan_inf.y[2]) * LW_Z_P;
 
         /* '<S187>:1:330' vd_psi = Rbe_psi *vel_fb + vel_ref; */
-        LW_ctrl_241029_1_B.kappa =
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
-        LW_ctrl_241029_1_B.theta =
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-        LW_ctrl_241029_1_B.time_to_stop =
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
-        for (i = 0; i < 3; i++) {
-          LW_ctrl_241029_1_B.vd_psi[i] = ((LW_ctrl_241029_1_B.Rbe_psi[i + 3] *
-            LW_ctrl_241029_1_B.kappa + LW_ctrl_241029_1_B.Rbe_psi[i] *
-            LW_ctrl_241029_1_B.theta) + LW_ctrl_241029_1_B.Rbe_psi[i + 6] *
-            LW_ctrl_241029_1_B.time_to_stop) + LW_ctrl_241029_1_B.vel_ref_kk[i];
+        LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.Euler[1];
+        LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.Euler[0];
+        LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.Euler[2];
+        for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+             LW_ctrl_241029_1_B.i++) {
+          LW_ctrl_241029_1_B.vd_psi[LW_ctrl_241029_1_B.i] =
+            ((LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3] *
+              LW_ctrl_241029_1_B.vx_d +
+              LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] *
+              LW_ctrl_241029_1_B.vz_d) +
+             LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6] *
+             LW_ctrl_241029_1_B.vy_d) +
+            LW_ctrl_241029_1_B.vel_ref_kk[LW_ctrl_241029_1_B.i];
         }
 
         /* 手控模式下参考速度vel_ref是航向坐标系下的 */
@@ -6584,8 +5355,7 @@ void LW_ctrl_241029_1_step(void)
           /* '<S187>:1:332' if vel_ref(2) < 1e-3 */
           if (LW_ctrl_241029_1_B.vel_ref_kk[1] < 0.001) {
             /* '<S187>:1:333' vd_psi(2) = vel_fb(2); */
-            LW_ctrl_241029_1_B.vd_psi[1] =
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
+            LW_ctrl_241029_1_B.vd_psi[1] = LW_ctrl_241029_1_B.Euler[1];
           } else {
             /* '<S187>:1:334' else */
             /* 对圆轨迹跟踪，d为半径误差 */
@@ -6596,22 +5366,28 @@ void LW_ctrl_241029_1_step(void)
         }
 
         /* '<S187>:1:340' vd_lim = Rbe_psi'*vd_psi; */
-        for (i = 0; i < 3; i++) {
-          LW_ctrl_241029_1_B.vd_lim_tmp[3 * i] = LW_ctrl_241029_1_B.Rbe_psi[i];
-          LW_ctrl_241029_1_B.vd_lim_tmp[3 * i + 1] =
-            LW_ctrl_241029_1_B.Rbe_psi[i + 3];
-          LW_ctrl_241029_1_B.vd_lim_tmp[3 * i + 2] =
-            LW_ctrl_241029_1_B.Rbe_psi[i + 6];
+        for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+             LW_ctrl_241029_1_B.i++) {
+          LW_ctrl_241029_1_B.vd_lim_tmp[3 * LW_ctrl_241029_1_B.i] =
+            LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i];
+          LW_ctrl_241029_1_B.vd_lim_tmp[3 * LW_ctrl_241029_1_B.i + 1] =
+            LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3];
+          LW_ctrl_241029_1_B.vd_lim_tmp[3 * LW_ctrl_241029_1_B.i + 2] =
+            LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6];
         }
 
-        LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.vd_psi[1];
-        LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.vd_psi[0];
-        LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.vd_psi[2];
-        for (i = 0; i < 3; i++) {
-          LW_ctrl_241029_1_B.z3_[i] = (LW_ctrl_241029_1_B.vd_lim_tmp[i + 3] *
-            LW_ctrl_241029_1_B.kappa + LW_ctrl_241029_1_B.vd_lim_tmp[i] *
-            LW_ctrl_241029_1_B.theta) + LW_ctrl_241029_1_B.vd_lim_tmp[i + 6] *
-            LW_ctrl_241029_1_B.time_to_stop;
+        LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.vd_psi[1];
+        LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.vd_psi[0];
+        LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.vd_psi[2];
+        for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+             LW_ctrl_241029_1_B.i++) {
+          LW_ctrl_241029_1_B.vd_lim[LW_ctrl_241029_1_B.i] =
+            (LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i + 3] *
+             LW_ctrl_241029_1_B.vx_d +
+             LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i] *
+             LW_ctrl_241029_1_B.vz_d) +
+            LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i + 6] *
+            LW_ctrl_241029_1_B.vy_d;
         }
 
         /* 将期望速度转换到NED下 */
@@ -6646,18 +5422,18 @@ void LW_ctrl_241029_1_step(void)
               (LW_ctrl_241029_1_B.flight_mode == AUTO)) {
             /* xy-axis保方向 */
             /* '<S187>:1:348' vd_xy_norm = sqrt(vd_psi(1) * vd_psi(1) + vd_psi(2) * vd_psi(2)); */
-            LW_ctrl_241029_1_B.kappa = (real32_T)sqrt(LW_ctrl_241029_1_B.vd_psi
-              [0] * LW_ctrl_241029_1_B.vd_psi[0] + LW_ctrl_241029_1_B.vd_psi[1] *
+            LW_ctrl_241029_1_B.vx_d = (real32_T)sqrt(LW_ctrl_241029_1_B.vd_psi[0]
+              * LW_ctrl_241029_1_B.vd_psi[0] + LW_ctrl_241029_1_B.vd_psi[1] *
               LW_ctrl_241029_1_B.vd_psi[1]);
 
             /* '<S187>:1:349' VEL_MAX_XY = LW_X_VEL_MAX; */
             /* '<S187>:1:350' if vd_xy_norm > VEL_MAX_XY */
-            if (LW_ctrl_241029_1_B.kappa > LW_X_VEL_MAX) {
+            if (LW_ctrl_241029_1_B.vx_d > LW_X_VEL_MAX) {
               /* '<S187>:1:351' vd_psi(1 : 2) = vd_psi(1 : 2) * VEL_MAX_XY / vd_xy_norm; */
               LW_ctrl_241029_1_B.vd_psi[0] = LW_ctrl_241029_1_B.vd_psi[0] *
-                LW_X_VEL_MAX / LW_ctrl_241029_1_B.kappa;
+                LW_X_VEL_MAX / LW_ctrl_241029_1_B.vx_d;
               LW_ctrl_241029_1_B.vd_psi[1] = LW_ctrl_241029_1_B.vd_psi[1] *
-                LW_X_VEL_MAX / LW_ctrl_241029_1_B.kappa;
+                LW_X_VEL_MAX / LW_ctrl_241029_1_B.vx_d;
             }
           }
 
@@ -6666,20 +5442,24 @@ void LW_ctrl_241029_1_step(void)
           LW_ctrl_241029_1_B.vel_ref_c[1] = LW_Y_JERK_MAX;
           LW_ctrl_241029_1_B.vel_ref_c[2] = LW_Z_JERK_MAX;
           LW_ctrl_241029_1_TD_3DVector(LW_ctrl_241029_1_B.vd_psi,
-            LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.IntegralGain,
-            LW_ctrl_241029_1_B.y_c, LW_ctrl_241029_1_B.z3_);
+            LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.dt,
+            LW_ctrl_241029_1_B.y_c, LW_ctrl_241029_1_B.vd_lim);
 
           /* '<S187>:1:355' man_acc_ff = zeros(3,1,'single'); */
           /* 手动控制加速度前馈 */
           /* '<S187>:1:356' vd_lim = Rbe_psi'*vd_psi; */
-          LW_ctrl_241029_1_B.kappa = LW_ctrl_241029_1_B.y_c[1];
-          LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.y_c[0];
-          LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.y_c[2];
-          for (i = 0; i < 3; i++) {
-            LW_ctrl_241029_1_B.z3_[i] = (LW_ctrl_241029_1_B.vd_lim_tmp[i + 3] *
-              LW_ctrl_241029_1_B.kappa + LW_ctrl_241029_1_B.vd_lim_tmp[i] *
-              LW_ctrl_241029_1_B.theta) + LW_ctrl_241029_1_B.vd_lim_tmp[i + 6] *
-              LW_ctrl_241029_1_B.time_to_stop;
+          LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.y_c[1];
+          LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.y_c[0];
+          LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.y_c[2];
+          for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+               LW_ctrl_241029_1_B.i++) {
+            LW_ctrl_241029_1_B.vd_lim[LW_ctrl_241029_1_B.i] =
+              (LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i + 3] *
+               LW_ctrl_241029_1_B.vx_d +
+               LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i] *
+               LW_ctrl_241029_1_B.vz_d) +
+              LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i + 6] *
+              LW_ctrl_241029_1_B.vy_d;
           }
         }
 
@@ -6687,12 +5467,12 @@ void LW_ctrl_241029_1_step(void)
         if (LW_ctrl_241029_1_B.flight_mode == OFFBOARD) {
           /* '<S187>:1:359' vel_fb = ((pos_ref - vehicle_pos)).* [LW_X_P; LW_Y_P; LW_Z_P]; */
           /* '<S187>:1:360' vd_lim = vel_fb + vel_ref.* [LW_X_FF; LW_Y_FF; LW_Z_FF]; */
-          LW_ctrl_241029_1_B.z3_[0] = LW_ctrl_241029_1_B.vel_ref_kk[0] * LW_X_FF
-            + LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-          LW_ctrl_241029_1_B.z3_[1] = LW_ctrl_241029_1_B.vel_ref_kk[1] * LW_Y_FF
-            + LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
-          LW_ctrl_241029_1_B.z3_[2] = LW_ctrl_241029_1_B.vel_ref_kk[2] * LW_Z_FF
-            + LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
+          LW_ctrl_241029_1_B.vd_lim[0] = LW_ctrl_241029_1_B.vel_ref_kk[0] *
+            LW_X_FF + LW_ctrl_241029_1_B.Euler[0];
+          LW_ctrl_241029_1_B.vd_lim[1] = LW_ctrl_241029_1_B.vel_ref_kk[1] *
+            LW_Y_FF + LW_ctrl_241029_1_B.Euler[1];
+          LW_ctrl_241029_1_B.vd_lim[2] = LW_ctrl_241029_1_B.vel_ref_kk[2] *
+            LW_Z_FF + LW_ctrl_241029_1_B.Euler[2];
         }
       } else {
         /* '<S187>:1:362' else */
@@ -6711,17 +5491,17 @@ void LW_ctrl_241029_1_step(void)
         }
 
         /* '<S187>:1:368' vd_lim = single([0; 0; 0]); */
-        LW_ctrl_241029_1_B.z3_[0] = 0.0F;
-        LW_ctrl_241029_1_B.z3_[1] = 0.0F;
-        LW_ctrl_241029_1_B.z3_[2] = 0.0F;
+        LW_ctrl_241029_1_B.vd_lim[0] = 0.0F;
+        LW_ctrl_241029_1_B.vd_lim[1] = 0.0F;
+        LW_ctrl_241029_1_B.vd_lim[2] = 0.0F;
 
         /* '<S187>:1:369' yaw_ref = yaw; */
         /* '<S187>:1:370' wbz_ref = single(0); */
         /* '<S187>:1:371' [~, ~] = AdmittanceYaw(dm_est(3), yaw, single(0), dt, LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1); */
-        LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.d_est_j[2],
-          LW_ctrl_241029_1_B.aSinInput, 0.0F, LW_ctrl_241029_1_B.IntegralGain,
-          LW_DMZ0, LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1.0,
-          &LW_ctrl_241029_1_B.kappa, &LW_ctrl_241029_1_B.eta_p);
+        LW_ctrl_241029_1_AdmittanceYaw(LW_ctrl_241029_1_B.dm_est[2],
+          LW_ctrl_241029_1_B.aSinInput, 0.0F, LW_ctrl_241029_1_B.dt, LW_DMZ0,
+          LW_DMZ_MIN, LW_YAW_KAP, LW_YAW_KAD, 1.0, &LW_ctrl_241029_1_B.vx_d,
+          &LW_ctrl_241029_1_B.vy_d);
 
         /* reset */
         /* '<S187>:1:373' pos_x1 = vehicle_pos(1); */
@@ -6796,28 +5576,32 @@ void LW_ctrl_241029_1_step(void)
       /* '<S191>:1:5'          0, 0, 1]; */
       /*  转换速度 */
       /* '<S191>:1:8' v_body = R * [v_ned(1);v_ned(2);v_ned(3)]; */
-      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.Integrator_b;
+      LW_ctrl_241029_1_B.Rbe_psi[3] = LW_ctrl_241029_1_B.IntegralGain;
       LW_ctrl_241029_1_B.Rbe_psi[6] = 0.0F;
-      LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.km_f_b;
-      LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.Va_;
+      LW_ctrl_241029_1_B.Rbe_psi[1] = -LW_ctrl_241029_1_B.IntegralGain;
+      LW_ctrl_241029_1_B.Rbe_psi[4] = LW_ctrl_241029_1_B.Integrator_b;
       LW_ctrl_241029_1_B.Rbe_psi[7] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[2] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[5] = 0.0F;
       LW_ctrl_241029_1_B.Rbe_psi[8] = 1.0F;
-      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.z3_[0];
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.z3_[1];
-      LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_B.z3_[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[i] =
-          (LW_ctrl_241029_1_B.Rbe_psi[i + 3] * LW_ctrl_241029_1_B.Va_ +
-           LW_ctrl_241029_1_B.Rbe_psi[i] * LW_ctrl_241029_1_B.IntegralGain) +
-          LW_ctrl_241029_1_B.Rbe_psi[i + 6] * LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.vd_lim[0];
+      LW_ctrl_241029_1_B.dt = LW_ctrl_241029_1_B.vd_lim[1];
+      LW_ctrl_241029_1_B.Integrator_b = LW_ctrl_241029_1_B.vd_lim[2];
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.Euler[LW_ctrl_241029_1_B.i] =
+          (LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 3] *
+           LW_ctrl_241029_1_B.dt +
+           LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] *
+           LW_ctrl_241029_1_B.IntegralGain) +
+          LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i + 6] *
+          LW_ctrl_241029_1_B.Integrator_b;
       }
 
       /* Sum: '<S14>/Sum2' */
-      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.Xi_e[2] -
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[2];
+      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.v_body_e[2] -
+        LW_ctrl_241029_1_B.Euler[2];
 
       /* MATLAB Function: '<S14>/pos_ctrl_integral_reset' incorporates:
        *  MATLAB Function: '<S14>/nan_inf_mode'
@@ -6835,22 +5619,22 @@ void LW_ctrl_241029_1_step(void)
           (LW_ctrl_241029_1_B.ctrl_mode == MANUAL) || (LW_ctrl_241029_1_B.arm ==
            DISARM)) {
         /* '<S189>:1:5' integral_reset = [true true]; */
-        rtb_integral_reset_idx_0 = true;
+        want_hold_z = true;
         rtb_integral_reset_idx_1 = true;
       } else if (LW_ctrl_241029_1_B.ctrl_mode == ALTITUDE) {
         /* '<S189>:1:6' elseif mode == ControlMode.ALTITUDE */
         /* '<S189>:1:7' integral_reset = [true false]; */
-        rtb_integral_reset_idx_0 = true;
+        want_hold_z = true;
         rtb_integral_reset_idx_1 = false;
       } else if (LW_ctrl_241029_1_B.ctrl_mode == POSITION) {
         /* '<S189>:1:8' elseif mode == ControlMode.POSITION */
         /* '<S189>:1:9' integral_reset = [false false]; */
-        rtb_integral_reset_idx_0 = false;
+        want_hold_z = false;
         rtb_integral_reset_idx_1 = false;
       } else {
         /* '<S189>:1:10' else */
         /* '<S189>:1:11' integral_reset = [false false]; */
-        rtb_integral_reset_idx_0 = false;
+        want_hold_z = false;
         rtb_integral_reset_idx_1 = false;
       }
 
@@ -6859,14 +5643,14 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S340>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE != 0) {
         /* DiscreteIntegrator: '<S340>/Integrator' */
-        LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_DW.Integrator_DSTATE;
+        LW_ctrl_241029_1_B.Integrator_b = LW_ctrl_241029_1_DW.Integrator_DSTATE;
       } else if (rtb_integral_reset_idx_1 ||
                  (LW_ctrl_241029_1_DW.Integrator_PrevResetState != 0)) {
         /* DiscreteIntegrator: '<S340>/Integrator' */
-        LW_ctrl_241029_1_B.km_f_b = 0.0F;
+        LW_ctrl_241029_1_B.Integrator_b = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S340>/Integrator' */
-        LW_ctrl_241029_1_B.km_f_b = 0.005F * (real32_T)
+        LW_ctrl_241029_1_B.Integrator_b = 0.005F * (real32_T)
           LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Integrator_PREV_U +
           LW_ctrl_241029_1_DW.Integrator_DSTATE;
@@ -6877,14 +5661,14 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S335>/Filter' */
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE != 0) {
         /* DiscreteIntegrator: '<S335>/Filter' */
-        LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_DW.Filter_DSTATE_f;
+        LW_ctrl_241029_1_B.dt = LW_ctrl_241029_1_DW.Filter_DSTATE_f;
       } else if (rtb_integral_reset_idx_1 ||
                  (LW_ctrl_241029_1_DW.Filter_PrevResetState != 0)) {
         /* DiscreteIntegrator: '<S335>/Filter' */
-        LW_ctrl_241029_1_B.Va_ = 0.0F;
+        LW_ctrl_241029_1_B.dt = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S335>/Filter' */
-        LW_ctrl_241029_1_B.Va_ = 0.005F * (real32_T)
+        LW_ctrl_241029_1_B.dt = 0.005F * (real32_T)
           LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Filter_PREV_U_e +
           LW_ctrl_241029_1_DW.Filter_DSTATE_f;
@@ -6896,26 +5680,26 @@ void LW_ctrl_241029_1_step(void)
        *  Gain: '<S333>/Derivative Gain'
        *  Sum: '<S335>/SumD'
        */
-      LW_ctrl_241029_1_B.kappa = (0.0F * LW_ctrl_241029_1_B.IntegralGain -
-        LW_ctrl_241029_1_B.Va_) * 100.0F;
+      LW_ctrl_241029_1_B.vx_d = (0.0F * LW_ctrl_241029_1_B.IntegralGain -
+        LW_ctrl_241029_1_B.dt) * 100.0F;
 
       /* Sum: '<S349>/Sum' incorporates:
        *  Gain: '<S345>/Proportional Gain'
        */
-      LW_ctrl_241029_1_B.eta_p = (5.5F * LW_ctrl_241029_1_B.IntegralGain +
-        LW_ctrl_241029_1_B.km_f_b) + LW_ctrl_241029_1_B.kappa;
+      LW_ctrl_241029_1_B.vy_d = (5.5F * LW_ctrl_241029_1_B.IntegralGain +
+        LW_ctrl_241029_1_B.Integrator_b) + LW_ctrl_241029_1_B.vx_d;
 
       /* Sum: '<S14>/Sum3' */
-      LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.Xi_e[0] -
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
+      LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.v_body_e[0] -
+        LW_ctrl_241029_1_B.Euler[0];
 
       /* DiscreteIntegrator: '<S232>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_l != 0) {
         /* DiscreteIntegrator: '<S232>/Integrator' */
         LW_ctrl_241029_1_B.time_to_stop =
           LW_ctrl_241029_1_DW.Integrator_DSTATE_h;
-      } else if (rtb_integral_reset_idx_0 ||
-                 (LW_ctrl_241029_1_DW.Integrator_PrevResetState_m != 0)) {
+      } else if (want_hold_z || (LW_ctrl_241029_1_DW.Integrator_PrevResetState_m
+                  != 0)) {
         /* DiscreteIntegrator: '<S232>/Integrator' */
         LW_ctrl_241029_1_B.time_to_stop = 0.0F;
       } else {
@@ -6932,8 +5716,8 @@ void LW_ctrl_241029_1_step(void)
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_k != 0) {
         /* DiscreteIntegrator: '<S227>/Filter' */
         LW_ctrl_241029_1_B.delta_t = LW_ctrl_241029_1_DW.Filter_DSTATE_e;
-      } else if (rtb_integral_reset_idx_0 ||
-                 (LW_ctrl_241029_1_DW.Filter_PrevResetState_f != 0)) {
+      } else if (want_hold_z || (LW_ctrl_241029_1_DW.Filter_PrevResetState_f !=
+                  0)) {
         /* DiscreteIntegrator: '<S227>/Filter' */
         LW_ctrl_241029_1_B.delta_t = 0.0F;
       } else {
@@ -6950,27 +5734,27 @@ void LW_ctrl_241029_1_step(void)
        *  Gain: '<S225>/Derivative Gain'
        *  Sum: '<S227>/SumD'
        */
-      LW_ctrl_241029_1_B.FilterCoefficient_jy = (0.0F * LW_ctrl_241029_1_B.theta
+      LW_ctrl_241029_1_B.FilterCoefficient_jy = (0.0F * LW_ctrl_241029_1_B.vz_d
         - LW_ctrl_241029_1_B.delta_t) * 100.0F;
 
       /* Sum: '<S241>/Sum' incorporates:
        *  Gain: '<S237>/Proportional Gain'
        */
-      LW_ctrl_241029_1_B.DeadZone_e = (3.0F * LW_ctrl_241029_1_B.theta +
+      LW_ctrl_241029_1_B.DeadZone_e = (3.0F * LW_ctrl_241029_1_B.vz_d +
         LW_ctrl_241029_1_B.time_to_stop) +
         LW_ctrl_241029_1_B.FilterCoefficient_jy;
 
       /* Sum: '<S14>/Sum1' */
-      LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_B.Xi_e[1] -
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
+      LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_B.v_body_e[1] -
+        LW_ctrl_241029_1_B.Euler[1];
 
       /* DiscreteIntegrator: '<S286>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_d != 0) {
         /* DiscreteIntegrator: '<S286>/Integrator' */
         LW_ctrl_241029_1_B.Integrator_a =
           LW_ctrl_241029_1_DW.Integrator_DSTATE_n;
-      } else if (rtb_integral_reset_idx_0 ||
-                 (LW_ctrl_241029_1_DW.Integrator_PrevResetState_f != 0)) {
+      } else if (want_hold_z || (LW_ctrl_241029_1_DW.Integrator_PrevResetState_f
+                  != 0)) {
         /* DiscreteIntegrator: '<S286>/Integrator' */
         LW_ctrl_241029_1_B.Integrator_a = 0.0F;
       } else {
@@ -6987,8 +5771,8 @@ void LW_ctrl_241029_1_step(void)
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_j != 0) {
         /* DiscreteIntegrator: '<S281>/Filter' */
         LW_ctrl_241029_1_B.Filter_l = LW_ctrl_241029_1_DW.Filter_DSTATE_p;
-      } else if (rtb_integral_reset_idx_0 ||
-                 (LW_ctrl_241029_1_DW.Filter_PrevResetState_b != 0)) {
+      } else if (want_hold_z || (LW_ctrl_241029_1_DW.Filter_PrevResetState_b !=
+                  0)) {
         /* DiscreteIntegrator: '<S281>/Filter' */
         LW_ctrl_241029_1_B.Filter_l = 0.0F;
       } else {
@@ -7033,14 +5817,20 @@ void LW_ctrl_241029_1_step(void)
        *  Gain: '<S14>/Gain3'
        *  Saturate: '<S293>/Saturation'
        */
-      LW_ctrl_241029_1_B.Filter_o = (real32_T)atan(-rtb_FilterCoefficient_jy_tmp
-        / 9.8F);
+      rtb_TmpSignalConversionAtSFun_1 = (real32_T)atan
+        (-rtb_FilterCoefficient_jy_tmp / 9.8F);
 
       /* Saturate: '<S14>/Output_Limits3' */
-      if (LW_ctrl_241029_1_B.Filter_o > 0.34906584F) {
-        LW_ctrl_241029_1_B.Filter_o = 0.34906584F;
-      } else if (LW_ctrl_241029_1_B.Filter_o < -0.34906584F) {
-        LW_ctrl_241029_1_B.Filter_o = -0.34906584F;
+      if (rtb_TmpSignalConversionAtSFun_1 > 0.34906584F) {
+        /* SignalConversion generated from: '<S18>/ SFunction ' incorporates:
+         *  MATLAB Function: '<S11>/MATLAB Function1'
+         */
+        rtb_TmpSignalConversionAtSFun_1 = 0.34906584F;
+      } else if (rtb_TmpSignalConversionAtSFun_1 < -0.34906584F) {
+        /* SignalConversion generated from: '<S18>/ SFunction ' incorporates:
+         *  MATLAB Function: '<S11>/MATLAB Function1'
+         */
+        rtb_TmpSignalConversionAtSFun_1 = -0.34906584F;
       }
 
       /* End of Saturate: '<S14>/Output_Limits3' */
@@ -7058,14 +5848,20 @@ void LW_ctrl_241029_1_step(void)
        *  Gain: '<S14>/Gain2'
        *  Saturate: '<S239>/Saturation'
        */
-      LW_ctrl_241029_1_B.c_b = -(real32_T)atan(-rtb_FilterCoefficient_jy_tmp /
-        9.8F);
+      rtb_TmpSignalConversionAtSFun_0 = -(real32_T)atan
+        (-rtb_FilterCoefficient_jy_tmp / 9.8F);
 
       /* Saturate: '<S14>/Output_Limits1' */
-      if (LW_ctrl_241029_1_B.c_b > 0.34906584F) {
-        LW_ctrl_241029_1_B.c_b = 0.34906584F;
-      } else if (LW_ctrl_241029_1_B.c_b < -0.34906584F) {
-        LW_ctrl_241029_1_B.c_b = -0.34906584F;
+      if (rtb_TmpSignalConversionAtSFun_0 > 0.34906584F) {
+        /* SignalConversion generated from: '<S18>/ SFunction ' incorporates:
+         *  MATLAB Function: '<S11>/MATLAB Function1'
+         */
+        rtb_TmpSignalConversionAtSFun_0 = 0.34906584F;
+      } else if (rtb_TmpSignalConversionAtSFun_0 < -0.34906584F) {
+        /* SignalConversion generated from: '<S18>/ SFunction ' incorporates:
+         *  MATLAB Function: '<S11>/MATLAB Function1'
+         */
+        rtb_TmpSignalConversionAtSFun_0 = -0.34906584F;
       }
 
       /* End of Saturate: '<S14>/Output_Limits1' */
@@ -7088,19 +5884,20 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_eul2quat:17' q(1) = 1; */
       /* 'my_eul2quat:18' c = cos(eul / 2); */
       /* 'my_eul2quat:19' s = sin(eul / 2); */
-      LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.Filter_o / 2.0F;
+      LW_ctrl_241029_1_B.IntegralGain_n = rtb_TmpSignalConversionAtSFun_1 / 2.0F;
       LW_ctrl_241029_1_B.Integrator_f = (real32_T)cos
-        (LW_ctrl_241029_1_B.DeadZone_p);
-      q = (real32_T)sin(LW_ctrl_241029_1_B.DeadZone_p);
-      LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.c_b / 2.0F;
-      LW_ctrl_241029_1_B.FilterCoefficient_i = (real32_T)cos
-        (LW_ctrl_241029_1_B.DeadZone_p);
-      LW_ctrl_241029_1_B.b_c = (real32_T)sin(LW_ctrl_241029_1_B.DeadZone_p);
-      LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.aSinInput / 2.0F;
-      LW_ctrl_241029_1_B.IntegralGain_n = (real32_T)cos
-        (LW_ctrl_241029_1_B.DeadZone_p);
-      LW_ctrl_241029_1_B.DeadZone_p = (real32_T)sin
-        (LW_ctrl_241029_1_B.DeadZone_p);
+        (LW_ctrl_241029_1_B.IntegralGain_n);
+      LW_ctrl_241029_1_B.FilterCoefficient_i = (real32_T)sin
+        (LW_ctrl_241029_1_B.IntegralGain_n);
+      LW_ctrl_241029_1_B.IntegralGain_n = rtb_TmpSignalConversionAtSFun_0 / 2.0F;
+      LW_ctrl_241029_1_B.Integrator_nz = (real32_T)cos
+        (LW_ctrl_241029_1_B.IntegralGain_n);
+      q = (real32_T)sin(LW_ctrl_241029_1_B.IntegralGain_n);
+      LW_ctrl_241029_1_B.IntegralGain_n = LW_ctrl_241029_1_B.aSinInput / 2.0F;
+      LW_ctrl_241029_1_B.DeadZone_p = (real32_T)cos
+        (LW_ctrl_241029_1_B.IntegralGain_n);
+      LW_ctrl_241029_1_B.IntegralGain_n = (real32_T)sin
+        (LW_ctrl_241029_1_B.IntegralGain_n);
 
       /* 'my_eul2quat:21' upperSeq = upper(seq); */
       /* 'my_eul2quat:22' switch upperSeq */
@@ -7126,10 +5923,19 @@ void LW_ctrl_241029_1_step(void)
       /*  end */
       /* q = q ./ norm_q; */
       /* 'my_quat2eul:20' q = robotics.internal.normalizeRows(q); */
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_B.y[0] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[1] = LW_ctrl_241029_1_B.y[1] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[2] = LW_ctrl_241029_1_B.y[2] * Filter_o5;
-      LW_ctrl_241029_1_B.qk_[3] = LW_ctrl_241029_1_B.y[3] * Filter_o5;
+      LW_ctrl_241029_1_B.T4 = ((LW_ctrl_241029_1_B.y[0] * LW_ctrl_241029_1_B.y[0]
+        + LW_ctrl_241029_1_B.y[1] * LW_ctrl_241029_1_B.y[1]) +
+        LW_ctrl_241029_1_B.y[2] * LW_ctrl_241029_1_B.y[2]) +
+        LW_ctrl_241029_1_B.y[3] * LW_ctrl_241029_1_B.y[3];
+      LW_ctrl_241029_1_B.aSinInput = 1.0F / (real32_T)sqrt(LW_ctrl_241029_1_B.T4);
+      LW_ctrl_241029_1_B.q_c[0] = LW_ctrl_241029_1_B.y[0] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[1] = LW_ctrl_241029_1_B.y[1] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[2] = LW_ctrl_241029_1_B.y[2] *
+        LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[3] = LW_ctrl_241029_1_B.y[3] *
+        LW_ctrl_241029_1_B.aSinInput;
 
       /* 'my_quat2eul:22' qw = q(1); */
       /* 'my_quat2eul:23' qx = q(2); */
@@ -7141,9 +5947,9 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_quat2eul:30' switch upperSeq */
       /* 'my_quat2eul:72' case 'ZXY' */
       /* 'my_quat2eul:73' aSinInput = 2 * (qy .* qz + qw .* qx); */
-      LW_ctrl_241029_1_B.aSinInput = (LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qk_[3] + LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[1]) * 2.0F;
+      LW_ctrl_241029_1_B.aSinInput = (LW_ctrl_241029_1_B.q_c[2] *
+        LW_ctrl_241029_1_B.q_c[3] + LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[1]) * 2.0F;
 
       /* 'my_quat2eul:74' if aSinInput > 1 */
       if (LW_ctrl_241029_1_B.aSinInput > 1.0F) {
@@ -7159,79 +5965,81 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_quat2eul:81'             atan2( -2 * (qx .* qz - qw .* qy), qw .^ 2 - qx .^ 2 - qy .^ 2 + qz .^ 2 ); ... */
       /* 'my_quat2eul:82'             atan2( -2 * (qx .* qy - qw .* qz), qw .^ 2 - qx .^ 2 + qy .^ 2 - qz .^ 2 )]; */
       rtb_FilterCoefficient_jy_tmp = (real32_T)asin(LW_ctrl_241029_1_B.aSinInput);
-      LW_ctrl_241029_1_B.T1 = rt_atan2f_snf((LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[3] - LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[2]) * -2.0F, ((LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[0] - LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[1]) - LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qk_[2]) + LW_ctrl_241029_1_B.qk_[3] *
-        LW_ctrl_241029_1_B.qk_[3]);
+      LW_ctrl_241029_1_B.T3 = rt_atan2f_snf((LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[3] - LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[2]) * -2.0F, ((LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[0] - LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[1]) - LW_ctrl_241029_1_B.q_c[2] *
+        LW_ctrl_241029_1_B.q_c[2]) + LW_ctrl_241029_1_B.q_c[3] *
+        LW_ctrl_241029_1_B.q_c[3]);
 
       /*  Check for complex numbers */
       /* 'my_quat2eul:93' if ~isreal(eul) */
       /*  quat_d, quat: 1x4, [w x y z] */
       /* '<S18>:1:7' q_err = quatmultiply(quat_d', quatinv(quat')); */
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_B.y[0] /
-        LW_ctrl_241029_1_B.FilterCoefficient_k;
-      LW_ctrl_241029_1_B.qk_[1] = -LW_ctrl_241029_1_B.y[1] /
-        LW_ctrl_241029_1_B.FilterCoefficient_k;
-      LW_ctrl_241029_1_B.qk_[2] = -LW_ctrl_241029_1_B.y[2] /
-        LW_ctrl_241029_1_B.FilterCoefficient_k;
-      LW_ctrl_241029_1_B.qk_[3] = -LW_ctrl_241029_1_B.y[3] /
-        LW_ctrl_241029_1_B.FilterCoefficient_k;
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.Integrator_f *
+      LW_ctrl_241029_1_B.q_c[0] = LW_ctrl_241029_1_B.y[0] /
+        LW_ctrl_241029_1_B.T4;
+      LW_ctrl_241029_1_B.q_c[1] = -LW_ctrl_241029_1_B.y[1] /
+        LW_ctrl_241029_1_B.T4;
+      LW_ctrl_241029_1_B.q_c[2] = -LW_ctrl_241029_1_B.y[2] /
+        LW_ctrl_241029_1_B.T4;
+      LW_ctrl_241029_1_B.q_c[3] = -LW_ctrl_241029_1_B.y[3] /
+        LW_ctrl_241029_1_B.T4;
+      LW_ctrl_241029_1_B.Filter_o5 = LW_ctrl_241029_1_B.Integrator_f *
+        LW_ctrl_241029_1_B.DeadZone_p;
+      LW_ctrl_241029_1_B.FilterCoefficient_k =
+        LW_ctrl_241029_1_B.FilterCoefficient_i *
         LW_ctrl_241029_1_B.IntegralGain_n;
-      Filter_o5 = q * LW_ctrl_241029_1_B.DeadZone_p;
-      LW_ctrl_241029_1_B.qm[0] = LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_B.FilterCoefficient_i - Filter_o5 *
-        LW_ctrl_241029_1_B.b_c;
-      LW_ctrl_241029_1_B.DeadZone_p *= LW_ctrl_241029_1_B.Integrator_f;
-      q *= LW_ctrl_241029_1_B.IntegralGain_n;
-      LW_ctrl_241029_1_B.qm[1] = q * LW_ctrl_241029_1_B.FilterCoefficient_i -
-        LW_ctrl_241029_1_B.DeadZone_p * LW_ctrl_241029_1_B.b_c;
-      LW_ctrl_241029_1_B.qm[2] = LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_B.b_c + Filter_o5 *
-        LW_ctrl_241029_1_B.FilterCoefficient_i;
-      LW_ctrl_241029_1_B.qm[3] = LW_ctrl_241029_1_B.DeadZone_p *
-        LW_ctrl_241029_1_B.FilterCoefficient_i + q * LW_ctrl_241029_1_B.b_c;
-      LW_ctrl_241029_1_B.T_c[0] = ((LW_ctrl_241029_1_B.qm[0] *
-        LW_ctrl_241029_1_B.qk_[0] - LW_ctrl_241029_1_B.qm[1] *
-        LW_ctrl_241029_1_B.qk_[1]) - LW_ctrl_241029_1_B.qm[2] *
-        LW_ctrl_241029_1_B.qk_[2]) - LW_ctrl_241029_1_B.qm[3] *
-        LW_ctrl_241029_1_B.qk_[3];
-      LW_ctrl_241029_1_B.T_c[1] = (LW_ctrl_241029_1_B.qm[0] *
-        LW_ctrl_241029_1_B.qk_[1] + LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qm[1]) + (LW_ctrl_241029_1_B.qm[2] *
-        LW_ctrl_241029_1_B.qk_[3] - LW_ctrl_241029_1_B.qk_[2] *
-        LW_ctrl_241029_1_B.qm[3]);
-      LW_ctrl_241029_1_B.T_c[2] = (LW_ctrl_241029_1_B.qm[0] *
-        LW_ctrl_241029_1_B.qk_[2] + LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qm[2]) + (LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qm[3] - LW_ctrl_241029_1_B.qm[1] *
-        LW_ctrl_241029_1_B.qk_[3]);
-      LW_ctrl_241029_1_B.T_c[3] = (LW_ctrl_241029_1_B.qm[0] *
-        LW_ctrl_241029_1_B.qk_[3] + LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qm[3]) + (LW_ctrl_241029_1_B.qm[1] *
-        LW_ctrl_241029_1_B.qk_[2] - LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qm[2]);
+      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.Filter_o5 *
+        LW_ctrl_241029_1_B.Integrator_nz -
+        LW_ctrl_241029_1_B.FilterCoefficient_k * q;
+      LW_ctrl_241029_1_B.IntegralGain_n *= LW_ctrl_241029_1_B.Integrator_f;
+      LW_ctrl_241029_1_B.Integrator_f = LW_ctrl_241029_1_B.FilterCoefficient_i *
+        LW_ctrl_241029_1_B.DeadZone_p;
+      LW_ctrl_241029_1_B.FilterCoefficient_i = LW_ctrl_241029_1_B.Integrator_f *
+        LW_ctrl_241029_1_B.Integrator_nz - LW_ctrl_241029_1_B.IntegralGain_n * q;
+      LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.Filter_o5 * q +
+        LW_ctrl_241029_1_B.FilterCoefficient_k *
+        LW_ctrl_241029_1_B.Integrator_nz;
+      LW_ctrl_241029_1_B.Integrator_f = LW_ctrl_241029_1_B.IntegralGain_n *
+        LW_ctrl_241029_1_B.Integrator_nz + LW_ctrl_241029_1_B.Integrator_f * q;
+      LW_ctrl_241029_1_B.Integrator_nz = ((LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_B.q_c[0] - LW_ctrl_241029_1_B.FilterCoefficient_i *
+        LW_ctrl_241029_1_B.q_c[1]) - LW_ctrl_241029_1_B.DeadZone_p *
+        LW_ctrl_241029_1_B.q_c[2]) - LW_ctrl_241029_1_B.Integrator_f *
+        LW_ctrl_241029_1_B.q_c[3];
+      q = (LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.q_c[1] +
+           LW_ctrl_241029_1_B.q_c[0] * LW_ctrl_241029_1_B.FilterCoefficient_i) +
+        (LW_ctrl_241029_1_B.DeadZone_p * LW_ctrl_241029_1_B.q_c[3] -
+         LW_ctrl_241029_1_B.q_c[2] * LW_ctrl_241029_1_B.Integrator_f);
+      LW_ctrl_241029_1_B.IntegralGain_n = (LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_B.q_c[2] + LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.DeadZone_p) + (LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.Integrator_f - LW_ctrl_241029_1_B.FilterCoefficient_i
+        * LW_ctrl_241029_1_B.q_c[3]);
+      LW_ctrl_241029_1_B.FilterCoefficient_i = (LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_B.q_c[3] + LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.Integrator_f) +
+        (LW_ctrl_241029_1_B.FilterCoefficient_i * LW_ctrl_241029_1_B.q_c[2] -
+         LW_ctrl_241029_1_B.q_c[1] * LW_ctrl_241029_1_B.DeadZone_p);
 
       /* '<S18>:1:9' eul_err = quat2eul(q_err, "ZYX"); */
       LW_ctrl_241029_1_B.aSinInput = 1.0F / (real32_T)sqrt
-        (((LW_ctrl_241029_1_B.T_c[0] * LW_ctrl_241029_1_B.T_c[0] +
-           LW_ctrl_241029_1_B.T_c[1] * LW_ctrl_241029_1_B.T_c[1]) +
-          LW_ctrl_241029_1_B.T_c[2] * LW_ctrl_241029_1_B.T_c[2]) +
-         LW_ctrl_241029_1_B.T_c[3] * LW_ctrl_241029_1_B.T_c[3]);
-      LW_ctrl_241029_1_B.qk_[0] = LW_ctrl_241029_1_B.T_c[0] *
+        (((LW_ctrl_241029_1_B.Integrator_nz * LW_ctrl_241029_1_B.Integrator_nz +
+           q * q) + LW_ctrl_241029_1_B.IntegralGain_n *
+          LW_ctrl_241029_1_B.IntegralGain_n) +
+         LW_ctrl_241029_1_B.FilterCoefficient_i *
+         LW_ctrl_241029_1_B.FilterCoefficient_i);
+      LW_ctrl_241029_1_B.q_c[0] = LW_ctrl_241029_1_B.Integrator_nz *
         LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.qk_[1] = LW_ctrl_241029_1_B.T_c[1] *
+      LW_ctrl_241029_1_B.q_c[1] = q * LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.q_c[2] = LW_ctrl_241029_1_B.IntegralGain_n *
         LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.qk_[2] = LW_ctrl_241029_1_B.T_c[2] *
+      LW_ctrl_241029_1_B.q_c[3] = LW_ctrl_241029_1_B.FilterCoefficient_i *
         LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.qk_[3] = LW_ctrl_241029_1_B.T_c[3] *
-        LW_ctrl_241029_1_B.aSinInput;
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.qk_[1] *
-        LW_ctrl_241029_1_B.qk_[3] * 2.0F - LW_ctrl_241029_1_B.qk_[0] *
-        LW_ctrl_241029_1_B.qk_[2] * 2.0F;
+      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.q_c[1] *
+        LW_ctrl_241029_1_B.q_c[3] * 2.0F - LW_ctrl_241029_1_B.q_c[0] *
+        LW_ctrl_241029_1_B.q_c[2] * 2.0F;
       if (LW_ctrl_241029_1_B.aSinInput > 1.0F) {
         LW_ctrl_241029_1_B.aSinInput = 1.0F;
       }
@@ -7244,20 +6052,20 @@ void LW_ctrl_241029_1_step(void)
       if ((LW_ctrl_241029_1_B.aSinInput < 0.0F) && ((real32_T)fabs
            (LW_ctrl_241029_1_B.aSinInput + 1.0F) < 1.1920929E-6F)) {
         LW_ctrl_241029_1_B.aSinInput = -2.0F * rt_atan2f_snf
-          (LW_ctrl_241029_1_B.qk_[1], LW_ctrl_241029_1_B.qk_[0]);
+          (LW_ctrl_241029_1_B.q_c[1], LW_ctrl_241029_1_B.q_c[0]);
       } else if ((LW_ctrl_241029_1_B.aSinInput > 0.0F) && ((real32_T)fabs
                   (LW_ctrl_241029_1_B.aSinInput - 1.0F) < 1.1920929E-6F)) {
         LW_ctrl_241029_1_B.aSinInput = 2.0F * rt_atan2f_snf
-          (LW_ctrl_241029_1_B.qk_[1], LW_ctrl_241029_1_B.qk_[0]);
+          (LW_ctrl_241029_1_B.q_c[1], LW_ctrl_241029_1_B.q_c[0]);
       } else {
-        LW_ctrl_241029_1_B.aSinInput = rt_atan2f_snf(LW_ctrl_241029_1_B.qk_[0] *
-          LW_ctrl_241029_1_B.qk_[3] * 2.0F + LW_ctrl_241029_1_B.qk_[1] *
-          LW_ctrl_241029_1_B.qk_[2] * 2.0F, (LW_ctrl_241029_1_B.qk_[0] *
-          LW_ctrl_241029_1_B.qk_[0] * 2.0F - 1.0F) + LW_ctrl_241029_1_B.qk_[1] *
-          LW_ctrl_241029_1_B.qk_[1] * 2.0F);
+        LW_ctrl_241029_1_B.aSinInput = rt_atan2f_snf(LW_ctrl_241029_1_B.q_c[0] *
+          LW_ctrl_241029_1_B.q_c[3] * 2.0F + LW_ctrl_241029_1_B.q_c[1] *
+          LW_ctrl_241029_1_B.q_c[2] * 2.0F, (LW_ctrl_241029_1_B.q_c[0] *
+          LW_ctrl_241029_1_B.q_c[0] * 2.0F - 1.0F) + LW_ctrl_241029_1_B.q_c[1] *
+          LW_ctrl_241029_1_B.q_c[1] * 2.0F);
       }
 
-      /* '<S18>:1:10' yaw_err = 3*wrapToPi(eul_err(1)); */
+      /* '<S18>:1:10' psi_err = 3*wrapToPi(eul_err(1)); */
       want_hold_xy = ((LW_ctrl_241029_1_B.aSinInput < -3.1415926535897931) ||
                       (LW_ctrl_241029_1_B.aSinInput > 3.1415926535897931));
 
@@ -7266,7 +6074,8 @@ void LW_ctrl_241029_1_step(void)
 
       /* Outputs for Function Call SubSystem: '<S1>/PID_Controller' */
       if (want_hold_xy) {
-        for (i = 0; i < 1; i++) {
+        for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 1;
+             LW_ctrl_241029_1_B.i++) {
           trueCount++;
         }
       }
@@ -7275,13 +6084,13 @@ void LW_ctrl_241029_1_step(void)
       if (trueCount - 1 >= 0) {
         if (rtIsNaNF(LW_ctrl_241029_1_B.aSinInput + 3.14159274F) || rtIsInfF
             (LW_ctrl_241029_1_B.aSinInput + 3.14159274F)) {
-          LW_ctrl_241029_1_B.b_c = (rtNaNF);
+          LW_ctrl_241029_1_B.Integrator_nz = (rtNaNF);
         } else if (LW_ctrl_241029_1_B.aSinInput + 3.14159274F == 0.0F) {
-          LW_ctrl_241029_1_B.b_c = 0.0F;
+          LW_ctrl_241029_1_B.Integrator_nz = 0.0F;
         } else {
-          LW_ctrl_241029_1_B.b_c = (real32_T)fmod(LW_ctrl_241029_1_B.aSinInput +
-            3.14159274F, 6.2831854820251465);
-          rEQ0 = (LW_ctrl_241029_1_B.b_c == 0.0F);
+          LW_ctrl_241029_1_B.Integrator_nz = (real32_T)fmod
+            (LW_ctrl_241029_1_B.aSinInput + 3.14159274F, 6.2831854820251465);
+          rEQ0 = (LW_ctrl_241029_1_B.Integrator_nz == 0.0F);
           if (!rEQ0) {
             q = (real32_T)fabs((LW_ctrl_241029_1_B.aSinInput + 3.14159274F) /
                                6.28318548F);
@@ -7290,17 +6099,18 @@ void LW_ctrl_241029_1_step(void)
           }
 
           if (rEQ0) {
-            LW_ctrl_241029_1_B.b_c = 0.0F;
-          } else if (LW_ctrl_241029_1_B.b_c < 0.0F) {
-            LW_ctrl_241029_1_B.b_c += 6.28318548F;
+            LW_ctrl_241029_1_B.Integrator_nz = 0.0F;
+          } else if (LW_ctrl_241029_1_B.Integrator_nz < 0.0F) {
+            LW_ctrl_241029_1_B.Integrator_nz += 6.28318548F;
           }
         }
 
-        LW_ctrl_241029_1_B.varargin_1_data = LW_ctrl_241029_1_B.b_c;
+        LW_ctrl_241029_1_B.varargin_1_data = LW_ctrl_241029_1_B.Integrator_nz;
       }
 
       /* End of Outputs for SubSystem: '<S1>/PID_Controller' */
-      for (i = 0; i < trueCount; i++) {
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < trueCount;
+           LW_ctrl_241029_1_B.i++) {
         /* Outputs for Function Call SubSystem: '<S1>/PID_Controller' */
         if ((LW_ctrl_241029_1_B.varargin_1_data == 0.0F) &&
             (LW_ctrl_241029_1_B.aSinInput + 3.14159274F > 0.0F)) {
@@ -7312,18 +6122,18 @@ void LW_ctrl_241029_1_step(void)
 
       /* Outputs for Function Call SubSystem: '<S1>/PID_Controller' */
       /* MATLAB Function: '<S11>/MATLAB Function1' */
-      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.aSinInput;
+      LW_ctrl_241029_1_B.IntegralGain_n = LW_ctrl_241029_1_B.aSinInput;
       if (want_hold_xy) {
-        LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.varargin_1_data - 3.14159274F;
+        LW_ctrl_241029_1_B.IntegralGain_n = LW_ctrl_241029_1_B.varargin_1_data -
+          3.14159274F;
       }
 
       /* Sum: '<S11>/Sum3' incorporates:
        *  MATLAB Function: '<S11>/MATLAB Function1'
-       *  SignalConversion generated from: '<S18>/ SFunction '
        */
       /* '<S18>:1:11' phi_err = 10*(euler_d(1) - euler(1)); */
       /* '<S18>:1:12' theta_err = 10*(euler_d(2) - euler(2)); */
-      LW_ctrl_241029_1_B.aSinInput = (LW_ctrl_241029_1_B.Filter_o -
+      LW_ctrl_241029_1_B.aSinInput = (rtb_TmpSignalConversionAtSFun_1 -
         rtb_FilterCoefficient_jy_tmp) * 10.0F - LW_ctrl_241029_1_B.y_e[0];
 
       /* MATLAB Function: '<S11>/attrates_ref_selector' */
@@ -7354,14 +6164,15 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S59>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_ls != 0) {
         /* DiscreteIntegrator: '<S59>/Integrator' */
-        LW_ctrl_241029_1_B.b_c = LW_ctrl_241029_1_DW.Integrator_DSTATE_j;
+        rtb_TmpSignalConversionAtSFun_1 =
+          LW_ctrl_241029_1_DW.Integrator_DSTATE_j;
       } else if (want_hold_xy ||
                  (LW_ctrl_241029_1_DW.Integrator_PrevResetState_o != 0)) {
         /* DiscreteIntegrator: '<S59>/Integrator' */
-        LW_ctrl_241029_1_B.b_c = 0.0F;
+        rtb_TmpSignalConversionAtSFun_1 = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S59>/Integrator' */
-        LW_ctrl_241029_1_B.b_c = 0.005F * (real32_T)
+        rtb_TmpSignalConversionAtSFun_1 = 0.005F * (real32_T)
           LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Integrator_PREV_U_m +
           LW_ctrl_241029_1_DW.Integrator_DSTATE_j;
@@ -7372,14 +6183,14 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S54>/Filter' */
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_m != 0) {
         /* DiscreteIntegrator: '<S54>/Filter' */
-        LW_ctrl_241029_1_B.Saturation_d = LW_ctrl_241029_1_DW.Filter_DSTATE;
+        LW_ctrl_241029_1_B.Filter = LW_ctrl_241029_1_DW.Filter_DSTATE;
       } else if (want_hold_xy || (LW_ctrl_241029_1_DW.Filter_PrevResetState_m !=
                   0)) {
         /* DiscreteIntegrator: '<S54>/Filter' */
-        LW_ctrl_241029_1_B.Saturation_d = 0.0;
+        LW_ctrl_241029_1_B.Filter = 0.0;
       } else {
         /* DiscreteIntegrator: '<S54>/Filter' */
-        LW_ctrl_241029_1_B.Saturation_d = 0.005 * (real_T)
+        LW_ctrl_241029_1_B.Filter = 0.005 * (real_T)
           LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Filter_PREV_U +
           LW_ctrl_241029_1_DW.Filter_DSTATE;
@@ -7392,33 +6203,34 @@ void LW_ctrl_241029_1_step(void)
        *  Sum: '<S54>/SumD'
        */
       LW_ctrl_241029_1_B.FilterCoefficient = (0.0F *
-        LW_ctrl_241029_1_B.aSinInput - LW_ctrl_241029_1_B.Saturation_d) * 100.0;
+        LW_ctrl_241029_1_B.aSinInput - LW_ctrl_241029_1_B.Filter) * 100.0;
 
       /* Sum: '<S68>/Sum' incorporates:
        *  Gain: '<S64>/Proportional Gain'
        */
       LW_ctrl_241029_1_B.DeadZone = ((real_T)(20.0F *
-        LW_ctrl_241029_1_B.aSinInput) + LW_ctrl_241029_1_B.b_c) +
+        LW_ctrl_241029_1_B.aSinInput) + rtb_TmpSignalConversionAtSFun_1) +
         LW_ctrl_241029_1_B.FilterCoefficient;
 
       /* Sum: '<S11>/Sum' incorporates:
        *  MATLAB Function: '<S11>/MATLAB Function1'
-       *  SignalConversion generated from: '<S18>/ SFunction '
        */
-      LW_ctrl_241029_1_B.c_b = (LW_ctrl_241029_1_B.c_b - LW_ctrl_241029_1_B.T1) *
-        10.0F - LW_ctrl_241029_1_B.y_e[1];
+      rtb_TmpSignalConversionAtSFun_0 = (rtb_TmpSignalConversionAtSFun_0 -
+        LW_ctrl_241029_1_B.T3) * 10.0F - LW_ctrl_241029_1_B.y_e[1];
 
       /* DiscreteIntegrator: '<S113>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_n != 0) {
         /* DiscreteIntegrator: '<S113>/Integrator' */
-        q = LW_ctrl_241029_1_DW.Integrator_DSTATE_m;
+        LW_ctrl_241029_1_B.Integrator_nz =
+          LW_ctrl_241029_1_DW.Integrator_DSTATE_m;
       } else if (rEQ0 || (LW_ctrl_241029_1_DW.Integrator_PrevResetState_mv != 0))
       {
         /* DiscreteIntegrator: '<S113>/Integrator' */
-        q = 0.0F;
+        LW_ctrl_241029_1_B.Integrator_nz = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S113>/Integrator' */
-        q = 0.005F * (real32_T)LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
+        LW_ctrl_241029_1_B.Integrator_nz = 0.005F * (real32_T)
+          LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Integrator_PREV_U_a +
           LW_ctrl_241029_1_DW.Integrator_DSTATE_m;
       }
@@ -7428,14 +6240,13 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S108>/Filter' */
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_n != 0) {
         /* DiscreteIntegrator: '<S108>/Filter' */
-        LW_ctrl_241029_1_B.Filter_o = LW_ctrl_241029_1_DW.Filter_DSTATE_fv;
+        q = LW_ctrl_241029_1_DW.Filter_DSTATE_fv;
       } else if (rEQ0 || (LW_ctrl_241029_1_DW.Filter_PrevResetState_p != 0)) {
         /* DiscreteIntegrator: '<S108>/Filter' */
-        LW_ctrl_241029_1_B.Filter_o = 0.0F;
+        q = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S108>/Filter' */
-        LW_ctrl_241029_1_B.Filter_o = 0.005F * (real32_T)
-          LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
+        q = 0.005F * (real32_T)LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Filter_PREV_U_j +
           LW_ctrl_241029_1_DW.Filter_DSTATE_fv;
       }
@@ -7446,20 +6257,21 @@ void LW_ctrl_241029_1_step(void)
        *  Gain: '<S106>/Derivative Gain'
        *  Sum: '<S108>/SumD'
        */
-      LW_ctrl_241029_1_B.FilterCoefficient_i = (0.0F * LW_ctrl_241029_1_B.c_b -
-        LW_ctrl_241029_1_B.Filter_o) * 100.0F;
+      LW_ctrl_241029_1_B.FilterCoefficient_i = (0.0F *
+        rtb_TmpSignalConversionAtSFun_0 - q) * 100.0F;
 
       /* Sum: '<S122>/Sum' incorporates:
        *  Gain: '<S118>/Proportional Gain'
        */
-      LW_ctrl_241029_1_B.DeadZone_p = (20.0F * LW_ctrl_241029_1_B.c_b + q) +
+      LW_ctrl_241029_1_B.DeadZone_p = (20.0F * rtb_TmpSignalConversionAtSFun_0 +
+        LW_ctrl_241029_1_B.Integrator_nz) +
         LW_ctrl_241029_1_B.FilterCoefficient_i;
 
       /* Sum: '<S11>/Sum2' incorporates:
        *  MATLAB Function: '<S11>/MATLAB Function1'
        */
-      LW_ctrl_241029_1_B.IntegralGain_n = 3.0F * LW_ctrl_241029_1_B.T2 -
-        LW_ctrl_241029_1_B.y_e[2];
+      LW_ctrl_241029_1_B.IntegralGain_n = 3.0F *
+        LW_ctrl_241029_1_B.IntegralGain_n - LW_ctrl_241029_1_B.y_e[2];
 
       /* DiscreteIntegrator: '<S167>/Integrator' */
       if (LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_j != 0) {
@@ -7483,14 +6295,15 @@ void LW_ctrl_241029_1_step(void)
       /* DiscreteIntegrator: '<S162>/Filter' */
       if (LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_b != 0) {
         /* DiscreteIntegrator: '<S162>/Filter' */
-        Filter_o5 = LW_ctrl_241029_1_DW.Filter_DSTATE_i;
+        LW_ctrl_241029_1_B.Filter_o5 = LW_ctrl_241029_1_DW.Filter_DSTATE_i;
       } else if (rtb_rate_ctrl_integral_reset_id ||
                  (LW_ctrl_241029_1_DW.Filter_PrevResetState_i != 0)) {
         /* DiscreteIntegrator: '<S162>/Filter' */
-        Filter_o5 = 0.0F;
+        LW_ctrl_241029_1_B.Filter_o5 = 0.0F;
       } else {
         /* DiscreteIntegrator: '<S162>/Filter' */
-        Filter_o5 = 0.005F * (real32_T)LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
+        LW_ctrl_241029_1_B.Filter_o5 = 0.005F * (real32_T)
+          LW_ctrl_241029_1_B.PID_Controller_ELAPS_T
           * LW_ctrl_241029_1_DW.Filter_PREV_U_n +
           LW_ctrl_241029_1_DW.Filter_DSTATE_i;
       }
@@ -7502,7 +6315,8 @@ void LW_ctrl_241029_1_step(void)
        *  Sum: '<S162>/SumD'
        */
       LW_ctrl_241029_1_B.FilterCoefficient_k = (0.0F *
-        LW_ctrl_241029_1_B.IntegralGain_n - Filter_o5) * 100.0F;
+        LW_ctrl_241029_1_B.IntegralGain_n - LW_ctrl_241029_1_B.Filter_o5) *
+        100.0F;
 
       /* Sum: '<S176>/Sum' incorporates:
        *  Gain: '<S172>/Proportional Gain'
@@ -7530,34 +6344,35 @@ void LW_ctrl_241029_1_step(void)
 
       /* Saturate: '<S120>/Saturation' */
       if (LW_ctrl_241029_1_B.DeadZone_p > 111.165F) {
-        LW_ctrl_241029_1_B.T1 = 111.165F;
+        LW_ctrl_241029_1_B.T3 = 111.165F;
       } else if (LW_ctrl_241029_1_B.DeadZone_p < -111.165F) {
-        LW_ctrl_241029_1_B.T1 = -111.165F;
+        LW_ctrl_241029_1_B.T3 = -111.165F;
       } else {
-        LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.DeadZone_p;
+        LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.DeadZone_p;
       }
 
       /* Saturate: '<S174>/Saturation' */
       if (LW_ctrl_241029_1_B.DeadZone_ph > 8.70227F) {
-        LW_ctrl_241029_1_B.T2 = 8.70227F;
+        LW_ctrl_241029_1_B.T4 = 8.70227F;
       } else if (LW_ctrl_241029_1_B.DeadZone_ph < -8.70227F) {
-        LW_ctrl_241029_1_B.T2 = -8.70227F;
+        LW_ctrl_241029_1_B.T4 = -8.70227F;
       } else {
-        LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.DeadZone_ph;
+        LW_ctrl_241029_1_B.T4 = LW_ctrl_241029_1_B.DeadZone_ph;
       }
 
       /* Saturate: '<S347>/Saturation' */
-      if (LW_ctrl_241029_1_B.eta_p > LW_Z_ACCEL_UP) {
+      if (LW_ctrl_241029_1_B.vy_d > LW_Z_ACCEL_UP) {
         rtb_FilterCoefficient_jy_tmp = LW_Z_ACCEL_UP;
-      } else if (LW_ctrl_241029_1_B.eta_p < LW_Z_ACCEL_LOW) {
+      } else if (LW_ctrl_241029_1_B.vy_d < LW_Z_ACCEL_LOW) {
         rtb_FilterCoefficient_jy_tmp = LW_Z_ACCEL_LOW;
       } else {
-        rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.eta_p;
+        rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.vy_d;
       }
 
       /* Product: '<S14>/Divide1' incorporates:
        *  Constant: '<S14>/Constant'
        *  Constant: '<S14>/Constant1'
+       *  MATLAB Function: '<S15>/MATLAB Function'
        *  Product: '<S14>/Divide2'
        *  Product: '<S14>/Divide3'
        *  Saturate: '<S347>/Saturation'
@@ -7566,25 +6381,25 @@ void LW_ctrl_241029_1_step(void)
        *  Trigonometry: '<S14>/Cos1'
        */
       LW_ctrl_241029_1_B.u0 = (rtb_FilterCoefficient_jy_tmp + 9.81) * LW_MASS /
-        (real32_T)cos(LW_ctrl_241029_1_B.d_est[0]) / (real32_T)cos
-        (LW_ctrl_241029_1_B.d_est[1]);
+        (real32_T)cos(LW_ctrl_241029_1_B.T1) / (real32_T)cos
+        (LW_ctrl_241029_1_B.T2);
 
       /* Saturate: '<S14>/Output_Limits2' */
       if (LW_ctrl_241029_1_B.u0 > 40.0) {
         /* MATLAB Function: '<S11>/MATLAB Function' incorporates:
          *  DataTypeConversion: '<S11>/Cast To Single'
          */
-        LW_ctrl_241029_1_B.qm[0] = 40.0F;
+        LW_ctrl_241029_1_B.q_c[0] = 40.0F;
       } else if (LW_ctrl_241029_1_B.u0 < 0.0) {
         /* MATLAB Function: '<S11>/MATLAB Function' incorporates:
          *  DataTypeConversion: '<S11>/Cast To Single'
          */
-        LW_ctrl_241029_1_B.qm[0] = 0.0F;
+        LW_ctrl_241029_1_B.q_c[0] = 0.0F;
       } else {
         /* MATLAB Function: '<S11>/MATLAB Function' incorporates:
          *  DataTypeConversion: '<S11>/Cast To Single'
          */
-        LW_ctrl_241029_1_B.qm[0] = (real32_T)LW_ctrl_241029_1_B.u0;
+        LW_ctrl_241029_1_B.q_c[0] = (real32_T)LW_ctrl_241029_1_B.u0;
       }
 
       /* End of Saturate: '<S14>/Output_Limits2' */
@@ -7594,62 +6409,68 @@ void LW_ctrl_241029_1_step(void)
        *  Saturate: '<S174>/Saturation'
        *  Saturate: '<S66>/Saturation'
        */
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.qm[i + 1] = ((real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 3] * LW_ctrl_241029_1_B.T1 +
-          (real32_T)LW_ctrl_241029_1_ConstP.pooled1[i] * (real32_T)
-          LW_ctrl_241029_1_B.sigma_idx_3) + (real32_T)
-          LW_ctrl_241029_1_ConstP.pooled1[i + 6] * LW_ctrl_241029_1_B.T2;
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.q_c[LW_ctrl_241029_1_B.i + 1] = ((real32_T)
+          LW_ctrl_241029_1_ConstP.MATLABFunction_ModelParam_uavJ[LW_ctrl_241029_1_B.i
+          + 3] * LW_ctrl_241029_1_B.T3 + (real32_T)
+          LW_ctrl_241029_1_ConstP.MATLABFunction_ModelParam_uavJ[LW_ctrl_241029_1_B.i]
+          * (real32_T)LW_ctrl_241029_1_B.sigma_idx_3) + (real32_T)
+          LW_ctrl_241029_1_ConstP.MATLABFunction_ModelParam_uavJ[LW_ctrl_241029_1_B.i
+          + 6] * LW_ctrl_241029_1_B.T4;
       }
 
-      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.qm[1];
-      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.qm[0];
-      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.qm[2];
-      LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.qm[3];
-      for (i = 0; i < 4; i++) {
-        LW_ctrl_241029_1_B.T_c[i] = ((b[i + 4] * rtb_FilterCoefficient_jy_tmp +
-          b[i] * LW_ctrl_241029_1_B.T1) + b[i + 8] * LW_ctrl_241029_1_B.T2) +
-          b[i + 12] * LW_ctrl_241029_1_B.T3;
+      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.q_c[1];
+      LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.q_c[0];
+      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.q_c[2];
+      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.q_c[3];
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 4;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.q_c[LW_ctrl_241029_1_B.i] = ((b[LW_ctrl_241029_1_B.i
+          + 4] * rtb_FilterCoefficient_jy_tmp + b[LW_ctrl_241029_1_B.i] *
+          LW_ctrl_241029_1_B.T3) + b[LW_ctrl_241029_1_B.i + 8] *
+          LW_ctrl_241029_1_B.T1) + b[LW_ctrl_241029_1_B.i + 12] *
+          LW_ctrl_241029_1_B.T2;
       }
 
       /* '<S17>:1:12' if T(1)<0 */
-      if (LW_ctrl_241029_1_B.T_c[0] < 0.0F) {
+      if (LW_ctrl_241029_1_B.q_c[0] < 0.0F) {
         /* '<S17>:1:13' T1 = single(0); */
         LW_ctrl_241029_1_B.T1 = 0.0F;
       } else {
         /* '<S17>:1:14' else */
         /* '<S17>:1:15' T1 = T(1); */
-        LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.T_c[0];
+        LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.q_c[0];
       }
 
       /* '<S17>:1:17' if T(2)<0 */
-      if (LW_ctrl_241029_1_B.T_c[1] < 0.0F) {
+      if (LW_ctrl_241029_1_B.q_c[1] < 0.0F) {
         /* '<S17>:1:18' T2 = single(0); */
         LW_ctrl_241029_1_B.T2 = 0.0F;
       } else {
         /* '<S17>:1:19' else */
         /* '<S17>:1:20' T2 = T(2); */
-        LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.T_c[1];
+        LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.q_c[1];
       }
 
       /* '<S17>:1:22' if T(3)<0 */
-      if (LW_ctrl_241029_1_B.T_c[2] < 0.0F) {
+      if (LW_ctrl_241029_1_B.q_c[2] < 0.0F) {
         /* '<S17>:1:23' T3 = single(0); */
         LW_ctrl_241029_1_B.T3 = 0.0F;
       } else {
         /* '<S17>:1:24' else */
         /* '<S17>:1:25' T3 = T(3); */
-        LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.T_c[2];
+        LW_ctrl_241029_1_B.T3 = LW_ctrl_241029_1_B.q_c[2];
       }
 
       /* '<S17>:1:27' if T(4)<0 */
-      if (LW_ctrl_241029_1_B.T_c[3] < 0.0F) {
+      if (LW_ctrl_241029_1_B.q_c[3] < 0.0F) {
         /* '<S17>:1:28' T4 = single(0); */
         LW_ctrl_241029_1_B.T4 = 0.0F;
       } else {
         /* '<S17>:1:29' else */
         /* '<S17>:1:30' T4 = T(4); */
-        LW_ctrl_241029_1_B.T4 = LW_ctrl_241029_1_B.T_c[3];
+        LW_ctrl_241029_1_B.T4 = LW_ctrl_241029_1_B.q_c[3];
       }
 
       /* Saturate: '<S11>/Output_Limits1' */
@@ -7909,12 +6730,12 @@ void LW_ctrl_241029_1_step(void)
       /* End of DeadZone: '<S278>/DeadZone' */
 
       /* DeadZone: '<S332>/DeadZone' */
-      if (LW_ctrl_241029_1_B.eta_p > LW_Z_ACCEL_UP) {
-        LW_ctrl_241029_1_B.eta_p -= LW_Z_ACCEL_UP;
-      } else if (LW_ctrl_241029_1_B.eta_p >= LW_Z_ACCEL_LOW) {
-        LW_ctrl_241029_1_B.eta_p = 0.0F;
+      if (LW_ctrl_241029_1_B.vy_d > LW_Z_ACCEL_UP) {
+        LW_ctrl_241029_1_B.vy_d -= LW_Z_ACCEL_UP;
+      } else if (LW_ctrl_241029_1_B.vy_d >= LW_Z_ACCEL_LOW) {
+        LW_ctrl_241029_1_B.vy_d = 0.0F;
       } else {
-        LW_ctrl_241029_1_B.eta_p -= LW_Z_ACCEL_LOW;
+        LW_ctrl_241029_1_B.vy_d -= LW_Z_ACCEL_LOW;
       }
 
       /* End of DeadZone: '<S332>/DeadZone' */
@@ -7924,7 +6745,7 @@ void LW_ctrl_241029_1_step(void)
 
       /* Update for DiscreteIntegrator: '<S340>/Integrator' */
       LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE = 0U;
-      LW_ctrl_241029_1_DW.Integrator_DSTATE = LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_DW.Integrator_DSTATE = LW_ctrl_241029_1_B.Integrator_b;
       LW_ctrl_241029_1_DW.Integrator_PrevResetState = (int8_T)
         rtb_integral_reset_idx_1;
 
@@ -7934,7 +6755,7 @@ void LW_ctrl_241029_1_step(void)
        *  Constant: '<S330>/Constant2'
        *  RelationalOperator: '<S330>/fix for DT propagation issue'
        */
-      if (LW_ctrl_241029_1_B.eta_p > 0.0F) {
+      if (LW_ctrl_241029_1_B.vy_d > 0.0F) {
         tmp = 1;
       } else {
         tmp = -1;
@@ -7960,7 +6781,7 @@ void LW_ctrl_241029_1_step(void)
        *  Switch: '<S330>/Switch1'
        *  Switch: '<S330>/Switch2'
        */
-      if ((LW_ctrl_241029_1_B.eta_p != 0.0F) && (tmp == tmp_0)) {
+      if ((LW_ctrl_241029_1_B.vy_d != 0.0F) && (tmp == tmp_0)) {
         /* Update for DiscreteIntegrator: '<S340>/Integrator' incorporates:
          *  Constant: '<S330>/Constant1'
          */
@@ -7976,16 +6797,15 @@ void LW_ctrl_241029_1_step(void)
        *  DiscreteIntegrator: '<S340>/Integrator'
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE = 0U;
-      LW_ctrl_241029_1_DW.Filter_DSTATE_f = LW_ctrl_241029_1_B.Va_;
+      LW_ctrl_241029_1_DW.Filter_DSTATE_f = LW_ctrl_241029_1_B.dt;
       LW_ctrl_241029_1_DW.Filter_PrevResetState = (int8_T)
         rtb_integral_reset_idx_1;
-      LW_ctrl_241029_1_DW.Filter_PREV_U_e = LW_ctrl_241029_1_B.kappa;
+      LW_ctrl_241029_1_DW.Filter_PREV_U_e = LW_ctrl_241029_1_B.vx_d;
 
       /* Update for DiscreteIntegrator: '<S232>/Integrator' */
       LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_l = 0U;
       LW_ctrl_241029_1_DW.Integrator_DSTATE_h = LW_ctrl_241029_1_B.time_to_stop;
-      LW_ctrl_241029_1_DW.Integrator_PrevResetState_m = (int8_T)
-        rtb_integral_reset_idx_0;
+      LW_ctrl_241029_1_DW.Integrator_PrevResetState_m = (int8_T)want_hold_z;
 
       /* Switch: '<S222>/Switch1' incorporates:
        *  Constant: '<S222>/Clamping_zero'
@@ -8016,8 +6836,7 @@ void LW_ctrl_241029_1_step(void)
         /* Update for DiscreteIntegrator: '<S232>/Integrator' incorporates:
          *  Gain: '<S229>/Integral Gain'
          */
-        LW_ctrl_241029_1_DW.Integrator_PREV_U_f = 0.0F *
-          LW_ctrl_241029_1_B.theta;
+        LW_ctrl_241029_1_DW.Integrator_PREV_U_f = 0.0F * LW_ctrl_241029_1_B.vz_d;
       }
 
       /* End of Switch: '<S222>/Switch' */
@@ -8027,8 +6846,7 @@ void LW_ctrl_241029_1_step(void)
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_k = 0U;
       LW_ctrl_241029_1_DW.Filter_DSTATE_e = LW_ctrl_241029_1_B.delta_t;
-      LW_ctrl_241029_1_DW.Filter_PrevResetState_f = (int8_T)
-        rtb_integral_reset_idx_0;
+      LW_ctrl_241029_1_DW.Filter_PrevResetState_f = (int8_T)want_hold_z;
       LW_ctrl_241029_1_DW.Filter_PREV_U_b =
         LW_ctrl_241029_1_B.FilterCoefficient_jy;
 
@@ -8037,8 +6855,7 @@ void LW_ctrl_241029_1_step(void)
        */
       LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_d = 0U;
       LW_ctrl_241029_1_DW.Integrator_DSTATE_n = LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_DW.Integrator_PrevResetState_f = (int8_T)
-        rtb_integral_reset_idx_0;
+      LW_ctrl_241029_1_DW.Integrator_PrevResetState_f = (int8_T)want_hold_z;
 
       /* Switch: '<S276>/Switch1' incorporates:
        *  Constant: '<S276>/Clamping_zero'
@@ -8080,14 +6897,13 @@ void LW_ctrl_241029_1_step(void)
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_j = 0U;
       LW_ctrl_241029_1_DW.Filter_DSTATE_p = LW_ctrl_241029_1_B.Filter_l;
-      LW_ctrl_241029_1_DW.Filter_PrevResetState_b = (int8_T)
-        rtb_integral_reset_idx_0;
+      LW_ctrl_241029_1_DW.Filter_PrevResetState_b = (int8_T)want_hold_z;
       LW_ctrl_241029_1_DW.Filter_PREV_U_h =
         LW_ctrl_241029_1_B.FilterCoefficient_l;
 
       /* Update for DiscreteIntegrator: '<S59>/Integrator' */
       LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_ls = 0U;
-      LW_ctrl_241029_1_DW.Integrator_DSTATE_j = LW_ctrl_241029_1_B.b_c;
+      LW_ctrl_241029_1_DW.Integrator_DSTATE_j = rtb_TmpSignalConversionAtSFun_1;
       LW_ctrl_241029_1_DW.Integrator_PrevResetState_o = (int8_T)want_hold_xy;
 
       /* Switch: '<S49>/Switch1' incorporates:
@@ -8127,7 +6943,7 @@ void LW_ctrl_241029_1_step(void)
        *  DiscreteIntegrator: '<S59>/Integrator'
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_m = 0U;
-      LW_ctrl_241029_1_DW.Filter_DSTATE = LW_ctrl_241029_1_B.Saturation_d;
+      LW_ctrl_241029_1_DW.Filter_DSTATE = LW_ctrl_241029_1_B.Filter;
       LW_ctrl_241029_1_DW.Filter_PrevResetState_m = (int8_T)want_hold_xy;
       LW_ctrl_241029_1_DW.Filter_PREV_U = LW_ctrl_241029_1_B.FilterCoefficient;
 
@@ -8135,7 +6951,7 @@ void LW_ctrl_241029_1_step(void)
        *  DiscreteIntegrator: '<S59>/Integrator'
        */
       LW_ctrl_241029_1_DW.Integrator_SYSTEM_ENABLE_n = 0U;
-      LW_ctrl_241029_1_DW.Integrator_DSTATE_m = q;
+      LW_ctrl_241029_1_DW.Integrator_DSTATE_m = LW_ctrl_241029_1_B.Integrator_nz;
       LW_ctrl_241029_1_DW.Integrator_PrevResetState_mv = (int8_T)want_hold_xy;
 
       /* Switch: '<S103>/Switch1' incorporates:
@@ -8167,7 +6983,8 @@ void LW_ctrl_241029_1_step(void)
         /* Update for DiscreteIntegrator: '<S113>/Integrator' incorporates:
          *  Gain: '<S110>/Integral Gain'
          */
-        LW_ctrl_241029_1_DW.Integrator_PREV_U_a = 0.0F * LW_ctrl_241029_1_B.c_b;
+        LW_ctrl_241029_1_DW.Integrator_PREV_U_a = 0.0F *
+          rtb_TmpSignalConversionAtSFun_0;
       }
 
       /* End of Switch: '<S103>/Switch' */
@@ -8176,7 +6993,7 @@ void LW_ctrl_241029_1_step(void)
        *  DiscreteIntegrator: '<S59>/Integrator'
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_n = 0U;
-      LW_ctrl_241029_1_DW.Filter_DSTATE_fv = LW_ctrl_241029_1_B.Filter_o;
+      LW_ctrl_241029_1_DW.Filter_DSTATE_fv = q;
       LW_ctrl_241029_1_DW.Filter_PrevResetState_p = (int8_T)want_hold_xy;
       LW_ctrl_241029_1_DW.Filter_PREV_U_j =
         LW_ctrl_241029_1_B.FilterCoefficient_i;
@@ -8227,7 +7044,7 @@ void LW_ctrl_241029_1_step(void)
        *  DiscreteIntegrator: '<S59>/Integrator'
        */
       LW_ctrl_241029_1_DW.Filter_SYSTEM_ENABLE_b = 0U;
-      LW_ctrl_241029_1_DW.Filter_DSTATE_i = Filter_o5;
+      LW_ctrl_241029_1_DW.Filter_DSTATE_i = LW_ctrl_241029_1_B.Filter_o5;
       LW_ctrl_241029_1_DW.Filter_PrevResetState_i = (int8_T)want_hold_xy;
       LW_ctrl_241029_1_DW.Filter_PREV_U_n =
         LW_ctrl_241029_1_B.FilterCoefficient_k;
@@ -8268,19 +7085,19 @@ void LW_ctrl_241029_1_step(void)
         /* '<S400>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S400>:1:7' deadZone = LW_MAN_WZ_DZ; */
         /* '<S400>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_MAN_WZ_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_MAN_WZ_DZ);
 
         /* dead zone */
         /* '<S400>:1:11' if(u > RCMid + deadZone) */
         if (LW_ctrl_241029_1_B.sf_nan_inf4.y > LW_MAN_WZ_DZ) {
           /* '<S400>:1:12' y = single((u-RCMid - deadZone)*k); */
           LW_ctrl_241029_1_B.IntegralGain = (LW_ctrl_241029_1_B.sf_nan_inf4.y -
-            LW_MAN_WZ_DZ) * LW_ctrl_241029_1_B.kappa;
+            LW_MAN_WZ_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf4.y < 0.0F - LW_MAN_WZ_DZ) {
           /* '<S400>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S400>:1:14' y = single((u - RCMid + deadZone)*k); */
           LW_ctrl_241029_1_B.IntegralGain = (LW_ctrl_241029_1_B.sf_nan_inf4.y +
-            LW_MAN_WZ_DZ) * LW_ctrl_241029_1_B.kappa;
+            LW_MAN_WZ_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else {
           /* '<S400>:1:15' else */
           /* '<S400>:1:16' y = single(0); */
@@ -8316,31 +7133,31 @@ void LW_ctrl_241029_1_step(void)
         /* '<S378>:1:10' if in < 0.5 */
         if (LW_ctrl_241029_1_B.sf_nan_inf5.y < 0.5F) {
           /* '<S378>:1:11' y=2 * in * hover; */
-          LW_ctrl_241029_1_B.km_f_b = 2.0F * LW_ctrl_241029_1_B.sf_nan_inf5.y *
-            LW_THR_HOVER;
+          LW_ctrl_241029_1_B.Integrator_b = 2.0F *
+            LW_ctrl_241029_1_B.sf_nan_inf5.y * LW_THR_HOVER;
         } else {
           /* '<S378>:1:12' else */
           /* '<S378>:1:13' y=hover + 2 * (in - 0.5) * (1.0 - hover); */
-          LW_ctrl_241029_1_B.km_f_b = (LW_ctrl_241029_1_B.sf_nan_inf5.y - 0.5F) *
-            2.0F * (1.0F - LW_THR_HOVER) + LW_THR_HOVER;
+          LW_ctrl_241029_1_B.Integrator_b = (LW_ctrl_241029_1_B.sf_nan_inf5.y -
+            0.5F) * 2.0F * (1.0F - LW_THR_HOVER) + LW_THR_HOVER;
         }
 
         /* End of MATLAB Function: '<S370>/f1' */
 
         /* Gain: '<S370>/Gain5' */
-        LW_ctrl_241029_1_B.Filter_o = 30.9556293F * LW_ctrl_241029_1_B.km_f_b;
+        LW_ctrl_241029_1_B.dt = 30.9556293F * LW_ctrl_241029_1_B.Integrator_b;
 
         /* Saturate: '<S370>/Saturation10' */
-        if (LW_ctrl_241029_1_B.Filter_o > 14.8F) {
-          LW_ctrl_241029_1_B.Filter_o = 14.8F;
-        } else if (LW_ctrl_241029_1_B.Filter_o < 0.0F) {
-          LW_ctrl_241029_1_B.Filter_o = 0.0F;
+        if (LW_ctrl_241029_1_B.dt > 14.8F) {
+          LW_ctrl_241029_1_B.dt = 14.8F;
+        } else if (LW_ctrl_241029_1_B.dt < 0.0F) {
+          LW_ctrl_241029_1_B.dt = 0.0F;
         }
 
         /* Gain: '<S370>/Gain4' incorporates:
          *  Saturate: '<S370>/Saturation10'
          */
-        LW_ctrl_241029_1_B.thrust = -LW_MASS * LW_ctrl_241029_1_B.Filter_o;
+        LW_ctrl_241029_1_B.thrust = -LW_MASS * LW_ctrl_241029_1_B.dt;
 
         /* MATLAB Function: '<S370>/nan_inf2' */
         LW_ctrl_241029_1_nan_inf0(LW_ctrl_241029_1_B.y_b,
@@ -8355,23 +7172,23 @@ void LW_ctrl_241029_1_step(void)
         /* '<S395>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S395>:1:7' deadZone = LW_MAN_WX_DZ; */
         /* '<S395>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_MAN_WX_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_MAN_WX_DZ);
 
         /* dead zone */
         /* '<S395>:1:11' if(u > RCMid + deadZone) */
         if (LW_ctrl_241029_1_B.sf_nan_inf2.y > LW_MAN_WX_DZ) {
           /* '<S395>:1:12' y = single((u-RCMid - deadZone)*k); */
-          LW_ctrl_241029_1_B.km_f_b = (LW_ctrl_241029_1_B.sf_nan_inf2.y -
-            LW_MAN_WX_DZ) * LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.Integrator_b = (LW_ctrl_241029_1_B.sf_nan_inf2.y -
+            LW_MAN_WX_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf2.y < 0.0F - LW_MAN_WX_DZ) {
           /* '<S395>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S395>:1:14' y = single((u - RCMid + deadZone)*k); */
-          LW_ctrl_241029_1_B.km_f_b = (LW_ctrl_241029_1_B.sf_nan_inf2.y +
-            LW_MAN_WX_DZ) * LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.Integrator_b = (LW_ctrl_241029_1_B.sf_nan_inf2.y +
+            LW_MAN_WX_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else {
           /* '<S395>:1:15' else */
           /* '<S395>:1:16' y = single(0); */
-          LW_ctrl_241029_1_B.km_f_b = 0.0F;
+          LW_ctrl_241029_1_B.Integrator_b = 0.0F;
         }
 
         /* End of MATLAB Function: '<S370>/rollrate_deadzone' */
@@ -8389,23 +7206,23 @@ void LW_ctrl_241029_1_step(void)
         /* '<S392>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S392>:1:7' deadZone = LW_MAN_WY_DZ; */
         /* '<S392>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_MAN_WY_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_MAN_WY_DZ);
 
         /* dead zone */
         /* '<S392>:1:11' if(u > RCMid + deadZone) */
         if (LW_ctrl_241029_1_B.sf_nan_inf3.y > LW_MAN_WY_DZ) {
           /* '<S392>:1:12' y = single((u-RCMid - deadZone)*k); */
-          LW_ctrl_241029_1_B.Va_ = (LW_ctrl_241029_1_B.sf_nan_inf3.y -
-            LW_MAN_WY_DZ) * LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.dt = (LW_ctrl_241029_1_B.sf_nan_inf3.y -
+            LW_MAN_WY_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf3.y < 0.0F - LW_MAN_WY_DZ) {
           /* '<S392>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S392>:1:14' y = single((u - RCMid + deadZone)*k); */
-          LW_ctrl_241029_1_B.Va_ = (LW_ctrl_241029_1_B.sf_nan_inf3.y +
-            LW_MAN_WY_DZ) * LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.dt = (LW_ctrl_241029_1_B.sf_nan_inf3.y +
+            LW_MAN_WY_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else {
           /* '<S392>:1:15' else */
           /* '<S392>:1:16' y = single(0); */
-          LW_ctrl_241029_1_B.Va_ = 0.0F;
+          LW_ctrl_241029_1_B.dt = 0.0F;
         }
 
         /* End of MATLAB Function: '<S370>/pitchrate_deadzone' */
@@ -8431,7 +7248,7 @@ void LW_ctrl_241029_1_step(void)
         /* '<S397>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S397>:1:7' deadZone = LW_X_VEL_DZ; */
         /* '<S397>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_X_VEL_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_X_VEL_DZ);
 
         /* dead zone */
         /* '<S397>:1:11' if(u > RCMid + deadZone) */
@@ -8440,14 +7257,14 @@ void LW_ctrl_241029_1_step(void)
           /* '<S397>:1:12' y = single((u-RCMid - deadZone)*k); */
           LW_ctrl_241029_1_B.sf_Lowpass.data_in =
             (LW_ctrl_241029_1_B.sf_nan_inf6.y - LW_X_VEL_DZ) *
-            LW_ctrl_241029_1_B.kappa;
+            LW_ctrl_241029_1_B.vx_d;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf6.y < 0.0F - LW_X_VEL_DZ) {
           /* MATLAB Function: '<S370>/Lowpass' */
           /* '<S397>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S397>:1:14' y = single((u - RCMid + deadZone)*k); */
           LW_ctrl_241029_1_B.sf_Lowpass.data_in =
             (LW_ctrl_241029_1_B.sf_nan_inf6.y + LW_X_VEL_DZ) *
-            LW_ctrl_241029_1_B.kappa;
+            LW_ctrl_241029_1_B.vx_d;
         } else {
           /* MATLAB Function: '<S370>/Lowpass' */
           /* '<S397>:1:15' else */
@@ -8474,7 +7291,7 @@ void LW_ctrl_241029_1_step(void)
         /* '<S398>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S398>:1:7' deadZone = LW_Y_VEL_DZ; */
         /* '<S398>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_Y_VEL_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_Y_VEL_DZ);
 
         /* dead zone */
         /* '<S398>:1:11' if(u > RCMid + deadZone) */
@@ -8482,13 +7299,13 @@ void LW_ctrl_241029_1_step(void)
           /* '<S398>:1:12' y = single((u-RCMid - deadZone)*k); */
           LW_ctrl_241029_1_B.sf_Lowpass1.data_in =
             (LW_ctrl_241029_1_B.sf_nan_inf7.y - LW_Y_VEL_DZ) *
-            LW_ctrl_241029_1_B.kappa;
+            LW_ctrl_241029_1_B.vx_d;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf7.y < 0.0F - LW_Y_VEL_DZ) {
           /* '<S398>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S398>:1:14' y = single((u - RCMid + deadZone)*k); */
           LW_ctrl_241029_1_B.sf_Lowpass1.data_in =
             (LW_ctrl_241029_1_B.sf_nan_inf7.y + LW_Y_VEL_DZ) *
-            LW_ctrl_241029_1_B.kappa;
+            LW_ctrl_241029_1_B.vx_d;
         } else {
           /* '<S398>:1:15' else */
           /* '<S398>:1:16' y = single(0); */
@@ -8511,8 +7328,7 @@ void LW_ctrl_241029_1_step(void)
         /*  u:0-1 */
         /* MATLAB Function 'navigator/navigator_manual/vz_deadzone': '<S399>:1' */
         /* '<S399>:1:5' u = u*2 - 1; */
-        LW_ctrl_241029_1_B.eta_p = LW_ctrl_241029_1_B.sf_nan_inf8.y * 2.0F -
-          1.0F;
+        LW_ctrl_241029_1_B.vy_d = LW_ctrl_241029_1_B.sf_nan_inf8.y * 2.0F - 1.0F;
 
         /*  -1~1 */
         /* '<S399>:1:6' RCMin = single(-1); */
@@ -8520,19 +7336,19 @@ void LW_ctrl_241029_1_step(void)
         /* '<S399>:1:8' RCMid = ((RCMin + RCMax)/2); */
         /* '<S399>:1:9' deadZone = LW_Z_VEL_DZ; */
         /* '<S399>:1:10' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_Z_VEL_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_Z_VEL_DZ);
 
         /* dead zone */
         /* '<S399>:1:13' if(u > RCMid + deadZone) */
-        if (LW_ctrl_241029_1_B.eta_p > LW_Z_VEL_DZ) {
+        if (LW_ctrl_241029_1_B.vy_d > LW_Z_VEL_DZ) {
           /* '<S399>:1:14' y = single((u-RCMid - deadZone)*k); */
-          LW_ctrl_241029_1_B.sf_Lowpass2.data_in = (LW_ctrl_241029_1_B.eta_p -
-            LW_Z_VEL_DZ) * LW_ctrl_241029_1_B.kappa;
-        } else if (LW_ctrl_241029_1_B.eta_p < 0.0F - LW_Z_VEL_DZ) {
+          LW_ctrl_241029_1_B.sf_Lowpass2.data_in = (LW_ctrl_241029_1_B.vy_d -
+            LW_Z_VEL_DZ) * LW_ctrl_241029_1_B.vx_d;
+        } else if (LW_ctrl_241029_1_B.vy_d < 0.0F - LW_Z_VEL_DZ) {
           /* '<S399>:1:15' elseif(u < RCMid - deadZone) */
           /* '<S399>:1:16' y = single((u - RCMid + deadZone)*k); */
-          LW_ctrl_241029_1_B.sf_Lowpass2.data_in = (LW_ctrl_241029_1_B.eta_p +
-            LW_Z_VEL_DZ) * LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.sf_Lowpass2.data_in = (LW_ctrl_241029_1_B.vy_d +
+            LW_Z_VEL_DZ) * LW_ctrl_241029_1_B.vx_d;
         } else {
           /* '<S399>:1:17' else */
           /* '<S399>:1:18' y = single(0); */
@@ -8563,23 +7379,23 @@ void LW_ctrl_241029_1_step(void)
         /* '<S394>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S394>:1:7' deadZone = LW_MAN_ROLL_DZ; */
         /* '<S394>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_MAN_ROLL_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_MAN_ROLL_DZ);
 
         /* dead zone */
         /* '<S394>:1:11' if(u > RCMid + deadZone) */
         if (LW_ctrl_241029_1_B.sf_nan_inf0.y > LW_MAN_ROLL_DZ) {
           /* '<S394>:1:12' y = single((u-RCMid - deadZone)*k); */
-          LW_ctrl_241029_1_B.kappa *= LW_ctrl_241029_1_B.sf_nan_inf0.y -
+          LW_ctrl_241029_1_B.vx_d *= LW_ctrl_241029_1_B.sf_nan_inf0.y -
             LW_MAN_ROLL_DZ;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf0.y < 0.0F - LW_MAN_ROLL_DZ) {
           /* '<S394>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S394>:1:14' y = single((u - RCMid + deadZone)*k); */
-          LW_ctrl_241029_1_B.kappa *= LW_ctrl_241029_1_B.sf_nan_inf0.y +
+          LW_ctrl_241029_1_B.vx_d *= LW_ctrl_241029_1_B.sf_nan_inf0.y +
             LW_MAN_ROLL_DZ;
         } else {
           /* '<S394>:1:15' else */
           /* '<S394>:1:16' y = single(0); */
-          LW_ctrl_241029_1_B.kappa = 0.0F;
+          LW_ctrl_241029_1_B.vx_d = 0.0F;
         }
 
         /* End of MATLAB Function: '<S370>/roll_deadzone' */
@@ -8587,8 +7403,8 @@ void LW_ctrl_241029_1_step(void)
         /* Gain: '<S370>/deg2rad' incorporates:
          *  Gain: '<S370>/man_roll_max'
          */
-        LW_ctrl_241029_1_B.roll_ref = LW_MAN_ROLL_MAX * LW_ctrl_241029_1_B.kappa
-          * 0.0174533F;
+        LW_ctrl_241029_1_B.roll_ref = LW_MAN_ROLL_MAX * LW_ctrl_241029_1_B.vx_d *
+          0.0174533F;
 
         /* Gain: '<S370>/deg2rad1' incorporates:
          *  Gain: '<S370>/Gain1'
@@ -8609,23 +7425,23 @@ void LW_ctrl_241029_1_step(void)
         /* '<S391>:1:6' RCMid = ((RCMin + RCMax)/2); */
         /* '<S391>:1:7' deadZone = LW_MAN_PITCH_DZ; */
         /* '<S391>:1:8' k = 1/(RCMax - RCMid - deadZone); */
-        LW_ctrl_241029_1_B.kappa = 1.0F / (1.0F - LW_MAN_PITCH_DZ);
+        LW_ctrl_241029_1_B.vx_d = 1.0F / (1.0F - LW_MAN_PITCH_DZ);
 
         /* dead zone */
         /* '<S391>:1:11' if(u > RCMid + deadZone) */
         if (LW_ctrl_241029_1_B.sf_nan_inf1.y > LW_MAN_PITCH_DZ) {
           /* '<S391>:1:12' y = single((u-RCMid - deadZone)*k); */
-          LW_ctrl_241029_1_B.kappa *= LW_ctrl_241029_1_B.sf_nan_inf1.y -
+          LW_ctrl_241029_1_B.vx_d *= LW_ctrl_241029_1_B.sf_nan_inf1.y -
             LW_MAN_PITCH_DZ;
         } else if (LW_ctrl_241029_1_B.sf_nan_inf1.y < 0.0F - LW_MAN_PITCH_DZ) {
           /* '<S391>:1:13' elseif(u < RCMid - deadZone) */
           /* '<S391>:1:14' y = single((u - RCMid + deadZone)*k); */
-          LW_ctrl_241029_1_B.kappa *= LW_ctrl_241029_1_B.sf_nan_inf1.y +
+          LW_ctrl_241029_1_B.vx_d *= LW_ctrl_241029_1_B.sf_nan_inf1.y +
             LW_MAN_PITCH_DZ;
         } else {
           /* '<S391>:1:15' else */
           /* '<S391>:1:16' y = single(0); */
-          LW_ctrl_241029_1_B.kappa = 0.0F;
+          LW_ctrl_241029_1_B.vx_d = 0.0F;
         }
 
         /* End of MATLAB Function: '<S370>/pitch_deadzone' */
@@ -8634,7 +7450,7 @@ void LW_ctrl_241029_1_step(void)
          *  Gain: '<S370>/man_pitch_max'
          */
         LW_ctrl_241029_1_B.pitch_ref = -LW_MAN_PITCH_MAX *
-          LW_ctrl_241029_1_B.kappa * 0.0174533F;
+          LW_ctrl_241029_1_B.vx_d * 0.0174533F;
 
         /* Gain: '<S370>/deg2rad3' incorporates:
          *  Gain: '<S370>/Gain2'
@@ -8646,29 +7462,29 @@ void LW_ctrl_241029_1_step(void)
          *  Gain: '<S370>/Gain6'
          */
         LW_ctrl_241029_1_B.rollrate_ref = LW_ACRO_R_MAX *
-          LW_ctrl_241029_1_B.km_f_b * 0.0174533F;
+          LW_ctrl_241029_1_B.Integrator_b * 0.0174533F;
 
         /* Gain: '<S370>/deg2rad5' incorporates:
          *  Gain: '<S370>/Gain7'
          */
-        LW_ctrl_241029_1_B.pitchRate_d = -LW_ACRO_P_MAX * LW_ctrl_241029_1_B.Va_
-          * 0.0174533F;
+        LW_ctrl_241029_1_B.pitchRate_d = -LW_ACRO_P_MAX * LW_ctrl_241029_1_B.dt *
+          0.0174533F;
 
         /* Gain: '<S370>/Gain3' incorporates:
          *  Gain: '<S370>/Gain8'
          */
-        LW_ctrl_241029_1_B.IntegralGain = LW_SERVOR_MAX + LW_SERVOL_MAX;
+        LW_ctrl_241029_1_B.aSinInput = LW_SERVOR_MAX + LW_SERVOL_MAX;
 
         /* Gain: '<S370>/deg2rad6' incorporates:
          *  Gain: '<S370>/Gain3'
          */
-        LW_ctrl_241029_1_B.delta_a = LW_ctrl_241029_1_B.IntegralGain *
+        LW_ctrl_241029_1_B.delta_a = LW_ctrl_241029_1_B.aSinInput *
           LW_ctrl_241029_1_B.sf_rollrate_deadzone1.y * 0.0174533F;
 
         /* Gain: '<S370>/deg2rad7' incorporates:
          *  Gain: '<S370>/Gain8'
          */
-        LW_ctrl_241029_1_B.delta_e = LW_ctrl_241029_1_B.IntegralGain *
+        LW_ctrl_241029_1_B.delta_e = LW_ctrl_241029_1_B.aSinInput *
           LW_ctrl_241029_1_B.sf_pitchrate_deadzone1.y * 0.0174533F;
 
         /* Gain: '<S370>/max_vx' */
@@ -8698,46 +7514,41 @@ void LW_ctrl_241029_1_step(void)
        *  DataTypeConversion: '<S371>/Data Type Conversion'
        *  Gain: '<S371>/Gain'
        */
-      /* 纵向正弦轨迹 八字轨迹 S弯轨迹 直线加减速 侧向复位 */
       /* MATLAB Function 'navigator/navigator_offboard/task select/task select/task': '<S405>:1' */
-      /* '<S405>:1:3' d = 20; */
-      /*  if timestamp <= 400 */
-      /*      CH8 = 1550; */
-      /*  end */
-      /* '<S405>:1:8' if CH8 < 1600 */
+      /* '<S405>:1:3' if CH8 < 1600 */
       if (LW_ctrl_241029_1_B.AU8 < 1600.0F) {
-        /* '<S405>:1:9' [pos_ref, vel_ref, acc_ref, euler_ref,dot3x, yaw_ref, dotpsi,reverse_flag] = task5(timestamp, flight_mode,pos, vel, q, LW_OB_CIRCLE_R, LW_OB_CIRCLE_V, LW_OB_CIRCLE_W, LW_OB_TYPE); */
+        /* '<S405>:1:4' [pos_ref, vel_ref, acc_ref, euler_ref,dot3x, yaw_ref, dotpsi,reverse_flag] = task5(timestamp, flight_mode,pos, vel, q, LW_OB_CIRCLE_R, LW_OB_CIRCLE_V, LW_OB_CIRCLE_W, LW_OB_TYPE); */
         LW_ctrl_241029_1_task5((real32_T)(1.0E-6 *
           LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.timestamp),
           LW_ctrl_241029_1_B.flight_mode, LW_ctrl_241029_1_B.sf_nan_inf.y,
-          LW_ctrl_241029_1_B.y, LW_ctrl_241029_1_B.Xi_e,
-          LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.z3_,
-          LW_ctrl_241029_1_B.d_est, &LW_ctrl_241029_1_B.Va_,
+          LW_ctrl_241029_1_B.y, LW_ctrl_241029_1_B.v_body_e,
+          LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.Euler,
+          LW_ctrl_241029_1_B.vd_lim, &LW_ctrl_241029_1_B.dt,
           &LW_ctrl_241029_1_B.IntegralGain);
       } else {
-        /* '<S405>:1:10' else */
-        /* '<S405>:1:11' [pos_ref, vel_ref, acc_ref, euler_ref,dot3x, yaw_ref, dotpsi,reverse_flag] = task1(timestamp, flight_mode,pos, vel, q, LW_OB_CIRCLE_R, LW_OB_CIRCLE_V, LW_OB_CIRCLE_W, LW_OB_TYPE); */
+        /* '<S405>:1:5' else */
+        /* '<S405>:1:6' [pos_ref, vel_ref, acc_ref, euler_ref,dot3x, yaw_ref, dotpsi,reverse_flag] = task1(timestamp, flight_mode,pos, vel, q, LW_OB_CIRCLE_R, LW_OB_CIRCLE_V, LW_OB_CIRCLE_W, LW_OB_TYPE); */
         LW_ctrl_241029_1_task1((real32_T)(1.0E-6 *
           LW_ctrl_241029_1_B.uORBReadFunctionCallTrigger2.timestamp),
           LW_ctrl_241029_1_B.flight_mode, LW_ctrl_241029_1_B.sf_nan_inf.y,
-          LW_ctrl_241029_1_B.y, LW_ctrl_241029_1_B.Xi_e,
-          LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.z3_,
-          LW_ctrl_241029_1_B.d_est, &LW_ctrl_241029_1_B.Va_,
+          LW_ctrl_241029_1_B.y, LW_ctrl_241029_1_B.v_body_e,
+          LW_ctrl_241029_1_B.vel_ref_c, LW_ctrl_241029_1_B.Euler,
+          LW_ctrl_241029_1_B.vd_lim, &LW_ctrl_241029_1_B.dt,
           &LW_ctrl_241029_1_B.IntegralGain);
       }
 
       /* End of MATLAB Function: '<S403>/task' */
 
       /* MATLAB Function: '<S403>/df,coor,wind' */
-      LW_ctrl_241029_1_B.pos_ref_l[0] = LW_ctrl_241029_1_B.Xi_e[0];
+      LW_ctrl_241029_1_B.pos_ref_l[0] = LW_ctrl_241029_1_B.v_body_e[0];
       LW_ctrl_241029_1_B.vel_ref_k[0] = LW_ctrl_241029_1_B.vel_ref_c[0];
-      LW_ctrl_241029_1_B.acc_ref_b[0] = LW_ctrl_241029_1_B.z3_[0];
-      LW_ctrl_241029_1_B.pos_ref_l[1] = LW_ctrl_241029_1_B.Xi_e[1];
+      LW_ctrl_241029_1_B.acc_ref_b[0] = LW_ctrl_241029_1_B.Euler[0];
+      LW_ctrl_241029_1_B.pos_ref_l[1] = LW_ctrl_241029_1_B.v_body_e[1];
       LW_ctrl_241029_1_B.vel_ref_k[1] = LW_ctrl_241029_1_B.vel_ref_c[1];
-      LW_ctrl_241029_1_B.acc_ref_b[1] = LW_ctrl_241029_1_B.z3_[1];
-      LW_ctrl_241029_1_B.pos_ref_l[2] = LW_ctrl_241029_1_B.Xi_e[2];
+      LW_ctrl_241029_1_B.acc_ref_b[1] = LW_ctrl_241029_1_B.Euler[1];
+      LW_ctrl_241029_1_B.pos_ref_l[2] = LW_ctrl_241029_1_B.v_body_e[2];
       LW_ctrl_241029_1_B.vel_ref_k[2] = LW_ctrl_241029_1_B.vel_ref_c[2];
-      LW_ctrl_241029_1_B.acc_ref_b[2] = LW_ctrl_241029_1_B.z3_[2];
+      LW_ctrl_241029_1_B.acc_ref_b[2] = LW_ctrl_241029_1_B.Euler[2];
 
       /*  Note */
       /*  adopt the results from differential Flatness derived from data 2022-6-16 */
@@ -8746,18 +7557,18 @@ void LW_ctrl_241029_1_step(void)
       /* '<S404>:1:9' if isempty(xw_) */
       if (!LW_ctrl_241029_1_DW.xw__not_empty) {
         /* '<S404>:1:10' if ~isnan(yaw_ref) */
-        if (!rtIsNaNF(LW_ctrl_241029_1_B.Va_)) {
+        if (!rtIsNaNF(LW_ctrl_241029_1_B.dt)) {
           /* '<S404>:1:11' xw_ = [cos(yaw_ref) sin(yaw_ref) 0]'; */
-          LW_ctrl_241029_1_B.kappa = (real32_T)sin(LW_ctrl_241029_1_B.Va_);
-          LW_ctrl_241029_1_B.eta_p = (real32_T)cos(LW_ctrl_241029_1_B.Va_);
-          LW_ctrl_241029_1_DW.xw_[0] = LW_ctrl_241029_1_B.eta_p;
-          LW_ctrl_241029_1_DW.xw_[1] = LW_ctrl_241029_1_B.kappa;
+          LW_ctrl_241029_1_B.vx_d = (real32_T)sin(LW_ctrl_241029_1_B.dt);
+          LW_ctrl_241029_1_B.vy_d = (real32_T)cos(LW_ctrl_241029_1_B.dt);
+          LW_ctrl_241029_1_DW.xw_[0] = LW_ctrl_241029_1_B.vy_d;
+          LW_ctrl_241029_1_DW.xw_[1] = LW_ctrl_241029_1_B.vx_d;
           LW_ctrl_241029_1_DW.xw_[2] = 0.0F;
           LW_ctrl_241029_1_DW.xw__not_empty = true;
 
           /* '<S404>:1:12' yb_ = [-sin(yaw_ref) cos(yaw_ref) 0]'; */
-          LW_ctrl_241029_1_DW.yb_[0] = -LW_ctrl_241029_1_B.kappa;
-          LW_ctrl_241029_1_DW.yb_[1] = LW_ctrl_241029_1_B.eta_p;
+          LW_ctrl_241029_1_DW.yb_[0] = -LW_ctrl_241029_1_B.vx_d;
+          LW_ctrl_241029_1_DW.yb_[1] = LW_ctrl_241029_1_B.vy_d;
           LW_ctrl_241029_1_DW.yb_[2] = 0.0F;
         } else {
           /* '<S404>:1:13' else */
@@ -8789,45 +7600,42 @@ void LW_ctrl_241029_1_step(void)
       /*  Cla = single(ModelParam_pu_c2); % pre stall */
       /* '<S404>:1:28' Cy0 = single(LW_AERO_Y0); */
       /* '<S404>:1:29' kk = single(LW_ANGLE*pi/180); */
-      LW_ctrl_241029_1_B.km_f_b = LW_ANGLE * 3.14159274F / 180.0F;
+      LW_ctrl_241029_1_B.Integrator_b = LW_ANGLE * 3.14159274F / 180.0F;
 
       /* '<S404>:1:30' Rho = single(ModelParam_LBRho); */
       /* '<S404>:1:31' Mass = single(LW_MASS); */
       /* '<S404>:1:34' dotdotx = single(acc_ref(:)); */
       /* '<S404>:1:35' va = single(vel_ref(:) - v_wind); */
       /* '<S404>:1:36' Va = sqrt(va'*va); */
-      LW_ctrl_241029_1_B.Integrator_a = LW_ctrl_241029_1_B.vel_ref_k[0] -
+      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.vel_ref_k[0] -
         LW_ctrl_241029_1_B.v_wind[0];
-      LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] =
-        LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.Integrator_a *
-        LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.Integrator_a = LW_ctrl_241029_1_B.vel_ref_k[1] -
+      rtb_TmpSignalConversionAtSFun_1 = LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.T1 *
+        LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.vel_ref_k[1] -
         LW_ctrl_241029_1_B.v_wind[1];
-      LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] =
-        LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.aSinInput += LW_ctrl_241029_1_B.Integrator_a *
-        LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.Integrator_a = LW_ctrl_241029_1_B.vel_ref_k[2] -
+      rtb_TmpSignalConversionAtSFun_0 = LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.IntegralGain += LW_ctrl_241029_1_B.T1 *
+        LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.vel_ref_k[2] -
         LW_ctrl_241029_1_B.v_wind[2];
-      LW_ctrl_241029_1_B.IntegralGain = (real32_T)sqrt
-        (LW_ctrl_241029_1_B.Integrator_a * LW_ctrl_241029_1_B.Integrator_a +
-         LW_ctrl_241029_1_B.aSinInput);
+      LW_ctrl_241029_1_B.IntegralGain = (real32_T)sqrt(LW_ctrl_241029_1_B.T1 *
+        LW_ctrl_241029_1_B.T1 + LW_ctrl_241029_1_B.IntegralGain);
 
       /* '<S404>:1:37' Qa = 0.5/Mass * Rho * ModelParam_LBS * Va; */
       /* '<S404>:1:39' if ~isnan(yaw_ref) */
-      rtb_RelationalOperator_om = rtIsNaNF(LW_ctrl_241029_1_B.Va_);
+      rtb_RelationalOperator_om = rtIsNaNF(LW_ctrl_241029_1_B.dt);
       if (!rtb_RelationalOperator_om) {
         /* '<S404>:1:40' xw_ = [cos(yaw_ref) sin(yaw_ref) 0]'; */
-        LW_ctrl_241029_1_B.kappa = (real32_T)sin(LW_ctrl_241029_1_B.Va_);
-        LW_ctrl_241029_1_B.eta_p = (real32_T)cos(LW_ctrl_241029_1_B.Va_);
-        LW_ctrl_241029_1_DW.xw_[0] = LW_ctrl_241029_1_B.eta_p;
-        LW_ctrl_241029_1_DW.xw_[1] = LW_ctrl_241029_1_B.kappa;
+        LW_ctrl_241029_1_B.vx_d = (real32_T)sin(LW_ctrl_241029_1_B.dt);
+        LW_ctrl_241029_1_B.vy_d = (real32_T)cos(LW_ctrl_241029_1_B.dt);
+        LW_ctrl_241029_1_DW.xw_[0] = LW_ctrl_241029_1_B.vy_d;
+        LW_ctrl_241029_1_DW.xw_[1] = LW_ctrl_241029_1_B.vx_d;
         LW_ctrl_241029_1_DW.xw_[2] = 0.0F;
 
         /* '<S404>:1:41' yb_ = [-sin(yaw_ref) cos(yaw_ref) 0]'; */
-        LW_ctrl_241029_1_DW.yb_[0] = -LW_ctrl_241029_1_B.kappa;
-        LW_ctrl_241029_1_DW.yb_[1] = LW_ctrl_241029_1_B.eta_p;
+        LW_ctrl_241029_1_DW.yb_[0] = -LW_ctrl_241029_1_B.vx_d;
+        LW_ctrl_241029_1_DW.yb_[1] = LW_ctrl_241029_1_B.vy_d;
         LW_ctrl_241029_1_DW.yb_[2] = 0.0F;
       }
 
@@ -8835,13 +7643,11 @@ void LW_ctrl_241029_1_step(void)
       if ((LW_ctrl_241029_1_B.IntegralGain > 0.01F) && rtb_RelationalOperator_om)
       {
         /* '<S404>:1:45' xw = va / Va; */
-        LW_ctrl_241029_1_DW.xw_[0] =
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] /
+        LW_ctrl_241029_1_DW.xw_[0] = rtb_TmpSignalConversionAtSFun_1 /
           LW_ctrl_241029_1_B.IntegralGain;
-        LW_ctrl_241029_1_DW.xw_[1] =
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] /
+        LW_ctrl_241029_1_DW.xw_[1] = rtb_TmpSignalConversionAtSFun_0 /
           LW_ctrl_241029_1_B.IntegralGain;
-        LW_ctrl_241029_1_DW.xw_[2] = LW_ctrl_241029_1_B.Integrator_a /
+        LW_ctrl_241029_1_DW.xw_[2] = LW_ctrl_241029_1_B.T1 /
           LW_ctrl_241029_1_B.IntegralGain;
 
         /* '<S404>:1:46' xw_ = xw; */
@@ -8860,90 +7666,88 @@ void LW_ctrl_241029_1_step(void)
       /* '<S404>:1:53' a_zw = -norm(an); */
       /* '<S404>:1:54' [f_d, alpha] = SolveFza(a_xw, a_zw, Va, Cd0, Cla, Rho,  ModelParam_LBS, LW_MASS, kk); */
       /* '<S404>:1:80' Q = 0.5 * Rho * Va ^ 2; */
-      LW_ctrl_241029_1_B.Filter_l = LW_ctrl_241029_1_B.IntegralGain *
+      LW_ctrl_241029_1_B.T2 = LW_ctrl_241029_1_B.IntegralGain *
         LW_ctrl_241029_1_B.IntegralGain;
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.Filter_l * 0.61F;
+      LW_ctrl_241029_1_B.vx_d = LW_ctrl_241029_1_B.T2 * 0.61F;
 
       /* '<S404>:1:81' QSCla = Q * S * Cla; */
-      LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_B.Va_ * 0.155F * LW_AERO_C1;
+      LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_B.vx_d * 0.155F * LW_AERO_C1;
 
       /* '<S404>:1:83' av1 = av1_*m + Q * S * Cd0; */
-      LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.Va_ * 0.155F *
+      LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_B.vx_d * 0.155F *
         LW_AERO_C0 + rtb_FilterCoefficient_jy_tmp * LW_MASS;
 
       /* '<S404>:1:84' av3 = min(av3_*m, 0); */
       /* '<S404>:1:85' k1 = sqrt(av1 ^ 2 * cos(kk) ^ 2 + (av1 + QSCla) ^ 2 * sin(kk) ^ 2 + av3 ^ 2 - QSCla * av3 * sin(2 * kk)); */
-      LW_ctrl_241029_1_B.Va_ = LW_ctrl_241029_1_B.time_to_stop +
-        LW_ctrl_241029_1_B.theta;
-      LW_ctrl_241029_1_B.eta_p = (real32_T)sin(LW_ctrl_241029_1_B.km_f_b);
+      LW_ctrl_241029_1_B.vx_d = (real32_T)cos(LW_ctrl_241029_1_B.Integrator_b);
+      LW_ctrl_241029_1_B.vy_d = (real32_T)sin(LW_ctrl_241029_1_B.Integrator_b);
 
       /* '<S404>:1:86' fz = -(av1^2 + QSCla*av1 + av3^2) / k1; */
       /* '<S404>:1:88' alpha = 2 * atan((QSCla * sin(kk) - av3 * cos(kk) + av1 * sin(kk) - k1) / (av1 * cos(kk) + av3 * sin(kk))); */
       /* '<S404>:1:56' ay = Qa * Cy0 * va - g + dotdotx; */
-      Filter_o5 = 0.5F / LW_MASS * 1.22F * 0.155F;
-      LW_ctrl_241029_1_B.aSinInput = Filter_o5 * LW_ctrl_241029_1_B.IntegralGain
-        * LW_AERO_Y0;
+      LW_ctrl_241029_1_B.T4 = 0.5F / LW_MASS * 1.22F * 0.155F *
+        LW_ctrl_241029_1_B.IntegralGain;
+      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.T4 * LW_AERO_Y0;
       LW_ctrl_241029_1_B.vel_ref_c[0] = LW_ctrl_241029_1_B.acc_ref_b[0] -
         rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_DW.xw_[0];
-      LW_ctrl_241029_1_B.Xi_e[0] = LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        LW_ctrl_241029_1_B.acc_ref_b[0];
+      LW_ctrl_241029_1_B.v_body_e[0] = LW_ctrl_241029_1_B.aSinInput *
+        rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.acc_ref_b[0];
       LW_ctrl_241029_1_B.vel_ref_c[1] = LW_ctrl_241029_1_B.acc_ref_b[1] -
         rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_DW.xw_[1];
-      LW_ctrl_241029_1_B.Xi_e[1] = LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] +
-        LW_ctrl_241029_1_B.acc_ref_b[1];
+      LW_ctrl_241029_1_B.v_body_e[1] = LW_ctrl_241029_1_B.aSinInput *
+        rtb_TmpSignalConversionAtSFun_0 + LW_ctrl_241029_1_B.acc_ref_b[1];
       LW_ctrl_241029_1_B.vel_ref_c[2] = (LW_ctrl_241029_1_B.acc_ref_b[2] - 9.8F)
         - rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_DW.xw_[2];
-      LW_ctrl_241029_1_B.Xi_e[2] = (LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_B.Integrator_a - 9.8F) + LW_ctrl_241029_1_B.acc_ref_b[2];
+      LW_ctrl_241029_1_B.v_body_e[2] = (LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_B.T1 - 9.8F) + LW_ctrl_241029_1_B.acc_ref_b[2];
       LW_ctrl_241029_1_B.delta_t = -LW_ctrl_241029_1_norm
         (LW_ctrl_241029_1_B.vel_ref_c) * LW_MASS;
       if (!(LW_ctrl_241029_1_B.delta_t <= 0.0F)) {
         LW_ctrl_241029_1_B.delta_t = 0.0F;
       }
 
-      LW_ctrl_241029_1_B.kappa = (real32_T)cos(LW_ctrl_241029_1_B.km_f_b);
-      LW_ctrl_241029_1_B.DeadZone_e = LW_ctrl_241029_1_B.time_to_stop *
+      LW_ctrl_241029_1_B.dt = LW_ctrl_241029_1_B.time_to_stop +
+        LW_ctrl_241029_1_B.vz_d;
+      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.time_to_stop *
         LW_ctrl_241029_1_B.time_to_stop;
       LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_B.delta_t *
         LW_ctrl_241029_1_B.delta_t;
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.eta_p *
-        LW_ctrl_241029_1_B.eta_p;
-      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.kappa *
-        LW_ctrl_241029_1_B.kappa;
+      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.vy_d *
+        LW_ctrl_241029_1_B.vy_d;
+      LW_ctrl_241029_1_B.DeadZone_e = LW_ctrl_241029_1_B.vx_d *
+        LW_ctrl_241029_1_B.vx_d;
       LW_ctrl_241029_1_B.FilterCoefficient_jy = (real32_T)sqrt
-        (((LW_ctrl_241029_1_B.Va_ * LW_ctrl_241029_1_B.Va_ *
-           LW_ctrl_241029_1_B.aSinInput + LW_ctrl_241029_1_B.DeadZone_e *
-           rtb_FilterCoefficient_jy_tmp) + LW_ctrl_241029_1_B.IntegralGain_gt) -
-         LW_ctrl_241029_1_B.theta * LW_ctrl_241029_1_B.delta_t * (real32_T)sin
-         (2.0F * LW_ctrl_241029_1_B.km_f_b));
-      LW_ctrl_241029_1_B.Va_ = -((LW_ctrl_241029_1_B.theta *
-        LW_ctrl_241029_1_B.time_to_stop + LW_ctrl_241029_1_B.DeadZone_e) +
+        (((LW_ctrl_241029_1_B.dt * LW_ctrl_241029_1_B.dt *
+           LW_ctrl_241029_1_B.aSinInput + rtb_FilterCoefficient_jy_tmp *
+           LW_ctrl_241029_1_B.DeadZone_e) + LW_ctrl_241029_1_B.IntegralGain_gt)
+         - LW_ctrl_241029_1_B.vz_d * LW_ctrl_241029_1_B.delta_t * (real32_T)sin
+         (2.0F * LW_ctrl_241029_1_B.Integrator_b));
+      LW_ctrl_241029_1_B.dt = -((LW_ctrl_241029_1_B.vz_d *
+        LW_ctrl_241029_1_B.time_to_stop + rtb_FilterCoefficient_jy_tmp) +
         LW_ctrl_241029_1_B.IntegralGain_gt) /
         LW_ctrl_241029_1_B.FilterCoefficient_jy;
-      LW_ctrl_241029_1_B.theta = (real32_T)atan((((LW_ctrl_241029_1_B.theta *
-        LW_ctrl_241029_1_B.eta_p - LW_ctrl_241029_1_B.delta_t *
-        LW_ctrl_241029_1_B.kappa) + LW_ctrl_241029_1_B.time_to_stop *
-        LW_ctrl_241029_1_B.eta_p) - LW_ctrl_241029_1_B.FilterCoefficient_jy) /
-        (LW_ctrl_241029_1_B.time_to_stop * LW_ctrl_241029_1_B.kappa +
-         LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.eta_p)) * 2.0F;
-      LW_ctrl_241029_1_B.f_d_l = LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.alpha_d = LW_ctrl_241029_1_B.theta;
+      LW_ctrl_241029_1_B.vz_d = (real32_T)atan((((LW_ctrl_241029_1_B.vz_d *
+        LW_ctrl_241029_1_B.vy_d - LW_ctrl_241029_1_B.delta_t *
+        LW_ctrl_241029_1_B.vx_d) + LW_ctrl_241029_1_B.time_to_stop *
+        LW_ctrl_241029_1_B.vy_d) - LW_ctrl_241029_1_B.FilterCoefficient_jy) /
+        (LW_ctrl_241029_1_B.time_to_stop * LW_ctrl_241029_1_B.vx_d +
+         LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.vy_d)) * 2.0F;
+      LW_ctrl_241029_1_B.f_d_l = LW_ctrl_241029_1_B.dt;
+      LW_ctrl_241029_1_B.alpha_d = LW_ctrl_241029_1_B.vz_d;
 
       /* '<S404>:1:57' xw_ay_norm = norm(cross(xw, ay)); */
       LW_ctrl_241029_1_B.delta_t = LW_ctrl_241029_1_DW.xw_[1] *
-        LW_ctrl_241029_1_B.Xi_e[2] - LW_ctrl_241029_1_B.Xi_e[1] *
+        LW_ctrl_241029_1_B.v_body_e[2] - LW_ctrl_241029_1_B.v_body_e[1] *
         LW_ctrl_241029_1_DW.xw_[2];
       LW_ctrl_241029_1_B.vel_ref_c[0] = LW_ctrl_241029_1_B.delta_t;
-      LW_ctrl_241029_1_B.FilterCoefficient_jy = LW_ctrl_241029_1_B.Xi_e[0] *
+      LW_ctrl_241029_1_B.FilterCoefficient_jy = LW_ctrl_241029_1_B.v_body_e[0] *
         LW_ctrl_241029_1_DW.xw_[2] - LW_ctrl_241029_1_DW.xw_[0] *
-        LW_ctrl_241029_1_B.Xi_e[2];
+        LW_ctrl_241029_1_B.v_body_e[2];
       LW_ctrl_241029_1_B.vel_ref_c[1] = LW_ctrl_241029_1_B.FilterCoefficient_jy;
-      LW_ctrl_241029_1_B.DeadZone_e = LW_ctrl_241029_1_DW.xw_[0] *
-        LW_ctrl_241029_1_B.Xi_e[1] - LW_ctrl_241029_1_B.Xi_e[0] *
+      LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_DW.xw_[0] *
+        LW_ctrl_241029_1_B.v_body_e[1] - LW_ctrl_241029_1_B.v_body_e[0] *
         LW_ctrl_241029_1_DW.xw_[1];
-      LW_ctrl_241029_1_B.vel_ref_c[2] = LW_ctrl_241029_1_B.DeadZone_e;
+      LW_ctrl_241029_1_B.vel_ref_c[2] = LW_ctrl_241029_1_B.IntegralGain_gt;
       LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_norm
         (LW_ctrl_241029_1_B.vel_ref_c);
 
@@ -8954,7 +7758,7 @@ void LW_ctrl_241029_1_step(void)
           LW_ctrl_241029_1_B.time_to_stop;
         LW_ctrl_241029_1_DW.yb_[1] = LW_ctrl_241029_1_B.FilterCoefficient_jy /
           LW_ctrl_241029_1_B.time_to_stop;
-        LW_ctrl_241029_1_DW.yb_[2] = LW_ctrl_241029_1_B.DeadZone_e /
+        LW_ctrl_241029_1_DW.yb_[2] = LW_ctrl_241029_1_B.IntegralGain_gt /
           LW_ctrl_241029_1_B.time_to_stop;
 
         /* '<S404>:1:60' yb_ = yb; */
@@ -8965,219 +7769,214 @@ void LW_ctrl_241029_1_step(void)
 
       /* '<S404>:1:64' yb_hat = [0 -yb(3) yb(2); yb(3) 0 -yb(1); -yb(2) yb(1) 0]; */
       /* '<S404>:1:65' lamda = alpha - kk; */
-      LW_ctrl_241029_1_B.theta -= LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_B.vz_d -= LW_ctrl_241029_1_B.Integrator_b;
 
       /* '<S404>:1:66' xb = (cos(lamda)*eye(3) + (1 - cos(lamda))*yb*yb'+sin(lamda)*yb_hat)*xw; */
-      LW_ctrl_241029_1_B.km_f_b = (real32_T)cos(LW_ctrl_241029_1_B.theta);
-      LW_ctrl_241029_1_B.theta = (real32_T)sin(LW_ctrl_241029_1_B.theta);
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.Rbe_psi[3 * i] = (1.0F - LW_ctrl_241029_1_B.km_f_b) *
-          LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_DW.yb_[i] + (real32_T)e
-          [3 * i] * LW_ctrl_241029_1_B.km_f_b;
-        trueCount = 3 * i + 1;
+      LW_ctrl_241029_1_B.Integrator_b = (real32_T)cos(LW_ctrl_241029_1_B.vz_d);
+      LW_ctrl_241029_1_B.vz_d = (real32_T)sin(LW_ctrl_241029_1_B.vz_d);
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.Rbe_psi[3 * LW_ctrl_241029_1_B.i] = (1.0F -
+          LW_ctrl_241029_1_B.Integrator_b) * LW_ctrl_241029_1_DW.yb_[0] *
+          LW_ctrl_241029_1_DW.yb_[LW_ctrl_241029_1_B.i] + (real32_T)e[3 *
+          LW_ctrl_241029_1_B.i] * LW_ctrl_241029_1_B.Integrator_b;
+        trueCount = 3 * LW_ctrl_241029_1_B.i + 1;
         LW_ctrl_241029_1_B.Rbe_psi[trueCount] = (1.0F -
-          LW_ctrl_241029_1_B.km_f_b) * LW_ctrl_241029_1_DW.yb_[1] *
-          LW_ctrl_241029_1_DW.yb_[i] + (real32_T)e[trueCount] *
-          LW_ctrl_241029_1_B.km_f_b;
-        trueCount = 3 * i + 2;
+          LW_ctrl_241029_1_B.Integrator_b) * LW_ctrl_241029_1_DW.yb_[1] *
+          LW_ctrl_241029_1_DW.yb_[LW_ctrl_241029_1_B.i] + (real32_T)e[trueCount]
+          * LW_ctrl_241029_1_B.Integrator_b;
+        trueCount = 3 * LW_ctrl_241029_1_B.i + 2;
         LW_ctrl_241029_1_B.Rbe_psi[trueCount] = (1.0F -
-          LW_ctrl_241029_1_B.km_f_b) * LW_ctrl_241029_1_DW.yb_[2] *
-          LW_ctrl_241029_1_DW.yb_[i] + (real32_T)e[trueCount] *
-          LW_ctrl_241029_1_B.km_f_b;
+          LW_ctrl_241029_1_B.Integrator_b) * LW_ctrl_241029_1_DW.yb_[2] *
+          LW_ctrl_241029_1_DW.yb_[LW_ctrl_241029_1_B.i] + (real32_T)e[trueCount]
+          * LW_ctrl_241029_1_B.Integrator_b;
       }
 
-      LW_ctrl_241029_1_B.vd_lim_tmp[0] = LW_ctrl_241029_1_B.theta * 0.0F;
-      LW_ctrl_241029_1_B.vd_lim_tmp[3] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[0] = LW_ctrl_241029_1_B.vz_d * 0.0F;
+      LW_ctrl_241029_1_B.vd_lim_tmp[3] = LW_ctrl_241029_1_B.vz_d *
         -LW_ctrl_241029_1_DW.yb_[2];
-      LW_ctrl_241029_1_B.vd_lim_tmp[6] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[6] = LW_ctrl_241029_1_B.vz_d *
         LW_ctrl_241029_1_DW.yb_[1];
-      LW_ctrl_241029_1_B.vd_lim_tmp[1] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[1] = LW_ctrl_241029_1_B.vz_d *
         LW_ctrl_241029_1_DW.yb_[2];
-      LW_ctrl_241029_1_B.vd_lim_tmp[4] = LW_ctrl_241029_1_B.theta * 0.0F;
-      LW_ctrl_241029_1_B.vd_lim_tmp[7] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[4] = LW_ctrl_241029_1_B.vz_d * 0.0F;
+      LW_ctrl_241029_1_B.vd_lim_tmp[7] = LW_ctrl_241029_1_B.vz_d *
         -LW_ctrl_241029_1_DW.yb_[0];
-      LW_ctrl_241029_1_B.vd_lim_tmp[2] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[2] = LW_ctrl_241029_1_B.vz_d *
         -LW_ctrl_241029_1_DW.yb_[1];
-      LW_ctrl_241029_1_B.vd_lim_tmp[5] = LW_ctrl_241029_1_B.theta *
+      LW_ctrl_241029_1_B.vd_lim_tmp[5] = LW_ctrl_241029_1_B.vz_d *
         LW_ctrl_241029_1_DW.yb_[0];
-      LW_ctrl_241029_1_B.vd_lim_tmp[8] = LW_ctrl_241029_1_B.theta * 0.0F;
-      for (i = 0; i < 9; i++) {
-        LW_ctrl_241029_1_B.km_f[i] = LW_ctrl_241029_1_B.Rbe_psi[i] +
-          LW_ctrl_241029_1_B.vd_lim_tmp[i];
+      LW_ctrl_241029_1_B.vd_lim_tmp[8] = LW_ctrl_241029_1_B.vz_d * 0.0F;
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 9;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.Integrator[LW_ctrl_241029_1_B.i] =
+          LW_ctrl_241029_1_B.Rbe_psi[LW_ctrl_241029_1_B.i] +
+          LW_ctrl_241029_1_B.vd_lim_tmp[LW_ctrl_241029_1_B.i];
       }
 
-      LW_ctrl_241029_1_B.km_f_b = LW_ctrl_241029_1_DW.xw_[1];
-      LW_ctrl_241029_1_B.theta = LW_ctrl_241029_1_DW.xw_[0];
+      LW_ctrl_241029_1_B.Integrator_b = LW_ctrl_241029_1_DW.xw_[1];
+      LW_ctrl_241029_1_B.vz_d = LW_ctrl_241029_1_DW.xw_[0];
       LW_ctrl_241029_1_B.time_to_stop = LW_ctrl_241029_1_DW.xw_[2];
-      for (i = 0; i < 3; i++) {
-        LW_ctrl_241029_1_B.Xi_e[i] = (LW_ctrl_241029_1_B.km_f[i + 3] *
-          LW_ctrl_241029_1_B.km_f_b + LW_ctrl_241029_1_B.km_f[i] *
-          LW_ctrl_241029_1_B.theta) + LW_ctrl_241029_1_B.km_f[i + 6] *
+      for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 3;
+           LW_ctrl_241029_1_B.i++) {
+        LW_ctrl_241029_1_B.v_body_e[LW_ctrl_241029_1_B.i] =
+          (LW_ctrl_241029_1_B.Integrator[LW_ctrl_241029_1_B.i + 3] *
+           LW_ctrl_241029_1_B.Integrator_b +
+           LW_ctrl_241029_1_B.Integrator[LW_ctrl_241029_1_B.i] *
+           LW_ctrl_241029_1_B.vz_d) +
+          LW_ctrl_241029_1_B.Integrator[LW_ctrl_241029_1_B.i + 6] *
           LW_ctrl_241029_1_B.time_to_stop;
       }
 
       /* '<S404>:1:67' zb = cross(xb, yb); */
       /* '<S404>:1:68' R_d = [xb yb zb]; */
-      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.Xi_e[0];
-      LW_ctrl_241029_1_B.Rbe_psi[1] = LW_ctrl_241029_1_B.Xi_e[1];
-      LW_ctrl_241029_1_B.Rbe_psi[2] = LW_ctrl_241029_1_B.Xi_e[2];
-      LW_ctrl_241029_1_B.Rbe_psi[6] = LW_ctrl_241029_1_B.Xi_e[1] *
+      LW_ctrl_241029_1_B.Rbe_psi[0] = LW_ctrl_241029_1_B.v_body_e[0];
+      LW_ctrl_241029_1_B.Rbe_psi[1] = LW_ctrl_241029_1_B.v_body_e[1];
+      LW_ctrl_241029_1_B.Rbe_psi[2] = LW_ctrl_241029_1_B.v_body_e[2];
+      LW_ctrl_241029_1_B.Rbe_psi[6] = LW_ctrl_241029_1_B.v_body_e[1] *
         LW_ctrl_241029_1_DW.yb_[2] - LW_ctrl_241029_1_DW.yb_[1] *
-        LW_ctrl_241029_1_B.Xi_e[2];
+        LW_ctrl_241029_1_B.v_body_e[2];
       LW_ctrl_241029_1_B.Rbe_psi[7] = LW_ctrl_241029_1_DW.yb_[0] *
-        LW_ctrl_241029_1_B.Xi_e[2] - LW_ctrl_241029_1_B.Xi_e[0] *
+        LW_ctrl_241029_1_B.v_body_e[2] - LW_ctrl_241029_1_B.v_body_e[0] *
         LW_ctrl_241029_1_DW.yb_[2];
-      LW_ctrl_241029_1_B.Rbe_psi[8] = LW_ctrl_241029_1_B.Xi_e[0] *
+      LW_ctrl_241029_1_B.Rbe_psi[8] = LW_ctrl_241029_1_B.v_body_e[0] *
         LW_ctrl_241029_1_DW.yb_[1] - LW_ctrl_241029_1_DW.yb_[0] *
-        LW_ctrl_241029_1_B.Xi_e[1];
+        LW_ctrl_241029_1_B.v_body_e[1];
 
       /* 协调假设求解角速度 */
       /* '<S404>:1:70' wb_ref = calculateWb(f_d, R_d, Va, va, dotdotx, dot3x, Cd0, Cla, Cy0, Rho, ModelParam_LBS, LW_MASS, g, kk); */
       /* '<S404>:1:93' if isempty(wz_) */
       /* '<S404>:1:97' Qa = 0.5/m * Rho * S * Vg; */
-      LW_ctrl_241029_1_B.km_f_b = Filter_o5 * LW_ctrl_241029_1_B.IntegralGain;
-
       /* '<S404>:1:98' cz = fz/m; */
-      LW_ctrl_241029_1_B.Va_ /= LW_MASS;
+      LW_ctrl_241029_1_B.dt /= LW_MASS;
 
       /* '<S404>:1:99' dxz = Cla * sin(kk) * cos(kk); */
-      LW_ctrl_241029_1_B.delta_t = LW_AERO_C1 * LW_ctrl_241029_1_B.eta_p *
-        LW_ctrl_241029_1_B.kappa;
+      LW_ctrl_241029_1_B.delta_t = LW_AERO_C1 * LW_ctrl_241029_1_B.vy_d *
+        LW_ctrl_241029_1_B.vx_d;
 
       /* '<S404>:1:100' dx = Cd0 + Cla * sin(kk) ^ 2; */
       LW_ctrl_241029_1_B.FilterCoefficient_jy = LW_ctrl_241029_1_B.aSinInput *
         LW_AERO_C1 + LW_AERO_C0;
 
       /* '<S404>:1:101' dz = Cd0 + Cla * cos(kk) ^ 2; */
-      LW_ctrl_241029_1_B.DeadZone_e = rtb_FilterCoefficient_jy_tmp * LW_AERO_C1
+      LW_ctrl_241029_1_B.DeadZone_e = LW_ctrl_241029_1_B.DeadZone_e * LW_AERO_C1
         + LW_AERO_C0;
 
       /* '<S404>:1:103' if Vg < 0.01 */
       if (LW_ctrl_241029_1_B.IntegralGain < 0.01) {
         /* '<S404>:1:104' C1 = Rbb(:, 1)' * dot3x + Qa * (dx * Rbb(:, 1)' * dotdotx + dxz * Rbb(:, 3)' * dotdotx); */
-        LW_ctrl_241029_1_B.kappa = (((LW_ctrl_241029_1_B.FilterCoefficient_jy *
-          LW_ctrl_241029_1_B.Xi_e[0] * LW_ctrl_241029_1_B.acc_ref_b[0] +
-          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.Xi_e[1] *
-          LW_ctrl_241029_1_B.acc_ref_b[1]) +
-          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.Xi_e[2] *
-          LW_ctrl_241029_1_B.acc_ref_b[2]) + ((LW_ctrl_241029_1_B.delta_t *
+        LW_ctrl_241029_1_B.vx_d = (((LW_ctrl_241029_1_B.FilterCoefficient_jy *
+          LW_ctrl_241029_1_B.v_body_e[0] * LW_ctrl_241029_1_B.acc_ref_b[0] +
+          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.v_body_e
+          [1] * LW_ctrl_241029_1_B.acc_ref_b[1]) +
+          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.v_body_e
+          [2] * LW_ctrl_241029_1_B.acc_ref_b[2]) + ((LW_ctrl_241029_1_B.delta_t *
           LW_ctrl_241029_1_B.Rbe_psi[6] * LW_ctrl_241029_1_B.acc_ref_b[0] +
           LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[7] *
           LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.delta_t *
           LW_ctrl_241029_1_B.Rbe_psi[8] * LW_ctrl_241029_1_B.acc_ref_b[2])) *
-          LW_ctrl_241029_1_B.km_f_b + ((LW_ctrl_241029_1_B.Xi_e[0] *
-          LW_ctrl_241029_1_B.d_est[0] + LW_ctrl_241029_1_B.Xi_e[1] *
-          LW_ctrl_241029_1_B.d_est[1]) + LW_ctrl_241029_1_B.Xi_e[2] *
-          LW_ctrl_241029_1_B.d_est[2]);
+          LW_ctrl_241029_1_B.T4 + ((LW_ctrl_241029_1_B.v_body_e[0] *
+          LW_ctrl_241029_1_B.vd_lim[0] + LW_ctrl_241029_1_B.v_body_e[1] *
+          LW_ctrl_241029_1_B.vd_lim[1]) + LW_ctrl_241029_1_B.v_body_e[2] *
+          LW_ctrl_241029_1_B.vd_lim[2]);
       } else {
         /* '<S404>:1:105' else */
         /* '<S404>:1:106' C1 = Rbb(:, 1)' * dot3x + Qa*dotx'*dotdotx/(Vg^2)*(dx * Rbb(:, 1)' * dotx + dxz * Rbb(:, 3)' * dotx)+ Qa * (dx * Rbb(:, 1)' * dotdotx + dxz * Rbb(:, 3)' * dotdotx); */
-        LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.FilterCoefficient_jy *
-          LW_ctrl_241029_1_B.Rbe_psi[0];
+        LW_ctrl_241029_1_B.IntegralGain_n =
+          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.Rbe_psi[0];
         LW_ctrl_241029_1_B.Integrator_f = LW_ctrl_241029_1_B.delta_t *
           LW_ctrl_241029_1_B.Rbe_psi[6];
-        q = LW_ctrl_241029_1_B.DeadZone_p *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-        LW_ctrl_241029_1_B.FilterCoefficient_i = LW_ctrl_241029_1_B.Integrator_f
-          * LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0];
-        LW_ctrl_241029_1_B.b_c = LW_ctrl_241029_1_B.DeadZone_p *
+        LW_ctrl_241029_1_B.FilterCoefficient_i =
+          LW_ctrl_241029_1_B.IntegralGain_n * rtb_TmpSignalConversionAtSFun_1;
+        LW_ctrl_241029_1_B.Integrator_nz = LW_ctrl_241029_1_B.Integrator_f *
+          rtb_TmpSignalConversionAtSFun_1;
+        q = LW_ctrl_241029_1_B.IntegralGain_n * LW_ctrl_241029_1_B.acc_ref_b[0];
+        LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.Integrator_f *
           LW_ctrl_241029_1_B.acc_ref_b[0];
-        LW_ctrl_241029_1_B.IntegralGain_n = LW_ctrl_241029_1_B.Integrator_f *
-          LW_ctrl_241029_1_B.acc_ref_b[0];
-        LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.FilterCoefficient_jy *
-          LW_ctrl_241029_1_B.Rbe_psi[1];
+        LW_ctrl_241029_1_B.IntegralGain_n =
+          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.Rbe_psi[1];
         LW_ctrl_241029_1_B.Integrator_f = LW_ctrl_241029_1_B.delta_t *
           LW_ctrl_241029_1_B.Rbe_psi[7];
-        q += LW_ctrl_241029_1_B.DeadZone_p *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
         LW_ctrl_241029_1_B.FilterCoefficient_i +=
-          LW_ctrl_241029_1_B.Integrator_f *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1];
-        LW_ctrl_241029_1_B.b_c += LW_ctrl_241029_1_B.DeadZone_p *
+          LW_ctrl_241029_1_B.IntegralGain_n * rtb_TmpSignalConversionAtSFun_0;
+        LW_ctrl_241029_1_B.Integrator_nz += LW_ctrl_241029_1_B.Integrator_f *
+          rtb_TmpSignalConversionAtSFun_0;
+        q += LW_ctrl_241029_1_B.IntegralGain_n * LW_ctrl_241029_1_B.acc_ref_b[1];
+        LW_ctrl_241029_1_B.DeadZone_p += LW_ctrl_241029_1_B.Integrator_f *
           LW_ctrl_241029_1_B.acc_ref_b[1];
-        LW_ctrl_241029_1_B.IntegralGain_n += LW_ctrl_241029_1_B.Integrator_f *
-          LW_ctrl_241029_1_B.acc_ref_b[1];
-        LW_ctrl_241029_1_B.DeadZone_p = LW_ctrl_241029_1_B.FilterCoefficient_jy *
-          LW_ctrl_241029_1_B.Rbe_psi[2];
+        LW_ctrl_241029_1_B.IntegralGain_n =
+          LW_ctrl_241029_1_B.FilterCoefficient_jy * LW_ctrl_241029_1_B.Rbe_psi[2];
         LW_ctrl_241029_1_B.Integrator_f = LW_ctrl_241029_1_B.delta_t *
           LW_ctrl_241029_1_B.Rbe_psi[8];
-        LW_ctrl_241029_1_B.kappa = (((LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] *
-          LW_ctrl_241029_1_B.acc_ref_b[0] + LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] *
-          LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.Integrator_a * LW_ctrl_241029_1_B.acc_ref_b[2]) /
-          LW_ctrl_241029_1_B.Filter_l * ((LW_ctrl_241029_1_B.DeadZone_p *
-          LW_ctrl_241029_1_B.Integrator_a + q) +
-          (LW_ctrl_241029_1_B.Integrator_f * LW_ctrl_241029_1_B.Integrator_a +
-           LW_ctrl_241029_1_B.FilterCoefficient_i)) +
-          ((LW_ctrl_241029_1_B.Rbe_psi[0] * LW_ctrl_241029_1_B.d_est[0] +
-            LW_ctrl_241029_1_B.Rbe_psi[1] * LW_ctrl_241029_1_B.d_est[1]) +
-           LW_ctrl_241029_1_B.Rbe_psi[2] * LW_ctrl_241029_1_B.d_est[2])) +
-          ((LW_ctrl_241029_1_B.DeadZone_p * LW_ctrl_241029_1_B.acc_ref_b[2] +
-            LW_ctrl_241029_1_B.b_c) + (LW_ctrl_241029_1_B.Integrator_f *
-            LW_ctrl_241029_1_B.acc_ref_b[2] + LW_ctrl_241029_1_B.IntegralGain_n))
-          * LW_ctrl_241029_1_B.km_f_b;
+        LW_ctrl_241029_1_B.vx_d = (((LW_ctrl_241029_1_B.T4 *
+          rtb_TmpSignalConversionAtSFun_1 * LW_ctrl_241029_1_B.acc_ref_b[0] +
+          LW_ctrl_241029_1_B.T4 * rtb_TmpSignalConversionAtSFun_0 *
+          LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.T4 *
+          LW_ctrl_241029_1_B.T1 * LW_ctrl_241029_1_B.acc_ref_b[2]) /
+          LW_ctrl_241029_1_B.T2 * ((LW_ctrl_241029_1_B.IntegralGain_n *
+          LW_ctrl_241029_1_B.T1 + LW_ctrl_241029_1_B.FilterCoefficient_i) +
+          (LW_ctrl_241029_1_B.Integrator_f * LW_ctrl_241029_1_B.T1 +
+           LW_ctrl_241029_1_B.Integrator_nz)) + ((LW_ctrl_241029_1_B.Rbe_psi[0] *
+          LW_ctrl_241029_1_B.vd_lim[0] + LW_ctrl_241029_1_B.Rbe_psi[1] *
+          LW_ctrl_241029_1_B.vd_lim[1]) + LW_ctrl_241029_1_B.Rbe_psi[2] *
+          LW_ctrl_241029_1_B.vd_lim[2])) + ((LW_ctrl_241029_1_B.IntegralGain_n *
+          LW_ctrl_241029_1_B.acc_ref_b[2] + q) +
+          (LW_ctrl_241029_1_B.Integrator_f * LW_ctrl_241029_1_B.acc_ref_b[2] +
+           LW_ctrl_241029_1_B.DeadZone_p)) * LW_ctrl_241029_1_B.T4;
       }
 
       /* '<S404>:1:109' A1 = Qa * dxz * Rbb(:, 2)' * dotx; */
-      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.km_f_b *
+      LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.T4 *
         LW_ctrl_241029_1_B.delta_t;
 
       /* '<S404>:1:110' B1 = cz - Qa * ((dz - dx) * Rbb(:, 3)' * dotx + 2*dxz * Rbb(:, 1)' * dotx); */
-      LW_ctrl_241029_1_B.theta = 2.0F * LW_ctrl_241029_1_B.delta_t;
+      LW_ctrl_241029_1_B.vz_d = 2.0F * LW_ctrl_241029_1_B.delta_t;
 
       /* '<S404>:1:111' D1 = -Qa * ((dx - Cy0) * Rbb(:, 2)' * dotx); */
-      rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.FilterCoefficient_jy -
-        LW_AERO_Y0;
-      LW_ctrl_241029_1_B.eta_p = (LW_ctrl_241029_1_B.aSinInput *
-        LW_ctrl_241029_1_DW.yb_[0] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
+      LW_ctrl_241029_1_B.Integrator_b = LW_ctrl_241029_1_B.FilterCoefficient_jy
+        - LW_AERO_Y0;
+      LW_ctrl_241029_1_B.vy_d = (LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_DW.yb_[0] * rtb_TmpSignalConversionAtSFun_1 +
         LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_DW.yb_[1] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_DW.yb_[2] *
-        LW_ctrl_241029_1_B.Integrator_a;
+        rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.aSinInput *
+        LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.T1;
       LW_ctrl_241029_1_B.aSinInput = LW_ctrl_241029_1_B.DeadZone_e -
         LW_ctrl_241029_1_B.FilterCoefficient_jy;
-      LW_ctrl_241029_1_B.time_to_stop = ((rtb_FilterCoefficient_jy_tmp *
-        LW_ctrl_241029_1_DW.yb_[0] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_DW.yb_[1] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_DW.yb_[2] *
-        LW_ctrl_241029_1_B.Integrator_a) * -LW_ctrl_241029_1_B.km_f_b;
+      LW_ctrl_241029_1_B.time_to_stop = ((LW_ctrl_241029_1_B.Integrator_b *
+        LW_ctrl_241029_1_DW.yb_[0] * rtb_TmpSignalConversionAtSFun_1 +
+        LW_ctrl_241029_1_B.Integrator_b * LW_ctrl_241029_1_DW.yb_[1] *
+        rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.Integrator_b *
+        LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.T1) *
+        -LW_ctrl_241029_1_B.T4;
 
       /* '<S404>:1:112' if Vg < 0.01 */
       if (LW_ctrl_241029_1_B.IntegralGain < 0.01) {
         /* '<S404>:1:113' C2 = Rbb(:, 2)' * dot3x + Qa * Cy0 * Rbb(:, 2)' * dotdotx; */
-        LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.km_f_b * LW_AERO_Y0;
+        LW_ctrl_241029_1_B.IntegralGain = LW_ctrl_241029_1_B.T4 * LW_AERO_Y0;
         LW_ctrl_241029_1_B.IntegralGain = ((LW_ctrl_241029_1_B.IntegralGain *
           LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_B.acc_ref_b[0] +
           LW_ctrl_241029_1_B.IntegralGain * LW_ctrl_241029_1_DW.yb_[1] *
           LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.IntegralGain *
           LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.acc_ref_b[2]) +
-          ((LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_B.d_est[0] +
-            LW_ctrl_241029_1_DW.yb_[1] * LW_ctrl_241029_1_B.d_est[1]) +
-           LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.d_est[2]);
+          ((LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_B.vd_lim[0] +
+            LW_ctrl_241029_1_DW.yb_[1] * LW_ctrl_241029_1_B.vd_lim[1]) +
+           LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.vd_lim[2]);
       } else {
         /* '<S404>:1:114' else */
         /* '<S404>:1:115' C2 = Rbb(:, 2)' * dot3x + Qa*dotx'*dotdotx/(Vg^2)*(Cy0 * Rbb(:, 2)' * dotx)+ Qa * Cy0 * Rbb(:, 2)' * dotdotx; */
-        LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_B.km_f_b *
-          LW_AERO_Y0;
-        LW_ctrl_241029_1_B.IntegralGain = (((LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] *
-          LW_ctrl_241029_1_B.acc_ref_b[0] + LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] *
-          LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.km_f_b *
-          LW_ctrl_241029_1_B.Integrator_a * LW_ctrl_241029_1_B.acc_ref_b[2]) /
-          LW_ctrl_241029_1_B.Filter_l * ((LW_AERO_Y0 * LW_ctrl_241029_1_DW.yb_[0]
-          * LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] + LW_AERO_Y0 *
-          LW_ctrl_241029_1_DW.yb_[1] *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) + LW_AERO_Y0 *
-          LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.Integrator_a) +
-          ((LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_B.d_est[0] +
-            LW_ctrl_241029_1_DW.yb_[1] * LW_ctrl_241029_1_B.d_est[1]) +
-           LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.d_est[2])) +
+        LW_ctrl_241029_1_B.IntegralGain_gt = LW_ctrl_241029_1_B.T4 * LW_AERO_Y0;
+        LW_ctrl_241029_1_B.IntegralGain = (((LW_ctrl_241029_1_B.T4 *
+          rtb_TmpSignalConversionAtSFun_1 * LW_ctrl_241029_1_B.acc_ref_b[0] +
+          LW_ctrl_241029_1_B.T4 * rtb_TmpSignalConversionAtSFun_0 *
+          LW_ctrl_241029_1_B.acc_ref_b[1]) + LW_ctrl_241029_1_B.T4 *
+          LW_ctrl_241029_1_B.T1 * LW_ctrl_241029_1_B.acc_ref_b[2]) /
+          LW_ctrl_241029_1_B.T2 * ((LW_AERO_Y0 * LW_ctrl_241029_1_DW.yb_[0] *
+          rtb_TmpSignalConversionAtSFun_1 + LW_AERO_Y0 *
+          LW_ctrl_241029_1_DW.yb_[1] * rtb_TmpSignalConversionAtSFun_0) +
+          LW_AERO_Y0 * LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.T1) +
+          ((LW_ctrl_241029_1_DW.yb_[0] * LW_ctrl_241029_1_B.vd_lim[0] +
+            LW_ctrl_241029_1_DW.yb_[1] * LW_ctrl_241029_1_B.vd_lim[1]) +
+           LW_ctrl_241029_1_DW.yb_[2] * LW_ctrl_241029_1_B.vd_lim[2])) +
           ((LW_ctrl_241029_1_B.IntegralGain_gt * LW_ctrl_241029_1_DW.yb_[0] *
             LW_ctrl_241029_1_B.acc_ref_b[0] + LW_ctrl_241029_1_B.IntegralGain_gt
             * LW_ctrl_241029_1_DW.yb_[1] * LW_ctrl_241029_1_B.acc_ref_b[1]) +
@@ -9192,51 +7991,40 @@ void LW_ctrl_241029_1_step(void)
       /* '<S404>:1:119' A3 = Rbb(:, 3)' * dotx; */
       /* '<S404>:1:120' D3 = -Rbb(:, 1)' * dotx; */
       /* '<S404>:1:121' C3 = -Rbb(:, 2)' * g; */
-      LW_ctrl_241029_1_B.IntegralGain_gt =
-        (LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] *
-         LW_ctrl_241029_1_B.Rbe_psi[6] +
-         LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1] *
-         LW_ctrl_241029_1_B.Rbe_psi[7]) + LW_ctrl_241029_1_B.Rbe_psi[8] *
-        LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.Filter_l = (-LW_ctrl_241029_1_B.Rbe_psi[0] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        -LW_ctrl_241029_1_B.Rbe_psi[1] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        -LW_ctrl_241029_1_B.Rbe_psi[2] * LW_ctrl_241029_1_B.Integrator_a;
-      LW_ctrl_241029_1_B.FilterCoefficient_l = (-LW_ctrl_241029_1_DW.yb_[0] *
-        0.0F + -LW_ctrl_241029_1_DW.yb_[1] * 0.0F) + -LW_ctrl_241029_1_DW.yb_[2]
-        * 9.8F;
+      LW_ctrl_241029_1_B.T2 = (LW_ctrl_241029_1_B.Rbe_psi[6] *
+        rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.Rbe_psi[7] *
+        rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.Rbe_psi[8] *
+        LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.IntegralGain_gt = (-LW_ctrl_241029_1_B.Rbe_psi[0] *
+        rtb_TmpSignalConversionAtSFun_1 + -LW_ctrl_241029_1_B.Rbe_psi[1] *
+        rtb_TmpSignalConversionAtSFun_0) + -LW_ctrl_241029_1_B.Rbe_psi[2] *
+        LW_ctrl_241029_1_B.T1;
+      LW_ctrl_241029_1_B.Integrator_a = (-LW_ctrl_241029_1_DW.yb_[0] * 0.0F +
+        -LW_ctrl_241029_1_DW.yb_[1] * 0.0F) + -LW_ctrl_241029_1_DW.yb_[2] * 9.8F;
       LW_ctrl_241029_1_B.DeadZone_e = (((LW_ctrl_241029_1_B.delta_t *
-        LW_ctrl_241029_1_B.Rbe_psi[0] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
+        LW_ctrl_241029_1_B.Rbe_psi[0] * rtb_TmpSignalConversionAtSFun_1 +
         LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[1] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[2] *
-        LW_ctrl_241029_1_B.Integrator_a) + ((LW_ctrl_241029_1_B.DeadZone_e *
-        LW_ctrl_241029_1_B.Rbe_psi[6] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        LW_ctrl_241029_1_B.DeadZone_e * LW_ctrl_241029_1_B.Rbe_psi[7] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        LW_ctrl_241029_1_B.DeadZone_e * LW_ctrl_241029_1_B.Rbe_psi[8] *
-        LW_ctrl_241029_1_B.Integrator_a)) * LW_ctrl_241029_1_B.km_f_b -
-        LW_ctrl_241029_1_B.Va_;
-      LW_ctrl_241029_1_B.delta_t = (((rtb_FilterCoefficient_jy_tmp *
-        LW_ctrl_241029_1_B.Rbe_psi[0] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_B.Rbe_psi[1] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        rtb_FilterCoefficient_jy_tmp * LW_ctrl_241029_1_B.Rbe_psi[2] *
-        LW_ctrl_241029_1_B.Integrator_a) + ((LW_ctrl_241029_1_B.delta_t *
-        LW_ctrl_241029_1_B.Rbe_psi[6] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-        LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[7] *
-        LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-        LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[8] *
-        LW_ctrl_241029_1_B.Integrator_a)) * -LW_ctrl_241029_1_B.km_f_b;
+        rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.delta_t *
+        LW_ctrl_241029_1_B.Rbe_psi[2] * LW_ctrl_241029_1_B.T1) +
+        ((LW_ctrl_241029_1_B.DeadZone_e * LW_ctrl_241029_1_B.Rbe_psi[6] *
+          rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.DeadZone_e *
+          LW_ctrl_241029_1_B.Rbe_psi[7] * rtb_TmpSignalConversionAtSFun_0) +
+         LW_ctrl_241029_1_B.DeadZone_e * LW_ctrl_241029_1_B.Rbe_psi[8] *
+         LW_ctrl_241029_1_B.T1)) * LW_ctrl_241029_1_B.T4 - LW_ctrl_241029_1_B.dt;
+      LW_ctrl_241029_1_B.delta_t = (((LW_ctrl_241029_1_B.Integrator_b *
+        LW_ctrl_241029_1_B.Rbe_psi[0] * rtb_TmpSignalConversionAtSFun_1 +
+        LW_ctrl_241029_1_B.Integrator_b * LW_ctrl_241029_1_B.Rbe_psi[1] *
+        rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.Integrator_b *
+        LW_ctrl_241029_1_B.Rbe_psi[2] * LW_ctrl_241029_1_B.T1) +
+        ((LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[6] *
+          rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.delta_t *
+          LW_ctrl_241029_1_B.Rbe_psi[7] * rtb_TmpSignalConversionAtSFun_0) +
+         LW_ctrl_241029_1_B.delta_t * LW_ctrl_241029_1_B.Rbe_psi[8] *
+         LW_ctrl_241029_1_B.T1)) * -LW_ctrl_241029_1_B.T4;
 
       /* '<S404>:1:122' if abs(A2*D3 - A3*D2) < 0.001 */
       rtb_FilterCoefficient_jy_tmp = LW_ctrl_241029_1_B.DeadZone_e *
-        LW_ctrl_241029_1_B.Filter_l - LW_ctrl_241029_1_B.IntegralGain_gt *
+        LW_ctrl_241029_1_B.IntegralGain_gt - LW_ctrl_241029_1_B.T2 *
         LW_ctrl_241029_1_B.delta_t;
       if ((real32_T)fabs(rtb_FilterCoefficient_jy_tmp) < 0.001) {
         /* '<S404>:1:123' wz = wz_; */
@@ -9249,63 +8037,57 @@ void LW_ctrl_241029_1_step(void)
 
         /* wx = wx_; */
         /* '<S404>:1:126' wy = (C1 - A1*wx - D1*wz)/B1; */
-        LW_ctrl_241029_1_B.wb_ref[1] = ((LW_ctrl_241029_1_B.kappa -
-          LW_ctrl_241029_1_B.eta_p * LW_ctrl_241029_1_B.FilterCoefficient_jy) -
+        LW_ctrl_241029_1_B.wb_ref[1] = ((LW_ctrl_241029_1_B.vx_d -
+          LW_ctrl_241029_1_B.vy_d * LW_ctrl_241029_1_B.FilterCoefficient_jy) -
           LW_ctrl_241029_1_B.time_to_stop * LW_ctrl_241029_1_DW.wz_) /
-          (LW_ctrl_241029_1_B.Va_ - (((LW_ctrl_241029_1_B.aSinInput *
-              LW_ctrl_241029_1_B.Rbe_psi[6] *
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
+          (LW_ctrl_241029_1_B.dt - (((LW_ctrl_241029_1_B.aSinInput *
+              LW_ctrl_241029_1_B.Rbe_psi[6] * rtb_TmpSignalConversionAtSFun_1 +
               LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.Rbe_psi[7] *
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-             LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.Rbe_psi[8] *
-             LW_ctrl_241029_1_B.Integrator_a) + ((LW_ctrl_241029_1_B.theta *
-              LW_ctrl_241029_1_B.Rbe_psi[0] *
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-              LW_ctrl_241029_1_B.theta * LW_ctrl_241029_1_B.Rbe_psi[1] *
-              LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-             LW_ctrl_241029_1_B.theta * LW_ctrl_241029_1_B.Rbe_psi[2] *
-             LW_ctrl_241029_1_B.Integrator_a)) * LW_ctrl_241029_1_B.km_f_b);
+              rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.aSinInput *
+             LW_ctrl_241029_1_B.Rbe_psi[8] * LW_ctrl_241029_1_B.T1) +
+            ((LW_ctrl_241029_1_B.vz_d * LW_ctrl_241029_1_B.Rbe_psi[0] *
+              rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.vz_d *
+              LW_ctrl_241029_1_B.Rbe_psi[1] * rtb_TmpSignalConversionAtSFun_0) +
+             LW_ctrl_241029_1_B.vz_d * LW_ctrl_241029_1_B.Rbe_psi[2] *
+             LW_ctrl_241029_1_B.T1)) * LW_ctrl_241029_1_B.T4);
 
         /* disp('Omega Signarity') */
       } else {
         /* '<S404>:1:128' else */
         /* '<S404>:1:129' wx = (C2*D3 - C3*D2)/(A2*D3 - A3*D2); */
         LW_ctrl_241029_1_B.FilterCoefficient_jy =
-          (LW_ctrl_241029_1_B.IntegralGain * LW_ctrl_241029_1_B.Filter_l -
-           LW_ctrl_241029_1_B.FilterCoefficient_l * LW_ctrl_241029_1_B.delta_t) /
+          (LW_ctrl_241029_1_B.IntegralGain * LW_ctrl_241029_1_B.IntegralGain_gt
+           - LW_ctrl_241029_1_B.Integrator_a * LW_ctrl_241029_1_B.delta_t) /
           rtb_FilterCoefficient_jy_tmp;
 
         /* '<S404>:1:130' wy = -(A1*C2*D3 - A1*C3*D2 - A2*C1*D3 + A2*C3*D1 + A3*C1*D2 - A3*C2*D1)/(B1*(A2*D3 - A3*D2)); */
-        LW_ctrl_241029_1_B.DeadZone_el = LW_ctrl_241029_1_B.DeadZone_e *
-          LW_ctrl_241029_1_B.FilterCoefficient_l;
-        LW_ctrl_241029_1_B.T1 = LW_ctrl_241029_1_B.IntegralGain_gt *
+        LW_ctrl_241029_1_B.Filter_l = LW_ctrl_241029_1_B.DeadZone_e *
+          LW_ctrl_241029_1_B.Integrator_a;
+        LW_ctrl_241029_1_B.FilterCoefficient_l = LW_ctrl_241029_1_B.T2 *
           LW_ctrl_241029_1_B.IntegralGain;
-        LW_ctrl_241029_1_B.wb_ref[1] = -(((((LW_ctrl_241029_1_B.eta_p *
-          LW_ctrl_241029_1_B.IntegralGain * LW_ctrl_241029_1_B.Filter_l -
-          LW_ctrl_241029_1_B.eta_p * LW_ctrl_241029_1_B.FilterCoefficient_l *
+        LW_ctrl_241029_1_B.wb_ref[1] = -(((((LW_ctrl_241029_1_B.vy_d *
+          LW_ctrl_241029_1_B.IntegralGain * LW_ctrl_241029_1_B.IntegralGain_gt -
+          LW_ctrl_241029_1_B.vy_d * LW_ctrl_241029_1_B.Integrator_a *
           LW_ctrl_241029_1_B.delta_t) - LW_ctrl_241029_1_B.DeadZone_e *
-          LW_ctrl_241029_1_B.kappa * LW_ctrl_241029_1_B.Filter_l) +
-          LW_ctrl_241029_1_B.DeadZone_el * LW_ctrl_241029_1_B.time_to_stop) +
-          LW_ctrl_241029_1_B.IntegralGain_gt * LW_ctrl_241029_1_B.kappa *
-          LW_ctrl_241029_1_B.delta_t) - LW_ctrl_241029_1_B.T1 *
-          LW_ctrl_241029_1_B.time_to_stop) / ((LW_ctrl_241029_1_B.Va_ -
+          LW_ctrl_241029_1_B.vx_d * LW_ctrl_241029_1_B.IntegralGain_gt) +
+          LW_ctrl_241029_1_B.Filter_l * LW_ctrl_241029_1_B.time_to_stop) +
+          LW_ctrl_241029_1_B.T2 * LW_ctrl_241029_1_B.vx_d *
+          LW_ctrl_241029_1_B.delta_t) - LW_ctrl_241029_1_B.FilterCoefficient_l *
+          LW_ctrl_241029_1_B.time_to_stop) / ((LW_ctrl_241029_1_B.dt -
           (((LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.Rbe_psi[6] *
-             LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-             LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.Rbe_psi[7] *
-             LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
+             rtb_TmpSignalConversionAtSFun_1 + LW_ctrl_241029_1_B.aSinInput *
+             LW_ctrl_241029_1_B.Rbe_psi[7] * rtb_TmpSignalConversionAtSFun_0) +
             LW_ctrl_241029_1_B.aSinInput * LW_ctrl_241029_1_B.Rbe_psi[8] *
-            LW_ctrl_241029_1_B.Integrator_a) + ((LW_ctrl_241029_1_B.theta *
-          LW_ctrl_241029_1_B.Rbe_psi[0] *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[0] +
-          LW_ctrl_241029_1_B.theta * LW_ctrl_241029_1_B.Rbe_psi[1] *
-          LW_ctrl_241029_1_B.TmpSignalConversionAtDotPro[1]) +
-          LW_ctrl_241029_1_B.theta * LW_ctrl_241029_1_B.Rbe_psi[2] *
-          LW_ctrl_241029_1_B.Integrator_a)) * LW_ctrl_241029_1_B.km_f_b) *
-          rtb_FilterCoefficient_jy_tmp);
+            LW_ctrl_241029_1_B.T1) + ((LW_ctrl_241029_1_B.vz_d *
+          LW_ctrl_241029_1_B.Rbe_psi[0] * rtb_TmpSignalConversionAtSFun_1 +
+          LW_ctrl_241029_1_B.vz_d * LW_ctrl_241029_1_B.Rbe_psi[1] *
+          rtb_TmpSignalConversionAtSFun_0) + LW_ctrl_241029_1_B.vz_d *
+          LW_ctrl_241029_1_B.Rbe_psi[2] * LW_ctrl_241029_1_B.T1)) *
+          LW_ctrl_241029_1_B.T4) * rtb_FilterCoefficient_jy_tmp);
 
         /* '<S404>:1:131' wz = (A2*C3 - A3*C2)/(A2*D3 - A3*D2); */
-        LW_ctrl_241029_1_B.IntegralGain_gt = (LW_ctrl_241029_1_B.DeadZone_el -
-          LW_ctrl_241029_1_B.T1) / rtb_FilterCoefficient_jy_tmp;
+        LW_ctrl_241029_1_B.IntegralGain_gt = (LW_ctrl_241029_1_B.Filter_l -
+          LW_ctrl_241029_1_B.FilterCoefficient_l) / rtb_FilterCoefficient_jy_tmp;
 
         /* '<S404>:1:132' wz_ = wz; */
         LW_ctrl_241029_1_DW.wz_ = LW_ctrl_241029_1_B.IntegralGain_gt;
@@ -9336,21 +8118,21 @@ void LW_ctrl_241029_1_step(void)
           (LW_ctrl_241029_1_B.IntegralGain + 1.0F);
 
         /* 'R2quat:9' q(1) =  single(0.5) * t; */
-        LW_ctrl_241029_1_B.qk_[0] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
+        LW_ctrl_241029_1_B.q_c[0] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:10' t =  single(0.5) / t; */
         LW_ctrl_241029_1_B.IntegralGain = 0.5F / LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:11' q(2) = (R(3,2) - R(2,3)) * t; */
-        LW_ctrl_241029_1_B.qk_[1] = (LW_ctrl_241029_1_DW.yb_[2] -
+        LW_ctrl_241029_1_B.q_c[1] = (LW_ctrl_241029_1_DW.yb_[2] -
           LW_ctrl_241029_1_B.Rbe_psi[7]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:12' q(3) = (R(1,3) - R(3,1)) * t; */
-        LW_ctrl_241029_1_B.qk_[2] = (LW_ctrl_241029_1_B.Rbe_psi[6] -
+        LW_ctrl_241029_1_B.q_c[2] = (LW_ctrl_241029_1_B.Rbe_psi[6] -
           LW_ctrl_241029_1_B.Rbe_psi[2]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:13' q(4) = (R(2,1) - R(1,2)) * t; */
-        LW_ctrl_241029_1_B.qk_[3] = (LW_ctrl_241029_1_B.Rbe_psi[1] -
+        LW_ctrl_241029_1_B.q_c[3] = (LW_ctrl_241029_1_B.Rbe_psi[1] -
           LW_ctrl_241029_1_DW.yb_[0]) * LW_ctrl_241029_1_B.IntegralGain;
       } else if ((LW_ctrl_241029_1_B.Rbe_psi[0] > LW_ctrl_241029_1_DW.yb_[1]) &&
                  (LW_ctrl_241029_1_B.Rbe_psi[0] > LW_ctrl_241029_1_B.Rbe_psi[8]))
@@ -9362,21 +8144,21 @@ void LW_ctrl_241029_1_step(void)
            - LW_ctrl_241029_1_B.Rbe_psi[8]);
 
         /* 'R2quat:16' q(2) =  single(0.5) * t; */
-        LW_ctrl_241029_1_B.qk_[1] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
+        LW_ctrl_241029_1_B.q_c[1] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:17' t =  single(0.5) / t; */
         LW_ctrl_241029_1_B.IntegralGain = 0.5F / LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:18' q(1) = (R(3,2) - R(2,3)) * t; */
-        LW_ctrl_241029_1_B.qk_[0] = (LW_ctrl_241029_1_DW.yb_[2] -
+        LW_ctrl_241029_1_B.q_c[0] = (LW_ctrl_241029_1_DW.yb_[2] -
           LW_ctrl_241029_1_B.Rbe_psi[7]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:19' q(3) = (R(2,1) + R(1,2)) * t; */
-        LW_ctrl_241029_1_B.qk_[2] = (LW_ctrl_241029_1_DW.yb_[0] +
+        LW_ctrl_241029_1_B.q_c[2] = (LW_ctrl_241029_1_DW.yb_[0] +
           LW_ctrl_241029_1_B.Rbe_psi[1]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:20' q(4) = (R(1,3) + R(3,1)) * t; */
-        LW_ctrl_241029_1_B.qk_[3] = (LW_ctrl_241029_1_B.Rbe_psi[2] +
+        LW_ctrl_241029_1_B.q_c[3] = (LW_ctrl_241029_1_B.Rbe_psi[2] +
           LW_ctrl_241029_1_B.Rbe_psi[6]) * LW_ctrl_241029_1_B.IntegralGain;
       } else if (LW_ctrl_241029_1_DW.yb_[1] > LW_ctrl_241029_1_B.Rbe_psi[8]) {
         /* 'R2quat:21' elseif (R(2,2) > R(3,3)) */
@@ -9386,21 +8168,21 @@ void LW_ctrl_241029_1_step(void)
           LW_ctrl_241029_1_B.Rbe_psi[8]);
 
         /* 'R2quat:23' q(3) =  single(0.5) * t; */
-        LW_ctrl_241029_1_B.qk_[2] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
+        LW_ctrl_241029_1_B.q_c[2] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:24' t =  single(0.5) / t; */
         LW_ctrl_241029_1_B.IntegralGain = 0.5F / LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:25' q(1) = (R(1,3) - R(3,1)) * t; */
-        LW_ctrl_241029_1_B.qk_[0] = (LW_ctrl_241029_1_B.Rbe_psi[6] -
+        LW_ctrl_241029_1_B.q_c[0] = (LW_ctrl_241029_1_B.Rbe_psi[6] -
           LW_ctrl_241029_1_B.Rbe_psi[2]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:26' q(2) = (R(2,1) + R(1,2)) * t; */
-        LW_ctrl_241029_1_B.qk_[1] = (LW_ctrl_241029_1_DW.yb_[0] +
+        LW_ctrl_241029_1_B.q_c[1] = (LW_ctrl_241029_1_DW.yb_[0] +
           LW_ctrl_241029_1_B.Rbe_psi[1]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:27' q(4) = (R(3,2) + R(2,3)) * t; */
-        LW_ctrl_241029_1_B.qk_[3] = (LW_ctrl_241029_1_DW.yb_[2] +
+        LW_ctrl_241029_1_B.q_c[3] = (LW_ctrl_241029_1_DW.yb_[2] +
           LW_ctrl_241029_1_B.Rbe_psi[7]) * LW_ctrl_241029_1_B.IntegralGain;
       } else {
         /* 'R2quat:28' else */
@@ -9410,21 +8192,21 @@ void LW_ctrl_241029_1_step(void)
           LW_ctrl_241029_1_B.Rbe_psi[8]);
 
         /* 'R2quat:30' q(4) =  single(0.5) * t; */
-        LW_ctrl_241029_1_B.qk_[3] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
+        LW_ctrl_241029_1_B.q_c[3] = 0.5F * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:31' t =  single(0.5) / t; */
         LW_ctrl_241029_1_B.IntegralGain = 0.5F / LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:32' q(1) = (R(2,1) - R(1,2)) * t; */
-        LW_ctrl_241029_1_B.qk_[0] = (LW_ctrl_241029_1_B.Rbe_psi[1] -
+        LW_ctrl_241029_1_B.q_c[0] = (LW_ctrl_241029_1_B.Rbe_psi[1] -
           LW_ctrl_241029_1_DW.yb_[0]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:33' q(2) = (R(1,3) + R(3,1)) * t; */
-        LW_ctrl_241029_1_B.qk_[1] = (LW_ctrl_241029_1_B.Rbe_psi[2] +
+        LW_ctrl_241029_1_B.q_c[1] = (LW_ctrl_241029_1_B.Rbe_psi[2] +
           LW_ctrl_241029_1_B.Rbe_psi[6]) * LW_ctrl_241029_1_B.IntegralGain;
 
         /* 'R2quat:34' q(3) = (R(3,2) + R(2,3)) * t; */
-        LW_ctrl_241029_1_B.qk_[2] = (LW_ctrl_241029_1_DW.yb_[2] +
+        LW_ctrl_241029_1_B.q_c[2] = (LW_ctrl_241029_1_DW.yb_[2] +
           LW_ctrl_241029_1_B.Rbe_psi[7]) * LW_ctrl_241029_1_B.IntegralGain;
       }
 
@@ -9470,10 +8252,10 @@ void LW_ctrl_241029_1_step(void)
       /* 'my_quat2eul:82'             atan2( -2 * (qx .* qy - qw .* qz), qw .^ 2 - qx .^ 2 + qy .^ 2 - qz .^ 2 )]; */
       /*  Check for complex numbers */
       /* 'my_quat2eul:93' if ~isreal(eul) */
-      LW_ctrl_241029_1_B.q_ref[0] = LW_ctrl_241029_1_B.qk_[0];
-      LW_ctrl_241029_1_B.q_ref[1] = LW_ctrl_241029_1_B.qk_[1];
-      LW_ctrl_241029_1_B.q_ref[2] = LW_ctrl_241029_1_B.qk_[2];
-      LW_ctrl_241029_1_B.q_ref[3] = LW_ctrl_241029_1_B.qk_[3];
+      LW_ctrl_241029_1_B.q_ref[0] = LW_ctrl_241029_1_B.q_c[0];
+      LW_ctrl_241029_1_B.q_ref[1] = LW_ctrl_241029_1_B.q_c[1];
+      LW_ctrl_241029_1_B.q_ref[2] = LW_ctrl_241029_1_B.q_c[2];
+      LW_ctrl_241029_1_B.q_ref[3] = LW_ctrl_241029_1_B.q_c[3];
 
       /* End of Outputs for SubSystem: '<S4>/navigator_offboard' */
 
@@ -9779,7 +8561,7 @@ void LW_ctrl_241029_1_step(void)
        *  Sum: '<S416>/Sum'
        */
       LW_ctrl_241029_1_B.u0 = (LW_ctrl_241029_1_B.sf_hrt_timestamp_p.ts -
-        LW_ctrl_241029_1_DW.Memory_PreviousInput_fs) * 1.0E-6;
+        LW_ctrl_241029_1_DW.Memory_PreviousInput_f) * 1.0E-6;
 
       /* Saturate: '<S416>/Saturation' */
       if (LW_ctrl_241029_1_B.u0 > 0.2) {
@@ -9797,7 +8579,7 @@ void LW_ctrl_241029_1_step(void)
       /* End of Saturate: '<S416>/Saturation' */
 
       /* Update for Memory: '<S416>/Memory' */
-      LW_ctrl_241029_1_DW.Memory_PreviousInput_fs =
+      LW_ctrl_241029_1_DW.Memory_PreviousInput_f =
         LW_ctrl_241029_1_B.sf_hrt_timestamp_p.ts;
 
       /* End of Outputs for SubSystem: '<Root>/state_machine' */
@@ -10075,7 +8857,7 @@ void LW_ctrl_241029_1_step(void)
        *  Sum: '<S410>/Sum'
        */
       LW_ctrl_241029_1_B.u0 = (LW_ctrl_241029_1_B.sf_hrt_timestamp_k.ts -
-        LW_ctrl_241029_1_DW.Memory_PreviousInput_f) * 1.0E-6;
+        LW_ctrl_241029_1_DW.Memory_PreviousInput) * 1.0E-6;
 
       /* Saturate: '<S410>/Saturation' */
       if (LW_ctrl_241029_1_B.u0 > 0.2) {
@@ -10093,7 +8875,7 @@ void LW_ctrl_241029_1_step(void)
       /* End of Saturate: '<S410>/Saturation' */
 
       /* Update for Memory: '<S410>/Memory' */
-      LW_ctrl_241029_1_DW.Memory_PreviousInput_f =
+      LW_ctrl_241029_1_DW.Memory_PreviousInput =
         LW_ctrl_241029_1_B.sf_hrt_timestamp_k.ts;
 
       /* End of Outputs for SubSystem: '<Root>/rc_receive' */
@@ -10428,17 +9210,19 @@ void LW_ctrl_241029_1_step(void)
   LW_ctrl_241029_1_B.DataTypeConversion = rtb_RelationalOperator_om;
 
   /* MATLAB Function: '<S361>/MATLAB Function1' */
-  for (i = 0; i < 8; i++) {
-    LW_ctrl_241029_1_B.u[i] = LW_ctrl_241029_1_B.pwm[i];
+  for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 8; LW_ctrl_241029_1_B.i
+       ++) {
+    LW_ctrl_241029_1_B.u_m[LW_ctrl_241029_1_B.i] =
+      LW_ctrl_241029_1_B.pwm[LW_ctrl_241029_1_B.i];
   }
 
   /* MATLAB Function 'Output/OutputSelect/HIL/MATLAB Function1': '<S364>:1' */
   /* '<S364>:1:3' t = u(4); */
   /* '<S364>:1:4' u(4) = u(2); */
-  LW_ctrl_241029_1_B.u[3] = LW_ctrl_241029_1_B.pwm[1];
+  LW_ctrl_241029_1_B.u_m[3] = LW_ctrl_241029_1_B.pwm[1];
 
   /* '<S364>:1:5' u(2) = t; */
-  LW_ctrl_241029_1_B.u[1] = LW_ctrl_241029_1_B.pwm[3];
+  LW_ctrl_241029_1_B.u_m[1] = LW_ctrl_241029_1_B.pwm[3];
 
   /* Switch: '<S362>/Switch' */
   /* '<S364>:1:6' y = u; */
@@ -10446,28 +9230,32 @@ void LW_ctrl_241029_1_step(void)
     /* Saturate: '<S362>/Saturation' incorporates:
      *  MATLAB Function: '<S361>/MATLAB Function1'
      */
-    for (i = 0; i < 8; i++) {
-      LW_ctrl_241029_1_B.d_tmp_m[i] = LW_ctrl_241029_1_B.u[i];
-      LW_ctrl_241029_1_B.d_tmp_m[i + 8] =
-        LW_ctrl_241029_1_ConstB.DataTypeConversion[i];
+    for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 8;
+         LW_ctrl_241029_1_B.i++) {
+      LW_ctrl_241029_1_B.u[LW_ctrl_241029_1_B.i] =
+        LW_ctrl_241029_1_B.u_m[LW_ctrl_241029_1_B.i];
+      LW_ctrl_241029_1_B.u[LW_ctrl_241029_1_B.i + 8] =
+        LW_ctrl_241029_1_ConstB.DataTypeConversion[LW_ctrl_241029_1_B.i];
     }
 
     /* Switch: '<S362>/Switch' */
-    for (i = 0; i < 16; i++) {
+    for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 16;
+         LW_ctrl_241029_1_B.i++) {
       /* Saturate: '<S362>/Saturation' */
-      LW_ctrl_241029_1_B.Filter_o = LW_ctrl_241029_1_B.d_tmp_m[i];
-      if (LW_ctrl_241029_1_B.Filter_o > 2000.0F) {
-        LW_ctrl_241029_1_B.Switch[i] = 2000.0F;
-      } else if (LW_ctrl_241029_1_B.Filter_o < 1000.0F) {
-        LW_ctrl_241029_1_B.Switch[i] = 1000.0F;
+      LW_ctrl_241029_1_B.dt = LW_ctrl_241029_1_B.u[LW_ctrl_241029_1_B.i];
+      if (LW_ctrl_241029_1_B.dt > 2000.0F) {
+        LW_ctrl_241029_1_B.Switch[LW_ctrl_241029_1_B.i] = 2000.0F;
+      } else if (LW_ctrl_241029_1_B.dt < 1000.0F) {
+        LW_ctrl_241029_1_B.Switch[LW_ctrl_241029_1_B.i] = 1000.0F;
       } else {
-        LW_ctrl_241029_1_B.Switch[i] = LW_ctrl_241029_1_B.Filter_o;
+        LW_ctrl_241029_1_B.Switch[LW_ctrl_241029_1_B.i] = LW_ctrl_241029_1_B.dt;
       }
     }
   } else {
     /* Switch: '<S362>/Switch' */
-    for (i = 0; i < 16; i++) {
-      LW_ctrl_241029_1_B.Switch[i] = 1000.0F;
+    for (LW_ctrl_241029_1_B.i = 0; LW_ctrl_241029_1_B.i < 16;
+         LW_ctrl_241029_1_B.i++) {
+      LW_ctrl_241029_1_B.Switch[LW_ctrl_241029_1_B.i] = 1000.0F;
     }
   }
 
@@ -11067,6 +9855,28 @@ void LW_ctrl_241029_1_initialize(void)
     PX4_INFO("* Subscribed to topic: vehicle_local_position (fd = %d)*\n", fd);
   }
 
+  /* Start for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger6' */
+  {
+    /* S-Function Block: <S419>/uORB Read Function-Call Trigger6 */
+    /* subscribe to battery_status topic */
+    int fd = orb_subscribe(ORB_ID(battery_status));
+    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.fd = fd;
+    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.events = POLLIN;
+    orb_set_interval(fd, 0);
+    PX4_INFO("* Subscribed to topic: battery_status (fd = %d)*\n", fd);
+  }
+
+  /* Start for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
+  {
+    /* S-Function Block: <S419>/uORB Read Function-Call Trigger7 */
+    /* subscribe to costom_lw_mixer topic */
+    int fd = orb_subscribe(ORB_ID(costom_lw_mixer));
+    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd = fd;
+    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.events = POLLIN;
+    orb_set_interval(fd, 0);
+    PX4_INFO("* Subscribed to topic: costom_lw_mixer (fd = %d)*\n", fd);
+  }
+
   /* Start for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger' */
   {
     /* S-Function Block: <S419>/uORB Read Function-Call Trigger */
@@ -11089,28 +9899,6 @@ void LW_ctrl_241029_1_initialize(void)
     PX4_INFO("* Subscribed to topic: vehicle_angular_velocity (fd = %d)*\n", fd);
   }
 
-  /* Start for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
-  {
-    /* S-Function Block: <S419>/uORB Read Function-Call Trigger7 */
-    /* subscribe to costom_lw_mixer topic */
-    int fd = orb_subscribe(ORB_ID(costom_lw_mixer));
-    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd = fd;
-    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.events = POLLIN;
-    orb_set_interval(fd, 0);
-    PX4_INFO("* Subscribed to topic: costom_lw_mixer (fd = %d)*\n", fd);
-  }
-
-  /* Start for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger6' */
-  {
-    /* S-Function Block: <S419>/uORB Read Function-Call Trigger6 */
-    /* subscribe to battery_status topic */
-    int fd = orb_subscribe(ORB_ID(battery_status));
-    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.fd = fd;
-    LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.events = POLLIN;
-    orb_set_interval(fd, 0);
-    PX4_INFO("* Subscribed to topic: battery_status (fd = %d)*\n", fd);
-  }
-
   /* Start for S-Function (sfun_px4_update_mtd_params): '<S419>/ParamUpdate'
    *
    * Block description for '<S419>/ParamUpdate':
@@ -11126,23 +9914,6 @@ void LW_ctrl_241029_1_initialize(void)
     PX4_INFO("* Subscribed to topic: parameter_update (fd = %d)*\n",
              LW_ctrl_241029_1_DW.ParamUpdate_uORB_fd.fd);
   }
-
-  /* SystemInitialize for MATLAB Function: '<S419>/Lowpass1' */
-  LW_ctrl_241029_1_DW.d_est_last_not_empty = false;
-
-  /* SystemInitialize for MATLAB Function: '<S419>/DisturbanceEstimator' */
-  LW_ctrl_241029_1_DW.tau_qk_not_empty = false;
-  LW_ctrl_241029_1_DW.tau_omegak_not_empty = false;
-  LW_ctrl_241029_1_DW.quat_reset_counter__not_empty = false;
-  LW_ctrl_241029_1_DW.d_est_last_not_empty_h = false;
-
-  /* '<S420>:1:64' tau_z3 = single([0;0;0]); */
-  LW_ctrl_241029_1_DW.tau_z3[0] = 0.0F;
-  LW_ctrl_241029_1_DW.tau_z3[1] = 0.0F;
-  LW_ctrl_241029_1_DW.tau_z3[2] = 0.0F;
-
-  /* SystemInitialize for MATLAB Function: '<S419>/Lowpass' */
-  LW_ctrl_241029_1_DW.d_est_last_not_empty_j = false;
 
   /* SystemInitialize for MATLAB Function: '<S362>/ArmTrig1' */
   /* '<S366>:1:5' lastEnState=false; */
@@ -11287,6 +10058,16 @@ void LW_ctrl_241029_1_terminate(void)
   /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger2 */
   close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger2_uO.fd);
 
+  /* Terminate for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger6' */
+
+  /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger6 */
+  close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.fd);
+
+  /* Terminate for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
+
+  /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger7 */
+  close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd);
+
   /* Terminate for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger' */
 
   /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger */
@@ -11296,16 +10077,6 @@ void LW_ctrl_241029_1_terminate(void)
 
   /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger1 */
   close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger1_uO.fd);
-
-  /* Terminate for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger7' */
-
-  /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger7 */
-  close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger7_uO.fd);
-
-  /* Terminate for S-Function (sfun_px4_uorb_read_topic): '<S419>/uORB Read Function-Call Trigger6' */
-
-  /* Close uORB service used in the S-Function Block: <S419>/uORB Read Function-Call Trigger6 */
-  close(LW_ctrl_241029_1_DW.uORBReadFunctionCallTrigger6_uO.fd);
 
   /* Terminate for S-Function (sfun_px4_update_mtd_params): '<S419>/ParamUpdate'
    *

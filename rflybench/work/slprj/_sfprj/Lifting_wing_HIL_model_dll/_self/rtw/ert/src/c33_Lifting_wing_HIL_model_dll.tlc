@@ -1,0 +1,60 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   6 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "GPS_multipath_effect_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:288-312"\
+    }\
+    ChartData {\
+      Name         "motor_stop_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:313-327"\
+    }\
+    ChartData {\
+      Name         "battery_short_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:328-345"\
+    }\
+    ChartData {\
+      Name         "GPS_search_failed_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:346-367"\
+    }\
+    ChartData {\
+      Name         "GPS_communication_interrupted_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:368-401"\
+    }\
+    ChartData {\
+      Name         "IMU_communication_interrupted_en_"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13210:410-443"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'LW_ctrl_241029_1'.
  *
- * Model version                  : 10.91
+ * Model version                  : 10.97
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Dec 23 11:47:06 2025
+ * C/C++ source code generated on : Tue Dec 23 22:14:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -35,10 +35,10 @@
 #include <px4_platform_common/posix.h>
 #include <uORB/topics/costom_lw_manual_ctrl_in.h>
 #include <uORB/topics/vehicle_local_position.h>
+#include <uORB/topics/battery_status.h>
+#include <uORB/topics/costom_lw_mixer.h>
 #include <uORB/topics/vehicle_attitude.h>
 #include <uORB/topics/vehicle_angular_velocity.h>
-#include <uORB/topics/costom_lw_mixer.h>
-#include <uORB/topics/battery_status.h>
 #include <uORB/topics/parameter_update.h>
 #include <uORB/topics/actuator_outputs.h>
 #include <uORB/topics/vehicle_command.h>
@@ -71,13 +71,13 @@ typedef struct costom_lw_manual_ctrl_in_s costom_lw_manual_ctrl_in_s_t;
 typedef struct pollfd pollfd_t;
 typedef struct vehicle_local_position_s vehicle_local_position_SL;
 typedef struct pollfd pollfd_t;
-typedef struct vehicle_attitude_s vehicle_attitude_SL;
-typedef struct pollfd pollfd_t;
-typedef struct vehicle_angular_velocity_s vehicle_angular_velocity_SL;
+typedef struct battery_status_s battery_status_SL;
 typedef struct pollfd pollfd_t;
 typedef struct costom_lw_mixer_s costom_lw_mixer_SL;
 typedef struct pollfd pollfd_t;
-typedef struct battery_status_s battery_status_SL;
+typedef struct vehicle_attitude_s vehicle_attitude_SL;
+typedef struct pollfd pollfd_t;
+typedef struct vehicle_angular_velocity_s vehicle_angular_velocity_SL;
 typedef struct actuator_armed_s actuator_armed_s_t;
 typedef struct actuator_outputs_s actuator_outputs_s_t;
 typedef struct vehicle_command_s vehicle_command_s_t;
@@ -126,38 +126,30 @@ typedef struct {
                                  /* '<S419>/uORB Read Function-Call Trigger2' */
   battery_status_SL uORBReadFunctionCallTrigger6;
                                  /* '<S419>/uORB Read Function-Call Trigger6' */
-  real_T d_tmp[16];
   vehicle_status_SL uORBReadFunctionCallTrigger;
                                   /* '<S362>/uORB Read Function-Call Trigger' */
   costom_lw_mixer_SL uORBReadFunctionCallTrigger7;
                                  /* '<S419>/uORB Read Function-Call Trigger7' */
-  real32_T eta[18];
-  real_T inv_uavJ[9];
   real_T dv[8];
-  real32_T d_tmp_m[16];
+  real32_T u[16];
   real_T d_i_data[7];
   vehicle_attitude_SL uORBReadFunctionCallTrigger_d;
                                   /* '<S419>/uORB Read Function-Call Trigger' */
   real32_T Rbe_psi[9];
   real32_T vd_lim_tmp[9];
-  real32_T km_f[9];
+  real32_T Integrator[9];
   vehicle_angular_velocity_SL uORBReadFunctionCallTrigger1;
                                  /* '<S419>/uORB Read Function-Call Trigger1' */
-  real32_T u[8];
-  real32_T T[6];
+  real32_T u_m[8];
   actuator_armed_SL uORBReadFunctionCallTrigger_c;
                                     /* '<S6>/uORB Read Function-Call Trigger' */
-  real32_T qm[4];
-  real32_T q_err[4];
-  real32_T T_c[4];
-  real32_T qk_[4];
-  real32_T Xi_e[3];
-  real32_T z3_[3];
+  real32_T q_c[4];
+  real32_T Euler[3];
   real32_T vel_ref_kk[3];
   real32_T vd_psi[3];
   real32_T y_c[3];
-  real32_T TmpSignalConversionAtDotPro[3];
-  real32_T d_est[3];
+  real32_T v_body_e[3];                /* '<S14>/pos_ctrl_integral_reset1' */
+  real32_T vd_lim[3];
   real32_T vel_ref_c[3];
   real32_T fv[3];
   real32_T fv1[3];
@@ -167,7 +159,7 @@ typedef struct {
   real_T isSendCmd;                    /* '<S362>/ArmTrig1' */
   real_T DeadZone;                     /* '<S51>/DeadZone' */
   real_T FilterCoefficient;            /* '<S62>/Filter Coefficient' */
-  real_T Saturation_d;                 /* '<S425>/Saturation' */
+  real_T Filter;
   real_T sigma_idx_3;
   real_T u0;
   real_T tmp;
@@ -178,10 +170,6 @@ typedef struct {
   real_T jx;
   real_T jy;
   real_T jx_tmp;
-  real32_T DataTypeConversion_h;       /* '<S410>/Data Type Conversion' */
-  real32_T x;                          /* '<S407>/MATLAB Function' */
-  real32_T y_b;                        /* '<S407>/MATLAB Function' */
-  real32_T z;                          /* '<S407>/MATLAB Function' */
   real32_T r;                          /* '<S407>/MATLAB Function' */
   real32_T AU5;                        /* '<S407>/MATLAB Function' */
   real32_T AU6;                        /* '<S407>/MATLAB Function' */
@@ -222,16 +210,13 @@ typedef struct {
   real32_T param1;                     /* '<S362>/ArmTrig1' */
   real32_T param2;                     /* '<S362>/ArmTrig1' */
   real32_T param3;                     /* '<S362>/ArmTrig1' */
-  real32_T kappa;
-  real32_T km_f_b;
-  real32_T Va_;
-  real32_T eta_p;
-  real32_T theta;
   real32_T aSinInput;
+  real32_T dt;
+  real32_T vx_d;
+  real32_T vy_d;
+  real32_T vz_d;
   real32_T time_to_stop;
   real32_T delta_t;
-  real32_T c_b;
-  real32_T b_c;
   real32_T varargin_1_data;
   real32_T IntegralGain;               /* '<S337>/Integral Gain' */
   real32_T FilterCoefficient_jy;       /* '<S235>/Filter Coefficient' */
@@ -248,20 +233,27 @@ typedef struct {
   real32_T T2;                         /* '<S11>/MATLAB Function' */
   real32_T T3;                         /* '<S11>/MATLAB Function' */
   real32_T T4;                         /* '<S11>/MATLAB Function' */
+  real32_T Integrator_b;
   real32_T Integrator_a;
   real32_T Filter_l;
-  real32_T Filter_o;
+  real32_T Integrator_nz;
   real32_T Integrator_f;
+  real32_T Filter_o5;
+  int32_T i;
   uint32_T DataTypeConversion5;        /* '<S409>/Data Type Conversion5' */
   uint32_T DataTypeConversion6;        /* '<S409>/Data Type Conversion6' */
   uint32_T DataTypeConversion7;        /* '<S409>/Data Type Conversion7' */
   uint32_T DataTypeConversion9;        /* '<S409>/Data Type Conversion9' */
   uint32_T cmd;                        /* '<S362>/ArmTrig1' */
   real32_T Switch[16];                 /* '<S362>/Switch' */
+  real32_T dm_est[3];                  /* '<S419>/Constant3' */
   real32_T v_wind[3];                  /* '<S419>/Constant' */
   real32_T y[4];                       /* '<S419>/nan_inf_q' */
   real32_T y_e[3];                     /* '<S419>/nan_inf0' */
-  real32_T d_est_j[3];                 /* '<S419>/Lowpass' */
+  real32_T DataTypeConversion_h;       /* '<S410>/Data Type Conversion' */
+  real32_T x;                          /* '<S407>/MATLAB Function' */
+  real32_T y_b;                        /* '<S407>/MATLAB Function' */
+  real32_T z;                          /* '<S407>/MATLAB Function' */
   uint32_T PID_Controller_ELAPS_T;
   FlightMode flight_mode;              /* '<S6>/MATLAB Function4' */
   ControlMode ctrl_mode;               /* '<S6>/MATLAB Function4' */
@@ -323,22 +315,21 @@ typedef struct {
                                   /* '<S362>/uORB Read Function-Call Trigger' */
   pollfd_t uORBReadFunctionCallTrigger2_uO;
                                  /* '<S419>/uORB Read Function-Call Trigger2' */
+  pollfd_t uORBReadFunctionCallTrigger6_uO;
+                                 /* '<S419>/uORB Read Function-Call Trigger6' */
+  pollfd_t uORBReadFunctionCallTrigger7_uO;
+                                 /* '<S419>/uORB Read Function-Call Trigger7' */
   pollfd_t uORBReadFunctionCallTrigger_u_a;
                                   /* '<S419>/uORB Read Function-Call Trigger' */
   pollfd_t uORBReadFunctionCallTrigger1_uO;
                                  /* '<S419>/uORB Read Function-Call Trigger1' */
-  pollfd_t uORBReadFunctionCallTrigger7_uO;
-                                 /* '<S419>/uORB Read Function-Call Trigger7' */
-  pollfd_t uORBReadFunctionCallTrigger6_uO;
-                                 /* '<S419>/uORB Read Function-Call Trigger6' */
   pollfd_t ParamUpdate_uORB_fd;        /* '<S419>/ParamUpdate' */
   pollfd_t input_rc_input_rc_fd_b;     /* '<S407>/input_rc' */
   pollfd_t uORBReadFunctionCallTrigger_u_d;
                                     /* '<S6>/uORB Read Function-Call Trigger' */
   real_T Filter_DSTATE;                /* '<S54>/Filter' */
-  real_T Memory_PreviousInput;         /* '<S425>/Memory' */
-  real_T Memory_PreviousInput_f;       /* '<S410>/Memory' */
-  real_T Memory_PreviousInput_fs;      /* '<S416>/Memory' */
+  real_T Memory_PreviousInput;         /* '<S410>/Memory' */
+  real_T Memory_PreviousInput_f;       /* '<S416>/Memory' */
   real_T Memory_PreviousInput_i;       /* '<S373>/Memory' */
   real_T Filter_PREV_U;                /* '<S54>/Filter' */
   real_T timestamp_last;               /* '<S12>/position control' */
@@ -361,12 +352,6 @@ typedef struct {
   orb_advert_t uORBWriteAdvanced_uorb_advert;/* '<S409>/uORB Write Advanced' */
   orb_advert_t uORBWriteAdvanced1_uorb_advert;/* '<S415>/uORB Write Advanced1' */
   orb_advert_t uORBWriteAdvanced_uorb_advert_p;/* '<S372>/uORB Write Advanced' */
-  real32_T d_est_last[3];              /* '<S419>/Lowpass1' */
-  real32_T d_est_last_f[3];            /* '<S419>/Lowpass' */
-  real32_T tau_qk[4];                  /* '<S419>/DisturbanceEstimator' */
-  real32_T tau_omegak[3];              /* '<S419>/DisturbanceEstimator' */
-  real32_T tau_z3[3];                  /* '<S419>/DisturbanceEstimator' */
-  real32_T d_est_last_p[6];            /* '<S419>/DisturbanceEstimator' */
   real32_T rc_lost_count;              /* '<S407>/MATLAB Function' */
   real32_T time_start;                 /* '<S403>/task' */
   real32_T pos_last[3];                /* '<S403>/task' */
@@ -432,7 +417,6 @@ typedef struct {
   int8_T Integrator_PrevResetState_fl; /* '<S167>/Integrator' */
   int8_T Filter_PrevResetState_i;      /* '<S162>/Filter' */
   uint8_T is_active_c3_LW_ctrl_241029_1;/* '<Root>/Scheduler' */
-  uint8_T quat_reset_counter_;         /* '<S419>/DisturbanceEstimator' */
   uint8_T Integrator_SYSTEM_ENABLE;    /* '<S340>/Integrator' */
   uint8_T Filter_SYSTEM_ENABLE;        /* '<S335>/Filter' */
   uint8_T Integrator_SYSTEM_ENABLE_l;  /* '<S232>/Integrator' */
@@ -451,12 +435,6 @@ typedef struct {
   uint8_T vz_reset_counter_;           /* '<S12>/position control' */
   uint8_T heading_reset_counter_;      /* '<S12>/position control' */
   uint8_T lastState;                   /* '<S367>/ModeSwitch' */
-  boolean_T d_est_last_not_empty;      /* '<S419>/Lowpass1' */
-  boolean_T d_est_last_not_empty_j;    /* '<S419>/Lowpass' */
-  boolean_T tau_qk_not_empty;          /* '<S419>/DisturbanceEstimator' */
-  boolean_T tau_omegak_not_empty;      /* '<S419>/DisturbanceEstimator' */
-  boolean_T quat_reset_counter__not_empty;/* '<S419>/DisturbanceEstimator' */
-  boolean_T d_est_last_not_empty_h;    /* '<S419>/DisturbanceEstimator' */
   boolean_T time_start_not_empty;      /* '<S403>/task' */
   boolean_T acc_last_not_empty;        /* '<S403>/task' */
   boolean_T takeoff_yaw_not_empty;     /* '<S403>/task' */
@@ -507,12 +485,10 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
-  /* Pooled Parameter (Expression: ModelParam_uavJ)
-   * Referenced by:
-   *   '<S419>/DisturbanceEstimator'
-   *   '<S11>/MATLAB Function'
+  /* Expression: ModelParam_uavJ
+   * Referenced by: '<S11>/MATLAB Function'
    */
-  real_T pooled1[9];
+  real_T MATLABFunction_ModelParam_uavJ[9];
 } ConstP_LW_ctrl_241029_1_T;
 
 /* Code_Instrumentation_Declarations_Placeholder */
@@ -581,7 +557,6 @@ extern real32_T LW_AERO_Y0;            /* Referenced by:
                                         */
 extern real32_T LW_ANGLE;              /* Referenced by:
                                         * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
                                         * '<S419>/getIncid'
                                         * '<S403>/df,coor,wind'
                                         */
@@ -611,14 +586,8 @@ extern real32_T LW_LAT_CIRCLE;         /* Referenced by:
                                         * '<S361>/MATLAB Function2'
                                         * '<S12>/position control'
                                         */
-extern real32_T LW_LBCL_D;             /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_LBCM_D;             /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
+extern real32_T LW_LBCL_D;        /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_LBCM_D;        /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_LED;                /* Referenced by:
                                         * '<S361>/MATLAB Function2'
                                         * '<S419>/LW_LED'
@@ -700,57 +669,24 @@ extern real32_T LW_TAUXYSP_FZ;    /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_TAUXYSP_TM;    /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_TAUZSP_FZ;     /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_TAUZSP_TM;     /* Referenced by: '<S361>/MATLAB Function2' */
-extern real32_T LW_TEST_DTXY;          /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/Lowpass'
-                                        */
-extern real32_T LW_TEST_DTZ;           /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/Lowpass'
-                                        */
+extern real32_T LW_TEST_DTXY;     /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_DTZ;      /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_TEST_EN;       /* Referenced by: '<S361>/MATLAB Function2' */
-extern real32_T LW_TEST_LAMXY;         /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_LAMZ;          /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_SIGXY;         /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_SIGZ;          /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_TDT;           /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_WBDT;          /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/Lowpass1'
-                                        */
-extern real32_T LW_TEST_WNXY;          /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
-extern real32_T LW_TEST_WNZ;           /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
+extern real32_T LW_TEST_LAMXY;    /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_LAMZ;     /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_SIGXY;    /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_SIGZ;     /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_TDT;      /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_WBDT;     /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_WNXY;     /* Referenced by: '<S361>/MATLAB Function2' */
+extern real32_T LW_TEST_WNZ;      /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_THR_HOVER;          /* Referenced by:
                                         * '<S370>/Constant2'
                                         * '<S361>/MATLAB Function2'
                                         */
 extern real32_T LW_THR_LOW;       /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_TILTMAX_AIR;   /* Referenced by: '<S361>/MATLAB Function2' */
-extern real32_T LW_USE_SER;            /* Referenced by:
-                                        * '<S361>/MATLAB Function2'
-                                        * '<S419>/DisturbanceEstimator'
-                                        */
+extern real32_T LW_USE_SER;       /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_VA_TMAX;       /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_VA_TMIN;       /* Referenced by: '<S361>/MATLAB Function2' */
 extern real32_T LW_VEL_DT;             /* Referenced by:
@@ -956,6 +892,10 @@ extern RT_MODEL_LW_ctrl_241029_1_T *const LW_ctrl_241029_1_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
+ * Block '<S419>/Constant1' : Unused code path elimination
+ * Block '<S419>/Constant2' : Unused code path elimination
+ * Block '<S419>/Dot Product' : Unused code path elimination
+ * Block '<S419>/Sqrt' : Unused code path elimination
  * Block '<S419>/uORB Read Function-Call Trigger3' : Unused code path elimination
  * Block '<S419>/uORB Read Function-Call Trigger4' : Unused code path elimination
  * Block '<S419>/uORB Read Function-Call Trigger5' : Unused code path elimination
@@ -1410,16 +1350,12 @@ extern RT_MODEL_LW_ctrl_241029_1_T *const LW_ctrl_241029_1_M;
  * '<S417>' : 'LW_ctrl_241029_1/state_machine/logger/HIL&FLY/hrt_timestamp'
  * '<S418>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position'
  * '<S419>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3'
- * '<S420>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/DisturbanceEstimator'
- * '<S421>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/LW_LED'
- * '<S422>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/Lowpass'
- * '<S423>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/Lowpass1'
- * '<S424>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/getIncid'
- * '<S425>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/get_delta_t'
- * '<S426>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf'
- * '<S427>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf0'
- * '<S428>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf1'
- * '<S429>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf_q'
+ * '<S420>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/LW_LED'
+ * '<S421>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/getIncid'
+ * '<S422>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf'
+ * '<S423>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf0'
+ * '<S424>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf1'
+ * '<S425>' : 'LW_ctrl_241029_1/states_update/vehicle_local_position/HIL&FLY V1.13.3/nan_inf_q'
  */
 #endif                                 /* LW_ctrl_241029_1_h_ */
 

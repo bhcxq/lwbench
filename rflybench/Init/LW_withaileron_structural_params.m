@@ -19,20 +19,20 @@ ModelParam_rDeltamin = -20 * pi / 180; % 副翼偏角极限
 ModelParam_rDeltamax = 20 * pi / 180; % 副翼偏角极限，右侧向上为正
 ModelParam_DeltaRatemax = 8.7266; % 副翼最大偏转速度 0.12s/60°= 8.7266 rad/s
 ModelParam_rotorEta = 0; % 电机安装角
-ModelParam_rotordx = 0.25; % 旋翼力臂
-ModelParam_rotordy = 0.2125; % 旋翼力臂
-ModelParam_LBb = 0.94; % 展长
-ModelParam_LBc = 0.17; % 平均气动弦
-ModelParam_LBS = 0.155; % 机翼面积
+ModelParam_rotordx = 0.20; % 旋翼力臂
+ModelParam_rotordy = 0.20; % 旋翼力臂
+ModelParam_LBb = 0.9; % 展长
+ModelParam_LBc = 0.2; % 平均气动弦
+ModelParam_LBS = 0.16; % 机翼面积
 
-ModelParam_uavJxx = 0.0512;
-ModelParam_uavJyy = 0.0554;
-ModelParam_uavJzz = 0.076;
+ModelParam_uavJxx = 0.05;
+ModelParam_uavJyy = 0.05;
+ModelParam_uavJzz = 0.07;
 ModelParam_uavJ = [ModelParam_uavJxx, 0, 0; ...
     0, ModelParam_uavJyy, 0; ...
     0, 0, ModelParam_uavJzz];
 
-LW_MASS = 2.16;
+LW_MASS = 2;
 ModelParam_uavMass = LW_MASS;
 
 
@@ -64,7 +64,7 @@ ModelParam_propellerkTV = 0;
 ModelParam_propellerkTvarpi2 = 0.008977;
 ModelParam_propellerkTvarpiV = 0.007314;
 ModelParam_propellerkTV2 = -0.01619;
-ModelParam_rotorCt = 2.44e-05; % T-motor MN3510 KV700 4s APC12*6
+ModelParam_rotorCt = 2.2e-05; % T-motor MN3510 KV700 4s APC12*6
 %M=kM0 + kMvarpi**w + kMV*v + kMvarpi2*w^2 + kMvarpiV*w*V + kMV2*V^2
 ModelParam_propellerkM0 = 0;
 ModelParam_propellerkMvarpi = 0;
@@ -72,7 +72,7 @@ ModelParam_propellerkMV = 0;
 ModelParam_propellerkMvarpi2 = 0.0003188;
 ModelParam_propellerkMvarpiV = 0.0003198;
 ModelParam_propellerkMV2 = -0.0005944;
-ModelParam_rotorCm = 5.732e-07;
+ModelParam_rotorCm = 5.2e-07;
 ModelParam_rotorkm_f = ModelParam_rotorCm / ModelParam_rotorCt;
 
 %% Aerodynamic parameters
@@ -85,29 +85,24 @@ ModelParam_LBCY = -4.152e-04; %
 ModelParam_LBCL = 4.4851; %升力系数
 ModelParam_LBCl = 0; %-3.364e-05; %滚转力矩系数
 ModelParam_LBCm = -0.1195; %俯仰力矩系数
-ModelParam_LBCn = -1.087e-4; %偏航力矩系数
 ModelParam_LBCn_d = -0; %偏航舵操纵导数
 ModelParam_uavCd = [0.055 0.055 0.055]'; %Damping coefficient(N/(m/s)^2)
 ModelParam_uavCCm = [0.0035 0.0039 0.0034]'; %Damping moment coefficient vector(N/(m/s)^2)
 
 % Aerodynamic modeling of the Skywalker X8 Fixed-Wing Unmanned Aerial Vehicle
-ModelParam_LBCY0 = 0.00316;
 ModelParam_LBCYB = -0.224;
-ModelParam_LBCl0 = 0.00413;
-ModelParam_LBClB = -0.0849; %有风的情况下，加入容易导致控制不稳定
-ModelParam_LBClp = -0.404;
-ModelParam_LBCn0 = -0.000471;
-ModelParam_LBCnB = 0.0283;
-ModelParam_LBCnr = -0.012;
-ModelParam_LBCmq = -1.3;
-ModelParam_LBCl_d = 0.12; %副翼操纵导数
-ModelParam_LBCm_d = -0.206; %升降舵操纵导数
+ModelParam_LBClB = -0.05; %有风的情况下，加入容易导致控制不稳定
+ModelParam_LBClp = -0.4;
+ModelParam_LBCnr = -0.01;
+ModelParam_LBCmq = -1;
+ModelParam_LBCl_d = 0.1; %副翼操纵导数
+ModelParam_LBCm_d = -0.2; %升降舵操纵导数
 
 ModelParam_LBCn = 0;
 ModelParam_LBCY0 = 0;
 ModelParam_LBCl0 = 0;
 ModelParam_LBCn0 = 0;
-ModelParam_LBCnB = 0.0283;
+ModelParam_LBCnB = 0.03;
 
 ModelParam_pu_alpha0 = 12 * pi / 180; %失速角度
 ModelParam_pu_c0 = 0.267; % 最小阻力

@@ -1,0 +1,82 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   9 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "propeller_init"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:84-98"\
+    }\
+    ChartData {\
+      Name         "propeller_kct_T"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:99-114"\
+    }\
+    ChartData {\
+      Name         "propeller_kct_dt"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:115-131"\
+    }\
+    ChartData {\
+      Name         "propeller_kct_am"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:132-148"\
+    }\
+    ChartData {\
+      Name         "propeller_kct_en"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:149-165"\
+    }\
+    ChartData {\
+      Name         "x_init"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:166-172"\
+    }\
+    ChartData {\
+      Name         "timestart"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:413-422"\
+    }\
+    ChartData {\
+      Name         "timestart_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Lifting_wing_HIL_model_dll:13299:413-422"\
+    }\
+    ChartData {\
+      Name         "state"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "D:\Matlab2024b\Matlab 2024b\toolbox\eml\lib\matlab\randfun\private\eml_rand_mt19937ar_stateful.m:166-171"\
+      Dimensions   [625]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

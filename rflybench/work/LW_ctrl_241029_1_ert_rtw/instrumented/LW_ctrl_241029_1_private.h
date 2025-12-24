@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'LW_ctrl_241029_1'.
  *
- * Model version                  : 10.91
+ * Model version                  : 10.97
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Dec 23 11:47:06 2025
+ * C/C++ source code generated on : Tue Dec 23 22:14:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,9 +24,6 @@
 extern real32_T rt_atan2f_snf(real32_T u0, real32_T u1);
 extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern real32_T rt_powf_snf(real32_T u0, real32_T u1);
-
-/* Exported functions */
-extern real32_T LW_ctrl_241029_1_wrap_pi(real32_T x);
 extern void LW_ctrl_241029_1_Lowpass_Init(DW_Lowpass_LW_ctrl_241029_1_T *localDW);
 extern void LW_ctrl_241029_1_Lowpass(B_Lowpass_LW_ctrl_241029_1_T *localB,
   DW_Lowpass_LW_ctrl_241029_1_T *localDW);
